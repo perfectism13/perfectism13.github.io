@@ -392,7 +392,7 @@
 <p>场景分类的性能对比：</p>
 <p><img src="https://perfectism13.github.io/2019/11/23/CNN/image-20191203185114194.png" alt="image-20191203185114194"></p>
 <h3 id="CNN的设计准则"><a href="#CNN的设计准则" class="headerlink" title="CNN的设计准则"></a>CNN的设计准则</h3><p>1.<strong>避免信息瓶颈</strong>:使数据量$H<em>W</em>C$缓慢变小，不能突降或突升</p>
-<p>2.<strong>通道（卷积核）数量保持在可控范围内</strong>，假设输入通道为CC，输出通道为KK,则参数数量为$H<em>{f}*W</em>{f}<em>C</em>K,操作数量为,操作数量为\frac {H<em>H_{f}}{stride}</em>\frac {W<em>W_{f}}{stride}</em>C*K$</p>
+<p>2.<strong>通道（卷积核）数量保持在可控范围内</strong>，假设输入通道为CC，输出通道为KK,则参数数量为$H_{f}<em>W_{f}</em>C<em>K,操作数量为,操作数量为\frac {H</em>H_{f}}{stride}<em>\frac {W</em>W_{f}}{stride}<em>C</em>K$</p>
 <p>3.<strong>感受野要足够大</strong></p>
 <ul>
 <li>多个小尺寸卷积核比用一个大的卷积核更优，参数少，计算快；多个非线性激活，i,e. $64<em>5</em>5<em>64&lt;64</em>(3<em>3+3</em>3)*64$,且多了一个激活函数，非线性因素更多</li>
