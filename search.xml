@@ -756,16 +756,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>VS2013+OpenCV4.2.0安装与配置</title>
-    <url>/2020/07/24/VS2013+OpenCV4.2.0%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<h1 id="VS2013-OpenCV4-2-0安装与配置"><a href="#VS2013-OpenCV4-2-0安装与配置" class="headerlink" title="VS2013+OpenCV4.2.0安装与配置"></a>VS2013+OpenCV4.2.0安装与配置</h1><h2 id="VS2013"><a href="#VS2013" class="headerlink" title="VS2013"></a>VS2013</h2><p>下载链接：ed2k://|file|cn_visual_studio_ultimate_2013_with_update_5_x86_dvd_6816649.iso|5567336448|641555AD6472A98923B29CC5E371461E|/</p>
-<p>安装教程：<a href="https://mp.weixin.qq.com/s/2Luj8FxXY6wYY2nhDe4SGw" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/2Luj8FxXY6wYY2nhDe4SGw</a></p>
-<p>密匙：BWG7X-J98B3-W34RT-33B3R-JVYW9</p>
-<h2 id="OpenCV4-2-0"><a href="#OpenCV4-2-0" class="headerlink" title="OpenCV4.2.0"></a>OpenCV4.2.0</h2><p>下载链接：<a href="https://opencv.org/releases/" target="_blank" rel="noopener">https://opencv.org/releases/</a></p>
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p><a href="https://blog.csdn.net/qq_32717603/article/details/89234512" target="_blank" rel="noopener">https://blog.csdn.net/qq_32717603/article/details/89234512</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>Tricks of Training Deep Neural Works</title>
     <url>/2020/07/24/Tricks%20of%20Training%20Deep%20Neural%20Works/</url>
     <content><![CDATA[<h1 id="Tricks-of-Training-Deep-Neural-Works"><a href="#Tricks-of-Training-Deep-Neural-Works" class="headerlink" title="Tricks of Training Deep Neural Works"></a>Tricks of Training Deep Neural Works</h1><h2 id="Overfitting"><a href="#Overfitting" class="headerlink" title="Overfitting"></a>Overfitting</h2><p>训练数据包含<strong>抽样误差</strong>，训练时，复杂的模型将抽样误差也考虑在内，将抽样误差也进行了很好的拟合。最终模型在训练集上效果好；在测试集上效果差。模型泛化能力弱</p>
@@ -796,6 +786,30 @@
 <p>6、神经网络不够深。</p>
 <p>7、训练的epoch不够。</p>
 <h2 id="训练和验证集loss相差不大，验证集准确率为1或者0"><a href="#训练和验证集loss相差不大，验证集准确率为1或者0" class="headerlink" title="训练和验证集loss相差不大，验证集准确率为1或者0"></a>训练和验证集loss相差不大，验证集准确率为1或者0</h2><h2 id="检查数据集是否存在inf或者NaN"><a href="#检查数据集是否存在inf或者NaN" class="headerlink" title="检查数据集是否存在inf或者NaN"></a>检查数据集是否存在inf或者NaN</h2><h2 id="有时在第一代打乱数据，后续不再打乱，可能会有意想不到的好结果"><a href="#有时在第一代打乱数据，后续不再打乱，可能会有意想不到的好结果" class="headerlink" title="有时在第一代打乱数据，后续不再打乱，可能会有意想不到的好结果"></a><strong>有时在第一代打乱数据，后续不再打乱，可能会有意想不到的好结果</strong></h2><h2 id="References"><a href="#References" class="headerlink" title="References"></a><strong>Referenc</strong>es</h2>]]></content>
+  </entry>
+  <entry>
+    <title>VS2013+OpenCV4.2.0安装与配置</title>
+    <url>/2020/07/24/VS2013+OpenCV4.2.0%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h1 id="VS2013-OpenCV4-2-0安装与配置"><a href="#VS2013-OpenCV4-2-0安装与配置" class="headerlink" title="VS2013+OpenCV4.2.0安装与配置"></a>VS2013+OpenCV4.2.0安装与配置</h1><h2 id="VS2013"><a href="#VS2013" class="headerlink" title="VS2013"></a>VS2013</h2><p>下载链接：ed2k://|file|cn_visual_studio_ultimate_2013_with_update_5_x86_dvd_6816649.iso|5567336448|641555AD6472A98923B29CC5E371461E|/</p>
+<p>安装教程：<a href="https://mp.weixin.qq.com/s/2Luj8FxXY6wYY2nhDe4SGw" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/2Luj8FxXY6wYY2nhDe4SGw</a></p>
+<p>密匙：BWG7X-J98B3-W34RT-33B3R-JVYW9</p>
+<h2 id="OpenCV4-2-0"><a href="#OpenCV4-2-0" class="headerlink" title="OpenCV4.2.0"></a>OpenCV4.2.0</h2><p>下载链接：<a href="https://opencv.org/releases/" target="_blank" rel="noopener">https://opencv.org/releases/</a></p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p><a href="https://blog.csdn.net/qq_32717603/article/details/89234512" target="_blank" rel="noopener">https://blog.csdn.net/qq_32717603/article/details/89234512</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>交流思考</title>
+    <url>/2020/07/24/%E4%BA%A4%E6%B5%81%E6%80%9D%E8%80%83/</url>
+    <content><![CDATA[<h1 id="交流思考"><a href="#交流思考" class="headerlink" title="交流思考"></a>交流思考</h1><h2 id="2019-12-19下午三点于中楼"><a href="#2019-12-19下午三点于中楼" class="headerlink" title="2019.12.19下午三点于中楼"></a>2019.12.19下午三点于中楼</h2><p>1.如何产生新的idea：</p>
+<p>复现论文和阅读论文是一个循环的过程</p>
+<p>可以将其他领域的方法移植到自己的问题上来，也就是要找到问题的本质，也要求自己的知识面要足够广，i.e:将NLP中的方法移植到CV中来？</p>
+<p>2.要看好的大学的英文论文，要沉下心来，看看别人的想法是什么，最后一定要有自己的想法，找到论文之间的差异性，新颖点，不同点在哪里</p>
+<p>3.图像领域重要的就是准确度的提升、工程应用的难易程度？</p>
+<p>4.写小论文，申请专利，反复修改，论文框架？</p>
+<a id="more"></a>
+<h2 id="2019-12-19晚11点与天马公寓"><a href="#2019-12-19晚11点与天马公寓" class="headerlink" title="2019.12.19晚11点与天马公寓"></a>2019.12.19晚11点与天马公寓</h2><p>1.善于利用网络问别人问题<br>2.和师兄搞好关系<br>3.寻找每篇论文存在的问题，新颖点<br>4.每周报告认真写报告，越详细越好<br>5.大胆的假设结果，然后向目标求证<br>6.不同角度解读问题<br>7.必要时修改对结果的预判，甚至修改问题<br>8.不打迷糊仗，避免使用大概等词：有方法，有数据，有实验，有证明<br>10.现在每天工作14小时，以后8小时？<br>11.如何阅读论文<br>中国科学，机械工程学报<br>不要找含复杂数学知识的论文<br>重现论文<br>12.创新思维</p>
+<p>来源-崔老师《如何做科研》</p>
+]]></content>
   </entry>
   <entry>
     <title>Note of Opencv2Python</title>
@@ -1057,20 +1071,6 @@ C_{x}=\frac{M_{10}}{M_{00}}, \quad C_{y}=\frac{M_{01}}{M_{00}}</script><h6 id="�
       </tags>
   </entry>
   <entry>
-    <title>交流思考</title>
-    <url>/2020/07/24/%E4%BA%A4%E6%B5%81%E6%80%9D%E8%80%83/</url>
-    <content><![CDATA[<h1 id="交流思考"><a href="#交流思考" class="headerlink" title="交流思考"></a>交流思考</h1><h2 id="2019-12-19下午三点于中楼"><a href="#2019-12-19下午三点于中楼" class="headerlink" title="2019.12.19下午三点于中楼"></a>2019.12.19下午三点于中楼</h2><p>1.如何产生新的idea：</p>
-<p>复现论文和阅读论文是一个循环的过程</p>
-<p>可以将其他领域的方法移植到自己的问题上来，也就是要找到问题的本质，也要求自己的知识面要足够广，i.e:将NLP中的方法移植到CV中来？</p>
-<p>2.要看好的大学的英文论文，要沉下心来，看看别人的想法是什么，最后一定要有自己的想法，找到论文之间的差异性，新颖点，不同点在哪里</p>
-<p>3.图像领域重要的就是准确度的提升、工程应用的难易程度？</p>
-<p>4.写小论文，申请专利，反复修改，论文框架？</p>
-<a id="more"></a>
-<h2 id="2019-12-19晚11点与天马公寓"><a href="#2019-12-19晚11点与天马公寓" class="headerlink" title="2019.12.19晚11点与天马公寓"></a>2019.12.19晚11点与天马公寓</h2><p>1.善于利用网络问别人问题<br>2.和师兄搞好关系<br>3.寻找每篇论文存在的问题，新颖点<br>4.每周报告认真写报告，越详细越好<br>5.大胆的假设结果，然后向目标求证<br>6.不同角度解读问题<br>7.必要时修改对结果的预判，甚至修改问题<br>8.不打迷糊仗，避免使用大概等词：有方法，有数据，有实验，有证明<br>10.现在每天工作14小时，以后8小时？<br>11.如何阅读论文<br>中国科学，机械工程学报<br>不要找含复杂数学知识的论文<br>重现论文<br>12.创新思维</p>
-<p>来源-崔老师《如何做科研》</p>
-]]></content>
-  </entry>
-  <entry>
     <title>使用Google Colab训练模型</title>
     <url>/2020/07/24/%E4%BD%BF%E7%94%A8Google%20Colab%E8%AE%AD%E7%BB%83%E6%A8%A1%E5%9E%8B/</url>
     <content><![CDATA[<h1 id="使用Google-Colab训练模型"><a href="#使用Google-Colab训练模型" class="headerlink" title="使用Google Colab训练模型"></a>使用Google Colab训练模型</h1><h2 id="挂载Google-Drive并修改运行路径"><a href="#挂载Google-Drive并修改运行路径" class="headerlink" title="挂载Google Drive并修改运行路径"></a>挂载Google Drive并修改运行路径</h2><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">!apt-get install -y -qq software-properties-common python-software-properties module-init-tools</span><br><span class="line">!add-apt-repository -y ppa:alessandro-strada&#x2F;ppa 2&gt;&amp;1 &gt; &#x2F;dev&#x2F;null</span><br><span class="line">!apt-get update -qq 2&gt;&amp;1 &gt; &#x2F;dev&#x2F;null</span><br><span class="line">!apt-get -y install -qq google-drive-ocamlfuse fuse</span><br><span class="line">from google.colab import auth</span><br><span class="line">auth.authenticate_user()</span><br><span class="line">from oauth2client.client import GoogleCredentials</span><br><span class="line">creds &#x3D; GoogleCredentials.get_application_default()</span><br><span class="line">import getpass</span><br><span class="line">!google-drive-ocamlfuse -headless -id&#x3D;&#123;creds.client_id&#125; -secret&#x3D;&#123;creds.client_secret&#125; &lt; &#x2F;dev&#x2F;null 2&gt;&amp;1 | grep URL</span><br><span class="line">vcode &#x3D; getpass.getpass()</span><br><span class="line">!echo &#123;vcode&#125; | google-drive-ocamlfuse -headless -id&#x3D;&#123;creds.client_id&#125; -secret&#x3D;&#123;creds.client_secret&#125;</span><br></pre></td></tr></table></figure>
@@ -1093,6 +1093,39 @@ C_{x}=\frac{M_{10}}{M_{00}}, \quad C_{y}=\frac{M_{01}}{M_{00}}</script><h6 id="�
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">import cv2</span><br><span class="line">from matplotlib import pyplot as plt</span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line">original_image &#x3D; &#39;a.jpg&#39;</span><br><span class="line">image &#x3D; cv2.imread(original_image)</span><br><span class="line">show_img &#x3D; cv2.cvtColor(image, cv2.COLOR_BGR2RGB)</span><br><span class="line">plt.imshow(show_img)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 <h2 id="在线编辑py文件"><a href="#在线编辑py文件" class="headerlink" title="在线编辑py文件"></a>在线编辑py文件</h2><p>anyfile-notepad</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>我的CV&amp;DL之路</title>
+    <url>/2020/07/24/%E6%88%91%E7%9A%84CV&amp;DL%E4%B9%8B%E8%B7%AF/</url>
+    <content><![CDATA[<h1 id="OpenCV"><a href="#OpenCV" class="headerlink" title="OpenCV"></a>OpenCV</h1><ul>
+<li>[ ] OpenCV to python</li>
+<li>[ ] OpenCV to c++</li>
+</ul>
+<h2 id="Foundation"><a href="#Foundation" class="headerlink" title="Foundation"></a>Foundation</h2><ul>
+<li>[ ] data structure</li>
+<li>[ ] ROS to Ubantu</li>
+<li>[ ] python</li>
+<li>[ ] c++</li>
+<li>[ ] leetcode</li>
+</ul>
+<h2 id="Deep-Learning"><a href="#Deep-Learning" class="headerlink" title="Deep Learning"></a>Deep Learning</h2><ul>
+<li>[x] DNN</li>
+<li>[x] CNN</li>
+<li>[x] RNN,LSTM</li>
+<li>[x] use google colab to train my model</li>
+<li>[ ] transfer learning</li>
+<li>[ ] deploy</li>
+<li>[ ] distributed system</li>
+</ul>
+<h2 id="Action-Recognition"><a href="#Action-Recognition" class="headerlink" title="Action Recognition"></a>Action Recognition</h2><ul>
+<li>[ ] Survey of action recognition</li>
+<li>[ ] static action recognition</li>
+<li>[ ] action recognition in video</li>
+<li>[ ] LSTM to action recognition</li>
+<li>[ ] Skeleton-Based Action Recognition</li>
+<li>[ ] Use OpenVINO to deploy model</li>
+</ul>
+<a id="more"></a>]]></content>
   </entry>
   <entry>
     <title>动作（行为）识别与分类</title>
@@ -1321,6 +1354,38 @@ C_{x}=\frac{M_{10}}{M_{00}}, \quad C_{y}=\frac{M_{01}}{M_{00}}</script><h6 id="�
 ]]></content>
   </entry>
   <entry>
+    <title>环境配置常见问题</title>
+    <url>/2020/07/24/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h1 id="环境配置常见问题"><a href="#环境配置常见问题" class="headerlink" title="环境配置常见问题"></a>环境配置常见问题</h1><h2 id="hexo博客"><a href="#hexo博客" class="headerlink" title="hexo博客"></a>hexo博客</h2><h3 id="sh-deploy-sh出现-spawn-failed"><a href="#sh-deploy-sh出现-spawn-failed" class="headerlink" title="sh deploy.sh出现 spawn failed"></a>sh deploy.sh出现 spawn failed</h3><p>执行</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+<h2 id="Anaconda"><a href="#Anaconda" class="headerlink" title="Anaconda"></a>Anaconda</h2><h3 id="navigator不能打开"><a href="#navigator不能打开" class="headerlink" title="navigator不能打开"></a>navigator不能打开</h3><p>1.重置源</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda config --remove -key channels</span><br></pre></td></tr></table></figure>
+<p>2.删除清华镜像：删除 <code>.condarc</code>中的<code>defaults</code>行</p>
+<p>2.管理员运行<code>conda prompt</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#conda update </span><br><span class="line">conda update anaconda-navigator</span><br><span class="line">anaconda-navigator --reset</span><br><span class="line">conda update anaconda-client</span><br><span class="line">conda update -f anaconda-client</span><br><span class="line">anaconda-navigator   #命令行启动Navigator</span><br></pre></td></tr></table></figure>
+<h2 id="PyTorch"><a href="#PyTorch" class="headerlink" title="PyTorch"></a>PyTorch</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">No module named &#39;torchtext&#39;</span><br></pre></td></tr></table></figure>
+<p>办法：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install https:&#x2F;&#x2F;github.com&#x2F;pytorch&#x2F;text&#x2F;archive&#x2F;master.zip</span><br></pre></td></tr></table></figure>
+<p>tqdm模块<br>tqdm是一个快速、扩展性强的进度条工具库，<br>其githup地址：<a href="https://github.com/tqdm/tqdm" target="_blank" rel="noopener">https://github.com/tqdm/tqdm</a></p>
+<p>办法：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install tqdm</span><br><span class="line">device &#x3D; torch.device(&#39;cuda&#39; if torch.cuda.is_available() else &#39;cpu&#39;)</span><br><span class="line">#ouput cpu</span><br></pre></td></tr></table></figure>
+<h2 id="Jupyter-Lab"><a href="#Jupyter-Lab" class="headerlink" title="Jupyter Lab"></a>Jupyter Lab</h2><p>载入py文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">%load test.py</span><br></pre></td></tr></table></figure>
+<h2 id="CUDA-cudnn"><a href="#CUDA-cudnn" class="headerlink" title="CUDA cudnn"></a>CUDA cudnn</h2><p>CUDA 10.1</p>
+<p>cudnn 7.6.3</p>
+<h2 id="使用特定源安装"><a href="#使用特定源安装" class="headerlink" title="使用特定源安装"></a>使用特定源安装</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install tensorflow-gpu&#x3D;&#x3D;1.8 -i https:&#x2F;&#x2F;pypi.tuna.tsinghua.edu.cn&#x2F;simple</span><br></pre></td></tr></table></figure>
+<h3 id="升级pip"><a href="#升级pip" class="headerlink" title="升级pip"></a>升级pip</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python -m pip install -U pip</span><br></pre></td></tr></table></figure>
+<p>tensorflow与keras间的兼容</p>
+<p><a href="https://docs.floydhub.com/guides/environments/" target="_blank" rel="noopener">https://docs.floydhub.com/guides/environments/</a></p>
+<h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><h3 id="解压zip"><a href="#解压zip" class="headerlink" title="解压zip"></a>解压zip</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">unzip test.zip</span><br></pre></td></tr></table></figure>
+<h3 id="解压7z"><a href="#解压7z" class="headerlink" title="解压7z"></a>解压7z</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get install p7zip</span><br><span class="line">7z x test.7z</span><br></pre></td></tr></table></figure>
+<p>详见 <a href="https://blog.csdn.net/AC_huang/article/details/23279641" target="_blank" rel="noopener">https://blog.csdn.net/AC_huang/article/details/23279641</a></p>
+<h3 id="展示文件树状结构"><a href="#展示文件树状结构" class="headerlink" title="展示文件树状结构"></a>展示文件树状结构</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install tree</span><br><span class="line">tree --dirsfirst --filelimit 50</span><br></pre></td></tr></table></figure>
+<h3 id="命令行退出python"><a href="#命令行退出python" class="headerlink" title="命令行退出python"></a>命令行退出python</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">quit()</span><br></pre></td></tr></table></figure>
+<h2 id="matlab"><a href="#matlab" class="headerlink" title="matlab"></a>matlab</h2><p>匿名函数求导后，求某点值</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">syms y</span><br><span class="line">f&#x3D;@(x) 2*x^2+3;</span><br><span class="line">diff&#x3D;diff(f(y)) </span><br><span class="line">diff&#x3D;matlabFunction(diff)</span><br><span class="line">diff(0.5)</span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
+  <entry>
     <title>平台框架部分补充</title>
     <url>/2020/07/24/%E5%B9%B3%E5%8F%B0%E6%A1%86%E6%9E%B6%E9%83%A8%E5%88%86%E8%A1%A5%E5%85%85/</url>
     <content><![CDATA[<h1 id="平台框架部分补充"><a href="#平台框架部分补充" class="headerlink" title="平台框架部分补充"></a>平台框架部分补充</h1><p>闵晨阳 车辆1601 2019.11.14</p>
@@ -1471,69 +1536,29 @@ C_{x}=\frac{M_{10}}{M_{00}}, \quad C_{y}=\frac{M_{01}}{M_{00}}</script><h6 id="�
 ]]></content>
   </entry>
   <entry>
-    <title>我的CV&amp;DL之路</title>
-    <url>/2020/07/24/%E6%88%91%E7%9A%84CV&amp;DL%E4%B9%8B%E8%B7%AF/</url>
-    <content><![CDATA[<h1 id="OpenCV"><a href="#OpenCV" class="headerlink" title="OpenCV"></a>OpenCV</h1><ul>
-<li>[ ] OpenCV to python</li>
-<li>[ ] OpenCV to c++</li>
+    <title>计算机视觉：算法与应用 笔记</title>
+    <url>/2020/07/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%EF%BC%9A%E7%AE%97%E6%B3%95%E4%B8%8E%E5%BA%94%E7%94%A8%20%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="计算机视觉：算法与应用-笔记"><a href="#计算机视觉：算法与应用-笔记" class="headerlink" title="计算机视觉：算法与应用 笔记"></a>计算机视觉：算法与应用 笔记</h1><h1 id="1-图像形成"><a href="#1-图像形成" class="headerlink" title="1 图像形成"></a>1 图像形成</h1><h2 id="1-1-1-几何基元与变换"><a href="#1-1-1-几何基元与变换" class="headerlink" title="1.1.1 几何基元与变换"></a>1.1.1 几何基元与变换</h2><p><code>几何基元</code>：2D点、2D直线、2D圆锥曲线、3D点、3D平面、3D直线、3D二次曲面</p>
+<p><code>齐次坐标（投影坐标）</code>：用于投影几何里的坐标系统，给定欧氏平面上的一点 (<em>x</em>, <em>y</em>)，对任意非零实数 Z，三元组 (<em>xZ</em>, <em>yZ</em>, <em>Z</em>) 即称之为该点的齐次坐标</p>
+<p><code>笛卡尔坐标与齐次坐标的关系</code>：</p>
+<ul>
+<li><p>投影平面上的任何点都可以表示成一三元组 (<em>X</em>, <em>Y</em>, <em>Z</em>)，称之为该点的<strong>齐次坐标</strong>或<strong>投影坐标</strong>，其中 X、Y 及 Z 不全为 0</p>
+</li>
+<li><p>当 Z 为 0，则该点表示一无穷远点</p>
+</li>
+<li><p>三元组 (0, 0, 0) 不表示任何点。原点表示为 (0, 0, 1)</p>
+<a id="more"></a>
+</li>
 </ul>
-<h2 id="Foundation"><a href="#Foundation" class="headerlink" title="Foundation"></a>Foundation</h2><ul>
-<li>[ ] data structure</li>
-<li>[ ] ROS to Ubantu</li>
-<li>[ ] python</li>
-<li>[ ] c++</li>
-<li>[ ] leetcode</li>
-</ul>
-<h2 id="Deep-Learning"><a href="#Deep-Learning" class="headerlink" title="Deep Learning"></a>Deep Learning</h2><ul>
-<li>[x] DNN</li>
-<li>[x] CNN</li>
-<li>[x] RNN,LSTM</li>
-<li>[x] use google colab to train my model</li>
-<li>[ ] transfer learning</li>
-<li>[ ] deploy</li>
-<li>[ ] distributed system</li>
-</ul>
-<h2 id="Action-Recognition"><a href="#Action-Recognition" class="headerlink" title="Action Recognition"></a>Action Recognition</h2><ul>
-<li>[ ] Survey of action recognition</li>
-<li>[ ] static action recognition</li>
-<li>[ ] action recognition in video</li>
-<li>[ ] LSTM to action recognition</li>
-<li>[ ] Skeleton-Based Action Recognition</li>
-<li>[ ] Use OpenVINO to deploy model</li>
-</ul>
-<a id="more"></a>]]></content>
+<h2 id="1-1-2-2D变换"><a href="#1-1-2-2D变换" class="headerlink" title="1.1.2 2D变换"></a>1.1.2 2D变换</h2><p>平移、刚体运动（旋转+平移）、相似（放缩旋转）、仿射、投影（透视变换）、拉伸/挤压、平面状表面流（经历小的3D运动时）、双线性内插（任意非共线的四点运动的内插）</p>
+<h2 id="1-1-2-3D变换"><a href="#1-1-2-3D变换" class="headerlink" title="1.1.2 3D变换"></a>1.1.2 3D变换</h2><h2 id="4-特征检测与匹配"><a href="#4-特征检测与匹配" class="headerlink" title="4 特征检测与匹配"></a>4 特征检测与匹配</h2><h3 id="4-3-线条"><a href="#4-3-线条" class="headerlink" title="4.3 线条"></a>4.3 线条</h3>]]></content>
   </entry>
   <entry>
-    <title>环境配置常见问题</title>
-    <url>/2020/07/24/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h1 id="环境配置常见问题"><a href="#环境配置常见问题" class="headerlink" title="环境配置常见问题"></a>环境配置常见问题</h1><h2 id="hexo博客"><a href="#hexo博客" class="headerlink" title="hexo博客"></a>hexo博客</h2><h3 id="sh-deploy-sh出现-spawn-failed"><a href="#sh-deploy-sh出现-spawn-failed" class="headerlink" title="sh deploy.sh出现 spawn failed"></a>sh deploy.sh出现 spawn failed</h3><p>执行</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
-<h2 id="Anaconda"><a href="#Anaconda" class="headerlink" title="Anaconda"></a>Anaconda</h2><h3 id="navigator不能打开"><a href="#navigator不能打开" class="headerlink" title="navigator不能打开"></a>navigator不能打开</h3><p>1.重置源</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda config --remove -key channels</span><br></pre></td></tr></table></figure>
-<p>2.删除清华镜像：删除 <code>.condarc</code>中的<code>defaults</code>行</p>
-<p>2.管理员运行<code>conda prompt</code></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#conda update </span><br><span class="line">conda update anaconda-navigator</span><br><span class="line">anaconda-navigator --reset</span><br><span class="line">conda update anaconda-client</span><br><span class="line">conda update -f anaconda-client</span><br><span class="line">anaconda-navigator   #命令行启动Navigator</span><br></pre></td></tr></table></figure>
-<h2 id="PyTorch"><a href="#PyTorch" class="headerlink" title="PyTorch"></a>PyTorch</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">No module named &#39;torchtext&#39;</span><br></pre></td></tr></table></figure>
-<p>办法：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install https:&#x2F;&#x2F;github.com&#x2F;pytorch&#x2F;text&#x2F;archive&#x2F;master.zip</span><br></pre></td></tr></table></figure>
-<p>tqdm模块<br>tqdm是一个快速、扩展性强的进度条工具库，<br>其githup地址：<a href="https://github.com/tqdm/tqdm" target="_blank" rel="noopener">https://github.com/tqdm/tqdm</a></p>
-<p>办法：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install tqdm</span><br><span class="line">device &#x3D; torch.device(&#39;cuda&#39; if torch.cuda.is_available() else &#39;cpu&#39;)</span><br><span class="line">#ouput cpu</span><br></pre></td></tr></table></figure>
-<h2 id="Jupyter-Lab"><a href="#Jupyter-Lab" class="headerlink" title="Jupyter Lab"></a>Jupyter Lab</h2><p>载入py文件</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">%load test.py</span><br></pre></td></tr></table></figure>
-<h2 id="CUDA-cudnn"><a href="#CUDA-cudnn" class="headerlink" title="CUDA cudnn"></a>CUDA cudnn</h2><p>CUDA 10.1</p>
-<p>cudnn 7.6.3</p>
-<h2 id="使用特定源安装"><a href="#使用特定源安装" class="headerlink" title="使用特定源安装"></a>使用特定源安装</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install tensorflow-gpu&#x3D;&#x3D;1.8 -i https:&#x2F;&#x2F;pypi.tuna.tsinghua.edu.cn&#x2F;simple</span><br></pre></td></tr></table></figure>
-<h3 id="升级pip"><a href="#升级pip" class="headerlink" title="升级pip"></a>升级pip</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python -m pip install -U pip</span><br></pre></td></tr></table></figure>
-<p>tensorflow与keras间的兼容</p>
-<p><a href="https://docs.floydhub.com/guides/environments/" target="_blank" rel="noopener">https://docs.floydhub.com/guides/environments/</a></p>
-<h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><h3 id="解压zip"><a href="#解压zip" class="headerlink" title="解压zip"></a>解压zip</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">unzip test.zip</span><br></pre></td></tr></table></figure>
-<h3 id="解压7z"><a href="#解压7z" class="headerlink" title="解压7z"></a>解压7z</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get install p7zip</span><br><span class="line">7z x test.7z</span><br></pre></td></tr></table></figure>
-<p>详见 <a href="https://blog.csdn.net/AC_huang/article/details/23279641" target="_blank" rel="noopener">https://blog.csdn.net/AC_huang/article/details/23279641</a></p>
-<h3 id="展示文件树状结构"><a href="#展示文件树状结构" class="headerlink" title="展示文件树状结构"></a>展示文件树状结构</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install tree</span><br><span class="line">tree --dirsfirst --filelimit 50</span><br></pre></td></tr></table></figure>
-<h3 id="命令行退出python"><a href="#命令行退出python" class="headerlink" title="命令行退出python"></a>命令行退出python</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">quit()</span><br></pre></td></tr></table></figure>
-<h2 id="matlab"><a href="#matlab" class="headerlink" title="matlab"></a>matlab</h2><p>匿名函数求导后，求某点值</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">syms y</span><br><span class="line">f&#x3D;@(x) 2*x^2+3;</span><br><span class="line">diff&#x3D;diff(f(y)) </span><br><span class="line">diff&#x3D;matlabFunction(diff)</span><br><span class="line">diff(0.5)</span><br></pre></td></tr></table></figure>]]></content>
+    <title>迁移学习</title>
+    <url>/2020/07/24/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<h1 id="迁移学习"><a href="#迁移学习" class="headerlink" title="迁移学习"></a>迁移学习</h1><p><strong>大量资源训练的模型</strong>经过细微调整后解决同一类问题，解决原始数据较少的问题，可节省大量时间和算力，因为分类对象变化，需要重新训练</p>
+<p>若出现负迁移:模型的泛化能力恶化，解决两个毫不相关的问题</p>
+]]></content>
   </entry>
   <entry>
     <title>用Keras实现视频动作分类</title>
@@ -1567,31 +1592,6 @@ C_{x}=\frac{M_{10}}{M_{00}}, \quad C_{y}=\frac{M_{01}}{M_{00}}</script><h6 id="�
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ol>
 <li><a href="https://www.pyimagesearch.com/2019/07/15/video-classification-with-keras-and-deep-learning/" target="_blank" rel="noopener">https://www.pyimagesearch.com/2019/07/15/video-classification-with-keras-and-deep-learning/</a></li>
 </ol>
-]]></content>
-  </entry>
-  <entry>
-    <title>计算机视觉：算法与应用 笔记</title>
-    <url>/2020/07/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%EF%BC%9A%E7%AE%97%E6%B3%95%E4%B8%8E%E5%BA%94%E7%94%A8%20%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="计算机视觉：算法与应用-笔记"><a href="#计算机视觉：算法与应用-笔记" class="headerlink" title="计算机视觉：算法与应用 笔记"></a>计算机视觉：算法与应用 笔记</h1><h1 id="1-图像形成"><a href="#1-图像形成" class="headerlink" title="1 图像形成"></a>1 图像形成</h1><h2 id="1-1-1-几何基元与变换"><a href="#1-1-1-几何基元与变换" class="headerlink" title="1.1.1 几何基元与变换"></a>1.1.1 几何基元与变换</h2><p><code>几何基元</code>：2D点、2D直线、2D圆锥曲线、3D点、3D平面、3D直线、3D二次曲面</p>
-<p><code>齐次坐标（投影坐标）</code>：用于投影几何里的坐标系统，给定欧氏平面上的一点 (<em>x</em>, <em>y</em>)，对任意非零实数 Z，三元组 (<em>xZ</em>, <em>yZ</em>, <em>Z</em>) 即称之为该点的齐次坐标</p>
-<p><code>笛卡尔坐标与齐次坐标的关系</code>：</p>
-<ul>
-<li><p>投影平面上的任何点都可以表示成一三元组 (<em>X</em>, <em>Y</em>, <em>Z</em>)，称之为该点的<strong>齐次坐标</strong>或<strong>投影坐标</strong>，其中 X、Y 及 Z 不全为 0</p>
-</li>
-<li><p>当 Z 为 0，则该点表示一无穷远点</p>
-</li>
-<li><p>三元组 (0, 0, 0) 不表示任何点。原点表示为 (0, 0, 1)</p>
-<a id="more"></a>
-</li>
-</ul>
-<h2 id="1-1-2-2D变换"><a href="#1-1-2-2D变换" class="headerlink" title="1.1.2 2D变换"></a>1.1.2 2D变换</h2><p>平移、刚体运动（旋转+平移）、相似（放缩旋转）、仿射、投影（透视变换）、拉伸/挤压、平面状表面流（经历小的3D运动时）、双线性内插（任意非共线的四点运动的内插）</p>
-<h2 id="1-1-2-3D变换"><a href="#1-1-2-3D变换" class="headerlink" title="1.1.2 3D变换"></a>1.1.2 3D变换</h2><h2 id="4-特征检测与匹配"><a href="#4-特征检测与匹配" class="headerlink" title="4 特征检测与匹配"></a>4 特征检测与匹配</h2><h3 id="4-3-线条"><a href="#4-3-线条" class="headerlink" title="4.3 线条"></a>4.3 线条</h3>]]></content>
-  </entry>
-  <entry>
-    <title>迁移学习</title>
-    <url>/2020/07/24/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<h1 id="迁移学习"><a href="#迁移学习" class="headerlink" title="迁移学习"></a>迁移学习</h1><p><strong>大量资源训练的模型</strong>经过细微调整后解决同一类问题，解决原始数据较少的问题，可节省大量时间和算力，因为分类对象变化，需要重新训练</p>
-<p>若出现负迁移:模型的泛化能力恶化，解决两个毫不相关的问题</p>
 ]]></content>
   </entry>
   <entry>
