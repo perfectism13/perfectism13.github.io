@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":"trut","trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="动作（行为）识别与分类闵晨阳 2019年12月 视频理解 长期动作和短期动作的区别 图像分类的传统方法传统方法：特征提取与特征分类两个过程进行的。  特征提取概述视频本身时间维度上的特征: 每一帧图像二维空间上的特征：根据像素梯度变化，如一阶、二阶导数与几何特征来进行角点、边缘、区域的检测，边缘是图像亮度变化不连续或突变的位置，角点是边缘发生不连续或突变的位置，即边缘曲线的曲率极大值的地方。  角">
+<meta property="og:type" content="article">
+<meta property="og:title" content="动作（行为）识别与分类">
+<meta property="og:url" content="http://yoursite.com/2020/07/24/%E5%8A%A8%E4%BD%9C%EF%BC%88%E8%A1%8C%E4%B8%BA%EF%BC%89%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/index.html">
+<meta property="og:site_name" content="perfectism&#39;s blog">
+<meta property="og:description" content="动作（行为）识别与分类闵晨阳 2019年12月 视频理解 长期动作和短期动作的区别 图像分类的传统方法传统方法：特征提取与特征分类两个过程进行的。  特征提取概述视频本身时间维度上的特征: 每一帧图像二维空间上的特征：根据像素梯度变化，如一阶、二阶导数与几何特征来进行角点、边缘、区域的检测，边缘是图像亮度变化不连续或突变的位置，角点是边缘发生不连续或突变的位置，即边缘曲线的曲率极大值的地方。  角">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/VideoUnderstanding.png">
+<meta property="og:image" content="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/image-20191211151744336.png">
+<meta property="og:image" content="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/v2-2b14ef871ea0c07cbbcd6cc26766970f_hd.jpg">
+<meta property="og:image" content="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/v2-521fd66f5e5f65592be01f496da4342c_hd.jpg">
+<meta property="og:image" content="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/v2-991bebbb04201340457fb524174c2c7f_hd.jpg">
+<meta property="og:image" content="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/v2-3d4b45b999c08402d288aee3689fa128_hd.jpg">
+<meta property="og:image" content="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/v2-addfdaf72392dcc70833d5cd47d66460_hd.jpg">
+<meta property="og:image" content="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/v2-b79ab065fb0e9de19de41999af376646_hd.jpg">
+<meta property="og:image" content="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/v2-378f90fb6afb7533685ee0c1e7860523_hd.jpg">
+<meta property="og:image" content="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/v2-d4b05234a58d4e4cc945c707997a5412_hd.jpg">
+<meta property="og:image" content="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/v2-d10b14b25101eaeea60c8785d1fc99bc_hd.jpg">
+<meta property="og:image" content="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/v2-1c5477dd52d4e32c9d97058045f0b942_hd.jpg">
+<meta property="og:image" content="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/v2-ca8dbeb420bbab322d90e7fbe7615be3_hd.jpg">
+<meta property="og:image" content="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/v2-127ad4b77abd30747036d527a8a4e83d_hd.jpg">
+<meta property="og:image" content="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/v2-bdaa9a162be9f337364b6d40b585476c_hd.jpg">
+<meta property="og:image" content="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/v2-7488d31a771f1e82d46a6fc424cd9304_hd.jpg">
+<meta property="og:image" content="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/v2-1c6a850848f44f2ba3f9d3772b36723b_hd.jpg">
+<meta property="og:image" content="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/v2-00111eeecd61b9ffde93ff06e2617916_hd.jpg">
+<meta property="og:image" content="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/v2-b7b5591415d249e7d1c219f46a532e82_hd.jpg">
+<meta property="og:image" content="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/v2-ca3dac97b3ae014f88c969ad7bbe1f80_hd.jpg">
+<meta property="og:image" content="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/v2-d77ebeb3e1dbacdd4ead48410790209f_hd.jpg">
+<meta property="og:image" content="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/v2-96d1f36ed4dcf167387dde11368f7f5d_hd.jpg">
+<meta property="og:image" content="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/v2-1c1780b115e54914babd614263e870eb_hd.jpg">
+<meta property="og:image" content="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/20190926211248102.png">
+<meta property="og:image" content="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/640.webp">
+<meta property="article:published_time" content="2020-07-24T05:10:01.130Z">
+<meta property="article:modified_time" content="2020-03-16T13:38:55.000Z">
+<meta property="article:author" content="Chenyang Min">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/VideoUnderstanding.png">
+
+<link rel="canonical" href="http://yoursite.com/2020/07/24/%E5%8A%A8%E4%BD%9C%EF%BC%88%E8%A1%8C%E4%B8%BA%EF%BC%89%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>动作（行为）识别与分类 | perfectism's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">perfectism's blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/perfectism13" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/24/%E5%8A%A8%E4%BD%9C%EF%BC%88%E8%A1%8C%E4%B8%BA%EF%BC%89%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Chenyang Min">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="perfectism's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          动作（行为）识别与分类
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-24 13:10:01" itemprop="dateCreated datePublished" datetime="2020-07-24T13:10:01+08:00">2020-07-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-16 21:38:55" itemprop="dateModified" datetime="2020-03-16T21:38:55+08:00">2020-03-16</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="动作（行为）识别与分类"><a href="#动作（行为）识别与分类" class="headerlink" title="动作（行为）识别与分类"></a>动作（行为）识别与分类</h1><p>闵晨阳 2019年12月</p>
+<h2 id="视频理解"><a href="#视频理解" class="headerlink" title="视频理解"></a>视频理解</h2><p><img src="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/VideoUnderstanding.png" alt="img"></p>
+<p>长期动作和短期动作的区别</p>
+<h2 id="图像分类的传统方法"><a href="#图像分类的传统方法" class="headerlink" title="图像分类的传统方法"></a>图像分类的传统方法</h2><p>传统方法：特征提取与特征分类两个过程进行的。</p>
+<p><img src="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/image-20191211151744336.png" alt="image-20191211151744336"></p>
+<h3 id="特征提取概述"><a href="#特征提取概述" class="headerlink" title="特征提取概述"></a>特征提取概述</h3><p><strong>视频本身时间维度上的特征</strong>:</p>
+<p><strong>每一帧图像二维空间上的特征</strong>：根据像素<strong>梯度变化</strong>，如一阶、二阶导数与几何特征来进行角点、边缘、区域的检测，<strong>边缘</strong>是图像亮度变化不连续或突变的位置，<strong>角点</strong>是边缘发生不连续或突变的位置，即边缘曲线的曲率极大值的地方。</p>
+<ul>
+<li><strong>角点检测</strong>：Harris、Kitchen-Rosenfeld角、Shi-Tomasi和FAST角点检测方法</li>
+<li><strong>边缘检测</strong>：Sobel、Lapacian、Canny边缘检测方法</li>
+<li><strong>局部特征</strong>：如SIFT、SURF、STAR、BRISK、BRIEF、ORB、SimpleBlob方法</li>
+<li><strong>针对图像内人体的特征提取办法</strong>：HoG、HoF、MBH等</li>
+</ul>
+<p>(1). Harris角点检测是通过设置好的窗口在图像上进行滑动来计算局部信号的自相关函数的矩阵特征值与迹，获得极值后从而确定角点位置，具有旋转不变性、尺度不变性和光照不变性特征，算法介绍详见 <a href="https://link.zhihu.com/?target=http%3A//www.cnblogs.com/ronny/p/4009425.html">Harris角点</a>，算法实现详见corner.cpp的cv::cornerHarris()函数。</p>
+<p><img src="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/v2-2b14ef871ea0c07cbbcd6cc26766970f_hd.jpg" alt="img">小窗口在图像中的平移(光滑区、边缘区与角点区)</p>
+<p><img src="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/v2-521fd66f5e5f65592be01f496da4342c_hd.jpg" alt="img"></p>
+<p> 自相关二项函数的椭圆曲线扁率及尺寸，由本征值决定</p>
+<p>(2). Kitchen-Rosenfeld角点检测是通过计算边缘曲线曲率和梯度幅度的乘积来获得响应极值(人工设置阈值)从而确定角点位置，算法实现详见corner.cpp的cv::preCornerDetect()函数。</p>
+<p>(3). Shi-Tomasi角点检测通过设置好的窗口在图像上进行滑动来计算局部信号的自相关函数的矩阵特征值的大小来判断是否是角点，是对Harris角点算法进行了改进，对非极大值进行了抑制，算法介绍详见<a href="https://link.zhihu.com/?target=https%3A//blog.csdn.net/tostq/article/details/49178601">Shi_Tomasi角点</a>，在OpenCV中又称GFTT(GoodFeatureToTrack)特征点检测算法，算法实现详见featureselect.cpp的cv::goodFeaturesToTrack()函数。</p>
+<p>(4). FAST角点检测通过圆周和圆心的像素点亮度情况，来判断圆心是否为角点，算法介绍详见<a href="https://link.zhihu.com/?target=https%3A//www.cnblogs.com/ronny/p/4078710.html">FAST特征点检测</a>，算法实现详见fast.cpp。</p>
+<p><img src="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/v2-991bebbb04201340457fb524174c2c7f_hd.jpg" alt="img"></p>
+<p> FAST角点的圆周检测</p>
+<p>边缘检测包括Sobel、Lapacian、Canny边缘检测方法。</p>
+<p>(1). Sobel边缘检测，通过高斯平滑滤波和一阶微分求导，对图像灰度函数的近似梯度进行计算，从而判断边缘，算法介绍详见<a href="https://link.zhihu.com/?target=https%3A//blog.csdn.net/xiaqunfeng123/article/details/17302003">Sobel 边缘检测算子</a>，算法实现详见Deriv.cpp的cv::Sobel函数。</p>
+<p>(2). Lapacian边缘检测，通过高斯平滑滤波和二阶微分求导，对图像灰度函数的近似梯度进行计算，从而判断边缘，算法介绍详见<a href="https://link.zhihu.com/?target=https%3A//blog.csdn.net/xiaowei_cqu/article/details/7829481">拉普拉斯算子</a>。</p>
+<p>(3). Canny边缘检测是通过对图像进行二维高斯平滑滤波、Sobel算子的梯度检测、求取水平方向与垂直方向梯度的L2/L1范数、非极大值抑制和滞后阈值处理五个过程从而确定边缘位置，算法介绍详见<a href="https://link.zhihu.com/?target=https%3A//blog.csdn.net/dcrmg/article/details/52344902">Canny边缘检</a>测，算法详见canny.cpp的cv::Canny()函数。</p>
+<p>除了角点和边缘，还可以提取图像的某种局部特征，如SIFT、SURF、STAR、BRISK、BRIEF、ORB、SimpleBlob方法</p>
+<p>(1). SIFT即尺度不变特征变换，该算法通过不同尺度空间内的极值检测、特征点定位、梯度方向(梯度的幅值和幅角)确定、描述符生成四个过程，实现了局部特征的提取，该特征具有尺度不变性，且对亮度变化、噪声、视角变化下有一定的稳定性和抗干扰性，算法介绍详见<a href="https://link.zhihu.com/?target=https%3A//www.cnblogs.com/wangguchangqing/p/4853263.html">SIFT特征详解</a>，算法实现详见sift.cpp。</p>
+<p><img src="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/v2-3d4b45b999c08402d288aee3689fa128_hd.jpg" alt="img"></p>
+<p> SIFT中的尺度空间金字塔</p>
+<p><img src="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/v2-addfdaf72392dcc70833d5cd47d66460_hd.jpg" alt="img">SIFT中16个Keypoint生成的128维向量</p>
+<p>(2). SURF即加速鲁棒性特征，该算法通过Hessian矩阵和LoG方法对特征点进行检测、积分图像的尺度空间建立、特征点定位、梯度方向(梯度的幅值和幅角)确定、描述符生成五个过程，实现了局部特征的提取，该算法与SIFT的过程类似也具有尺度不变性，但计算效率和鲁棒性优于SIFT，算法介绍详见<a href="https://link.zhihu.com/?target=https%3A//blog.csdn.net/dcrmg/article/details/52601010">Surf算法特征点检测与匹配</a>，算法实现详见surf.cpp。</p>
+<p><img src="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/v2-b79ab065fb0e9de19de41999af376646_hd.jpg" alt="img">SURF的主方向</p>
+<p>(3). STAR算法通过星型滤波器计算图像中每个像素点的响应值，再对响应值进行非极大抑制与直线抑制(提取边缘判断)，从而确定特征点位置，算法详见StarDetector.cpp。</p>
+<p>(4). BRISK即二进制鲁棒不变尺度关键点，该算法是通过尺度空间建立、特征点检测、非极大值抑制、特征点信息提取四个过程，比较特征点邻域采样像素之间的灰度值形成二进制字符串，进行汉明距离匹配得到特征描述符，算法介绍详见<a href="https://link.zhihu.com/?target=https%3A//blog.csdn.net/hujingshuang/article/details/47045497">BRISK特征提取算法</a>，算法实现详见Brisk.cpp。</p>
+<p>(5). BRIEF即二进制鲁棒独立元素特征，该算法通过patch区域建立、像素点灰度值比较，从而确定特征点位置，算法介绍详见<a href="https://link.zhihu.com/?target=https%3A//blog.csdn.net/hujingshuang/article/details/46910259">BRIEF特征点描述算法</a>，算法实现详见Brief.cpp。</p>
+<p>(6). ORB即面向FAST和旋转BRIEF特征，该算法通过patch区域建立、强度质心搜索，从而确定特征点位置，该特征点有旋转不变性，算法介绍详见<a href="https://link.zhihu.com/?target=https%3A//www.cnblogs.com/wangyaning/p/7854017.html">ORB特征</a>，算法实现详见Orb.cpp。</p>
+<p>(7). SimpleBlob算法通过灰度图像二值化转换(连续阈值一转多)，连同区域提取、斑点分类、斑点位置尺寸确定四个过程，检测斑点类的特征点，算法介绍详见<a href="https://link.zhihu.com/?target=https%3A//blog.csdn.net/zhaocj/article/details/44886475">SimpleBlobDetector</a>，算法实现详见BlobDetecot.cpp。</p>
+<p>(8). MSER即最大稳定极值区域检测，该算法通过改进的分水岭方法，进而判断图像的斑点区域，算法介绍详见<a href="https://link.zhihu.com/?target=https%3A//blog.csdn.net/zhaocj/article/details/40742191">MSER</a>，算法实现详见Mser.cpp。</p>
+<p>除了通用的上述特征外，还有针对图像内人体的一些特征的提取方法，如HoG、HoF、MBH等方法。</p>
+<p>(1). HoG特征用来表达局部目标外观形状的梯度方向分布密度，或称梯度统计信息，通过将图像分成小的连通区域(细胞单元)，并将单元内的各项度点梯度或边缘计算其方向与横轴的夹角，根据圆内划分区域内梯度方向的数量分布构建成直方图，最后组合起来形成特征描述，论文见《Histograms of Oriented Gradients for Human Detection》，算法介绍详见<a href="https://link.zhihu.com/?target=https%3A//blog.csdn.net/kuweicai/article/details/78981150">HOG特征检测</a>，算法实现详见HoG.cpp。早期的行人检测算法都是HoG+SVM来实现的。</p>
+<p><img src="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/v2-378f90fb6afb7533685ee0c1e7860523_hd.jpg" alt="img">基本HoG特征</p>
+<p><img src="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/v2-d4b05234a58d4e4cc945c707997a5412_hd.jpg" alt="img">HoG的平均梯度(a)、正负SVM(b、c)、测试图像(d)、矩形HoG描述符(e)、带SVM正负权重的HoG描述符(f、g)</p>
+<p>(2). HoF特征类似于HoG特征，只是用光流来代替梯度，即计算光流方向与横轴的夹角，根据圆内划分区域内光流方向的数量分布构建成直方图，最后组合起来形成特征描述。HoF算法介绍详见<a href="https://link.zhihu.com/?target=https%3A//blog.csdn.net/u013089961/article/details/44981815">HOF特征</a>，光流算法介绍详见<a href="https://link.zhihu.com/?target=https%3A//blog.csdn.net/carson2005/article/details/7581642">光流法简单介绍</a>。</p>
+<p>(3). MBH特征也是通过计算光流获得，但它是将x方向和y方向上光流图像看作为两张灰度图像，然后提取灰度图像的梯度直方图，即再图像的x、y方向光流图像上计算HoG特征。</p>
+<p><img src="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/v2-d10b14b25101eaeea60c8785d1fc99bc_hd.jpg" alt="img">相邻两帧(a、b)、光流及边界(c、d)、光流场强度(e、f)、MBH描述符(g、h)</p>
+<p>在特征分类上，基本方法是使用kNN或SVM分类器对提取的图片特征进行分类，这两种算法的介绍比较多在此不详细展开。</p>
+<p><strong>特征分类</strong>：KNN,SVM</p>
+<h3 id="特征提取"><a href="#特征提取" class="headerlink" title="特征提取"></a>特征提取</h3><p>传统方法一般依据人体行为的构成方式，分为整体表示方式和局部表示方式。</p>
+<h4 id="整体表示方式"><a href="#整体表示方式" class="headerlink" title="整体表示方式"></a>整体表示方式</h4><p>将视频帧看作一个整体，通过人体定位-&gt;背景提取追踪-&gt;ROI编码一系列过程，自上而下的提取出全局特征。</p>
+<p><strong>优点</strong>：编码信息比较丰富</p>
+<p><strong>缺点</strong>：过于依赖准确的定位、精确的背景提取追踪</p>
+<p> 对摄像机视点、噪声、遮挡极其敏感</p>
+<h5 id="ROI提取表示"><a href="#ROI提取表示" class="headerlink" title="ROI提取表示"></a>ROI提取表示</h5><p>用到的方法有背景剪除法、差分法和光流法，轮廓边缘特征包括运动能量图像(Motion Energy Image, MEI)、运动历史图像(Motion History Image, MHI)、形状上下文(Shape Context, SC)等</p>
+<p><strong>优点</strong>：算法相对简单</p>
+<p><strong>缺点</strong>：背景剪除可能带来很多噪声，导致人体行为特征很难精确描述，即准确率大大受限于人体行为轮廓提取及帧序列中轮廓的跟踪</p>
+<h5 id="时空体积-Space-time-volume-表示"><a href="#时空体积-Space-time-volume-表示" class="headerlink" title="时空体积(Space-time volume)表示"></a>时空体积(Space-time volume)表示</h5><p>将给定序列的帧进行堆叠，但是也需要精确的定位、对齐以及背景剪除。</p>
+<h5 id="网络切分-Grid-based-表示"><a href="#网络切分-Grid-based-表示" class="headerlink" title="网络切分(Grid-based)表示"></a>网络切分(Grid-based)表示</h5><p>将待识别的人体区域ROI分割成若干时间空间网格，每个网格代表视频帧的一部分特征，网格的组合才代表ROI的整体特征</p>
+<p><strong>优点</strong>：减少ROI中存在的噪声，降低了视角变化带来的细微差异，平滑了自身遮挡产生区分度较差的特征空间</p>
+<h4 id="局部表示方式"><a href="#局部表示方式" class="headerlink" title="局部表示方式"></a>局部表示方式</h4><p>将视频段落作为一个整体，通过时空兴趣点检测-&gt;邻域特征点计算-&gt;特征整合与表达一系列过程，自下而上的提取特征</p>
+<p><strong>优点</strong>：编码信息比较丰富</p>
+<p> 不依赖背景提取、追踪算法</p>
+<p><strong>缺点</strong>：依赖兴趣点提取的数量和预处理方法</p>
+<p> 摄像机运动产生的误差也会对兴趣点采集造成影响</p>
+<h5 id="时空兴趣点检测"><a href="#时空兴趣点检测" class="headerlink" title="时空兴趣点检测"></a>时空兴趣点检测</h5><p>在时空域内提取出兴趣点，该兴趣点是空域时域均变化显著的邻域点，如3D Harris。</p>
+<p>有时候多个时空兴趣点的组合也称为局部描述符，描述符已经不再仅仅关注于某些点，而是更上层的关注并描述视频中人体特征的局部，比如3D-HOG(Histogram of Gradien) 《A spatio-temporal descriptor based on 3D-gradients》、3D-SIFT(Scale Invariangt Feature Transform)《A 3-dimensional SIFT descriptor and its application to action recognition》、3D SURF(Speeded-Up Robust Features)《An Efficient Dense and Scale-Invariant Spatio-Temporal Interest Point Detector》。</p>
+<h6 id="STIP"><a href="#STIP" class="headerlink" title="STIP"></a>STIP</h6><p>《On space-time interest points》</p>
+<ol>
+<li>首先对视频进行时间和空间上的尺度变换，即通过不同尺度的高斯滤波函数将视频转为线性尺度空间表示，得到了3D Harris的时空域表达形式</li>
+<li>进行时空尺度自适应调整，通过尺度归一化来去除尺度因子对兴趣点的影响，归一化时空尺度的极大值(拉普拉斯极大值:拉普拉斯方程解处的函数值)就是角点函数的极大值，需要类似于EM的算法一面计算能达到极大值的尺度，一面计算在该尺度下重新计算兴趣点的位置，直到位置与尺度收敛</li>
+<li>要对这些时空兴趣点将噪声去除，进行分类并用分别向量表示，用马氏距离的k-means进行聚类</li>
+</ol>
+<p>时空兴趣点本质是通过映射函数把视频这个三维的函数映射到一维空间中，再求此一维空间的局部极大值的点。尺度因子对兴趣点的影响较大，时间尺度因子越大更能检测出动作时间较长的兴趣点，时间尺度因子越小更能检测出动作时间较短的兴趣点，空间尺度越大更能检测出动作幅度较大的兴趣点，作者采用能够表征运动和动作外观信息的局部描述算子，最终组合成34维特征向量。</p>
+<h6 id="Cuboid"><a href="#Cuboid" class="headerlink" title="Cuboid"></a>Cuboid</h6><p>《Behavior Recognition via Sparse Spatio-Temporal Features》</p>
+<p>STIP的缺点：</p>
+<p>使用的是Harris角点，但是对于<strong>动作幅度很小的情形(如面部的表情变化)，或是动作幅度有周期性的情形(如车轮旋转)Harris角点很少</strong>，这一时空角点所产生的特征过于稀疏无法去描述反映特征。</p>
+<p>作者提出的Cuboid时空特征点检测器基于时域Gabor滤波器的检测器，能够弥补Harris检测器的不足，检测出很多动作幅度小或是周期性运动的特征。</p>
+<p>算法过程：</p>
+<ol>
+<li>通过特征点检测器检测出兴趣点，再扩展成一个Cuboid(长和宽是检测尺度的6倍)</li>
+<li>进行简单变换，特征向量统计处理进行相似度比较</li>
+<li>对于Cuboid原型使用k-means进行聚类，对于聚类后的行为描述符可以用卡方距离或SVM来进行分类</li>
+</ol>
+<p>由于没有尺度变换过程，所以该特征不是尺度不变的，简单变换方法作者尝试了3种，分别是归一化像素值、亮度梯度、加窗光流，特征向量统计处理方法作者尝试了3种，分别是直接使用、全局直方图、局部直方图，最后得出结果是求亮度梯度+局部直方图分类误差最小。</p>
+<h6 id="MEI-MHI"><a href="#MEI-MHI" class="headerlink" title="MEI+MHI"></a>MEI+MHI</h6><p>《The recognition of human movement using temporal templates》</p>
+<p>作者独特的把行为识别分成了基于人体模型重建的、基于表观模板的和基于运动的三类方法。</p>
+<p>人体三维结构重建过于复杂，表观模板有的仅仅是二维的剪影、轮廓或边缘，运动模板主要是光流。</p>
+<p>算法过程：</p>
+<ol>
+<li>先在T时间内通过帧差法检查像素点运动</li>
+<li>二值化成MEI，灰度化成MHI</li>
+<li>利用马氏距离进行目标匹配</li>
+</ol>
+<p>帧间差分法是<a href="https://blog.csdn.net/yangleo1987/article/details/79745279" target="_blank" rel="noopener">背景提取算法</a>的一种：将视频流中相邻两帧或相隔几帧图像的两幅图像像素值相减，并对相减后的图像进行阈值化来提取图像中的运动区域</p>
+<h6 id="HoG-HoF"><a href="#HoG-HoF" class="headerlink" title="HoG+HoF"></a>HoG+HoF</h6><p>《Learning realistic human actions from movies》</p>
+<p>作者结合了Cuboid的思路和HoG、HoF的特征描述，将视频中多尺度Harris角点特征提取后将兴趣点周围的提及划分成若干个Cuboid，并计算每个Cuboid的HoG和HoF特征，最后将归一化后的方向直方图向量串联构成描述符。</p>
+<h5 id="局部网格表示"><a href="#局部网格表示" class="headerlink" title="局部网格表示"></a>局部网格表示</h5><p>类似于整体网格表示，只不过是将局部的patch放入了网格单元中</p>
+<h3 id="特征融合"><a href="#特征融合" class="headerlink" title="特征融合"></a>特征融合</h3><p>在特征融合方面，人体的轮廓、边缘、运动特征等方面<strong>不具备通用性</strong>，只有将其组合起来，才能构建出更好鲁棒性和有效性的特征。在特征提取之后，为了使特征具有较高的区分能力，去掉冗余信息，提高目标识别的计算效率，需要对所提取的特征进行融合，这一过程也称为<strong>特征编码</strong>，主流的特征编码方式有Bag of Feature和Fisher Vector两种。有些文献中，特征提取后的结果(如纹理、轮廓、角点、边缘、光流)称为<strong>低级特征</strong>，特征融合后的结果称为<strong>中级特征(或中级语义)</strong>，特征分类后的结果称为<strong>高级特征(或高级语义)</strong>。</p>
+<h4 id="Bag-of-Feature-词袋-，Bag-of-Visual"><a href="#Bag-of-Feature-词袋-，Bag-of-Visual" class="headerlink" title="Bag of Feature(词袋)，Bag of Visual"></a>Bag of Feature(词袋)，Bag of Visual</h4><p>《Beyond Bags of Features: Spatial Pyramid Matching for Recognizing Natural Scene Categories》</p>
+<p>概念起源于文本分类里的词袋模型（Bag of Words)。特征提取由于都是底层特征，<strong>或多或少会受到光照、遮挡、背景等干扰</strong>，而融合之后的特征能够提炼出局部关键点不变特征，所以需要进行融合表达。</p>
+<p>视觉词袋从<strong>时空兴趣点生成的特征描述子进行聚类</strong>获得，每一个聚类的中心就可以看做是一个视觉单词，由于和文本有所差异，故还需要解决<strong>局部特征抽样策略、词典大小、可视化单词的权重计算以及全局词典的构建</strong>等问题。</p>
+<p>算法过程：</p>
+<ol>
+<li><p>提取图像视频特征，其次对特征进行聚类得到一部字典(Visual Vocabulary，或Code Book)</p>
+</li>
+<li><p>提取图像视频特征，其次对特征进行聚类得到一部字典(Visual Vocabulary，或Code Book)，通过区分度高的特征来寻找聚类中心</p>
+</li>
+<li><p>最后作为特征分类器的输入对分类器进行训练</p>
+<p><img src="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/v2-1c5477dd52d4e32c9d97058045f0b942_hd.jpg" alt="img"></p>
+</li>
+</ol>
+<h4 id="Fisher-Vector"><a href="#Fisher-Vector" class="headerlink" title="Fisher Vector"></a>Fisher Vector</h4><p>《Fisher Kernels on Visual Vocabularies for Image Categorization》</p>
+<p>概率与似然性的区别：</p>
+<p>概率，用于在已知一些参数的情况下，预测接下来在观测上所得到的结果；似然性，则是用于在已知某些观测所得到的结果时，对有关事物之性质的参数进行估值。——摘自维基百科</p>
+<p>Bag of Feature的缺点：</p>
+<p>融合图像底层特征分布时没有考虑这些特征在图像中的相对或绝对位置，且频率直方图的计算量较大，每加入一个类别需要重新进行训练，所以不具备特征的普遍性和紧凑性</p>
+<p>Fisher Vector通过似然函数的梯度向量来表达一幅图像，由于图像的概率密度函数是由图像中所有SIFT描述子的概率密度组成的，且每个描述子本质上是由K个高斯模型加权得到的，故整个图像就是由大量高斯模型生成出来的，对每个高斯模型参数求偏导得到的特征向量可以反映该高斯模型在图像中的分布情况。</p>
+<p>Fisher Vector通过模型化信号的产生过程，通过EM算法训练SIFT描述子得到每个视觉单词(视觉单词和前文Visual Word不同，并不是词汇描述而是K组高斯模型参数)的权重、均值和协方差矩阵，<strong>图像表示向量维数比Bag of Feature要高，但开销不大</strong>。</p>
+<h3 id="特征分类"><a href="#特征分类" class="headerlink" title="特征分类"></a>特征分类</h3><h4 id="直接分类法"><a href="#直接分类法" class="headerlink" title="直接分类法"></a>直接分类法</h4><p>直接分类法需要对提取出来或编码后的行为特征进行降维处理(如PCA)来减少计算复杂度、去除噪声，再用KNN、SVM等传统分类器进行分类，不同特征之间距离的计算可以通过欧式距离、马氏距离等进行度量。</p>
+<h4 id="时域状态空间融合模型"><a href="#时域状态空间融合模型" class="headerlink" title="时域状态空间融合模型"></a>时域状态空间融合模型</h4><p>利用动态时间规划(Dynamic Time Warping, DTW)或动态时空规划(Dynamic Space-Time Warping, DSTW)，对不同尺度的时间维度进行对齐，或利用生成模型(如HMM)判别模型(如CRF、MEMM)进行分类判断。</p>
+<p>DTW本质上是一个优化问题，用<strong>满足一定条件的时间规整函数来描述输入模板和参考模板的时间对应关系</strong>，进而求解两<strong>模板匹配时累计距离最小</strong>所对应的规整函数。</p>
+<h5 id="动态时间规划"><a href="#动态时间规划" class="headerlink" title="动态时间规划"></a>动态时间规划</h5><p>来源于语音识别的方法。和语音信号的随机性类似，视频中的动作行为对于不同的人不同场景下结果是不同的，不可能具有完全相同的时间长度，故<strong>在与已存储模板相匹配时，未知的时间轴要不均匀地扭曲或弯折</strong>，以使其特征与模板特征对正。</p>
+<p><img src="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/v2-ca8dbeb420bbab322d90e7fbe7615be3_hd.jpg" alt="img"></p>
+<p>如上图所示，两个相同的动作行为时间序列上表征可能有所差异，需要把时间序列进行延伸和缩短来计算两个时间序列性之间的相关性。方法是用代价矩阵来表示归整路径(Warp Path)，用动态规划的算法来对距离最短路径进行求解.</p>
+<p><img src="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/v2-127ad4b77abd30747036d527a8a4e83d_hd.jpg" alt="img"></p>
+<h3 id="以iDT算法为例看传统方法的出理过程"><a href="#以iDT算法为例看传统方法的出理过程" class="headerlink" title="以iDT算法为例看传统方法的出理过程"></a>以iDT算法为例看传统方法的出理过程</h3><p><img src="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/v2-bdaa9a162be9f337364b6d40b585476c_hd.jpg" alt="img"></p>
+<p>《Dense Trajectories and Motion Boundary Descriptors for Action Recognition》和《Action Recognition with Improved Trajectories》</p>
+<p>iDT算法再特征提取上采用了上文中的整体表示方法的时空体积方法，特征融合上采用了Fisher Vector方法，特征分类方面采用了<a href="https://link.zhihu.com/?target=https%3A//en.wikipedia.org/wiki/Radial_basis_function_kernel">RBF-SVM</a>方法，并采用one-versus-rest策略训练多类分类器</p>
+<p>(1). 摄像机预处理</p>
+<p>这个过程的目的在于对摄像机的抖动进行消除，因为摄像机的运动会对光流的计算以及轨迹分布有较大影响，要消除这种干扰就要对摄像机的运动有所估计，从而消除背景区域的光流。由于前提设定为相邻两帧图像变化较小，故摄像机运动估计算法本质上是求解前后帧图像计算投影变换矩阵来实现的，而计算投影变换矩阵需要使用<a href="https://link.zhihu.com/?target=https%3A//en.wikipedia.org/wiki/Random_sample_consensus">RANSAC算法</a>来估计，该算法需要对两幅图像进行匹配，iDT中选择了SURF特征与光流特征作为匹配特征。有了投影变换矩阵，从而可以获得假定摄像机不运动的校正后图像，从而计算出优化过的光流。</p>
+<p>但是如果视频中人体所占比例较大，可能也会被误认为运动的背景，导致投影矩阵估计不准确，iDT使用了一个human detector并对检测到的人体用矩形框标注出来，框中的匹配点不进行计算。</p>
+<p><img src="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/v2-7488d31a771f1e82d46a6fc424cd9304_hd.jpg" alt="img">图14 未经过人体矩形框处理的摄像机校正和经过人体矩形框处理后的摄像机校正</p>
+<p>(2). 帧间特征提取</p>
+<p>首先构建出多尺度空间，在空间中进行密集特征点采样，帧间特征体现的是一个运动的过程，所以需要对这种特征进行跟踪。每个图像都能的到坐标，并可以通过密集光流场与中值滤波器的乘积计算出该特征点下一帧图像的位置，进而得到了该特征点的一段轨迹。再将轨迹正则化后转为一种特征描述子，包括水平和垂直两个方向。</p>
+<p>此外对于不重要的特征点需要设置阈值去除，是通过计算特征点的自相关矩阵的特征值(eigenvalue，不是feature)来和阈值进行比较，并合理去除。</p>
+<p>iDT选择尺度数为8，特征点采样间隔为5，连续采集帧数为15，轨迹特征描述子维度为30。</p>
+<p>(3). 帧内特征提取</p>
+<p>帧内主要提取HoG特征、HoF特征与MBH特征，具体描述可见上一节课。这里的帧内更准确的说是特征点周围N<em>N这个时空体内进行特征提取，空间每个方向分为a份，时间上分为b份，则HoG特征维度为a</em>a<em>b</em>直方图bin数量，HoF特征维度为a<em>a</em>b<em>(直方图bin数量+1)，MBH特征是N</em>b*2。计算后再对三种特征进行L1正则化后再对特征的每个维度开平方。</p>
+<p>i一般N为23，a为2，b为3，直方图bin数量为8，故HoG特征、HoF特征与MBH特征维度分别 96、108、192。</p>
+<p>(4). 特征编码</p>
+<p>iDT中，先进行了一次PCA降维，再进行Fisher Vector编码。PCA的介绍比较多在此不详细展开。Fisher特征即用似然函数的梯度向量来表达。首先各个维度的分布看成独立同分布高斯分布，则图像上的概率分布就是各个特征维度概率分布的乘积，其次对这个乘积(或是取对数后的和)对权重、均值、方差求偏导，再次，用Fisher matrix进行归一化，最后得出融合后的特征数。如果输入特征有d维，用k个高斯分布去拟合，则输出特征有(2<em>d+1)</em>k-1维。通常使用机器学习中的EM来求解GMM的各项参数。论文参见《Image Classification with the Fisher Vector: Theory and Practice》。</p>
+<p>iDT中，原始维度d=426(30+96+108+192)，PCA后降为1/2，输入维度d=213，k=256，输出维度为109311.</p>
+<p>(5). 特征分类</p>
+<p>使用RBF-SVM进行分类。</p>
+<p>one-versus-all即训练时依次把某个类别的样本归为一类,其他剩余的样本归为另一类，k个类别的样本就构造出了k个SVM。</p>
+<p>该算法代码为<a href="https://link.zhihu.com/?target=http%3A//lear.inrialpes.fr/people/wang/dense_trajectories">http://lear.inrialpes.fr/people/wang/dense_trajectories</a></p>
+<p>(6). 结论</p>
+<p><img src="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/v2-1c6a850848f44f2ba3f9d3772b36723b_hd.jpg" alt="img">图15 iDT各特征描述子和不同光流运算方式结合的准确率对比</p>
+<p><img src="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/v2-00111eeecd61b9ffde93ff06e2617916_hd.jpg" alt="img">图16 iDT不同特征融合方式准确率对比</p>
+<p>iDT所选的特征描述子以及它们的组合，结合各种不同光流运算方式在四大数据集中的分类准确率表明，将所有特征描述子都用上，并且去除掉背景轨迹的光流结合方式，最终分类准确率最高。在特征融合上Fisher vector+iDT比BoF\FV+DT\iDT的其他组合都要优异。</p>
+<h2 id="图像分类的深度学习方法"><a href="#图像分类的深度学习方法" class="headerlink" title="图像分类的深度学习方法"></a>图像分类的深度学习方法</h2><p>深度学习网络本质上就是自动编码器、受限玻尔兹曼机、深度置信网络、卷积神经网络、循环神经网络、对抗生成网络这些网络以及它们的组合、变体或演进网络。</p>
+<p>ResNet-152已经以3.5%的错误率超越了人类视觉5.1%的错误率.CNN加以利用仅仅是2维空间的特征提取与分类，在时间方面的特征如何提取并与空间特征进行融合，根据这些不同的问题解决思路可以清晰的分成了三个流派分支，分别是two-stream(双流)方法，C3D方法(三维卷积核法)以及CNN-LSTM方法(卷积循环神经网络)</p>
+<p><img src="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/v2-b7b5591415d249e7d1c219f46a532e82_hd.jpg" alt="img"></p>
+<h3 id="深度学习方法具体流程"><a href="#深度学习方法具体流程" class="headerlink" title="深度学习方法具体流程"></a>深度学习方法具体流程</h3><p><img src="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/v2-ca3dac97b3ae014f88c969ad7bbe1f80_hd.jpg" alt="img"></p>
+<h4 id="数据载入和数据预处理"><a href="#数据载入和数据预处理" class="headerlink" title="数据载入和数据预处理"></a>数据载入和数据预处理</h4><p><strong>数据载入</strong>包括将数据集划分为training set、validate set与test set，并将数据打乱次序，设置数据并行方式。</p>
+<p>验证集与训练集不必分开，但测试集需要完全分开</p>
+<p><strong>并行计算</strong>：单核CPU的SIMD、多核CPU的多线程、多GPU、多主机等各种方式</p>
+<p>瓶颈：指令集版本、CPU核数于主频、PCIe带宽以及网络开销</p>
+<p>数据并行：将一个mini batch的数据放在不同设备上进行计算，实现梯度计算的并行化</p>
+<p>模型并行：将一个神经网络的不同部分放在不同设备上进行计算，从而减少每一轮训练迭代的时间，不过对神经网络不同区域间的依赖程度有所要求</p>
+<p><strong>数据预处理</strong>：归一化、中心化、白化、数据增强（扩张）</p>
+<p>归一化：不必进行归一化(像素尺度范围一致)</p>
+<p>中心化：改变数据的分布中心</p>
+<p>白化：使每一层的输出规范到<code>0~1</code>,改变数据的分布范围</p>
+<p>数据增强：</p>
+<ul>
+<li><p>翻转(Flip)</p>
+</li>
+<li><p>颜色变换(Color Jittering)：可以改变HSV色彩空间的对比度，或RGB经过PCA之后主分量进行随机因子调整，或对每个RGB像素进行盐噪声/高斯噪声扰动</p>
+</li>
+<li><p>随机剪裁/缩放/平移(Random Crops/Scale/Shfit)</p>
+<p><img src="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/v2-d77ebeb3e1dbacdd4ead48410790209f_hd.jpg" alt="img"></p>
+</li>
+</ul>
+<p><img src="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/v2-96d1f36ed4dcf167387dde11368f7f5d_hd.jpg" alt="img"></p>
+<p><img src="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/v2-1c1780b115e54914babd614263e870eb_hd.jpg" alt="img"></p>
+<h4 id="网络构建"><a href="#网络构建" class="headerlink" title="网络构建"></a>网络构建</h4><p>网络设计、网络参数初始化及防止过拟合设计</p>
+<p><strong>网络设计</strong>：考虑因素：</p>
+<ul>
+<li>需要几层卷积层、池化层、正规化层和全连接层</li>
+<li>每一个卷积层的卷积核尺寸、步长、个数是多少</li>
+<li>每一个池化层的尺寸、步长是多少，池化层是平均池化还是最大池化，是否允许有重叠</li>
+<li>在哪些层之后做正则化，全连接层维度是多少</li>
+<li>全连接层维度是多少，数据在每层之间流转的张量各个维度分别是多少，是否需要网中网，是否需要1x1的卷积核进行降维等等</li>
+</ul>
+<p>对于视频识别来说，主要研究精力在于如何添加时间维度并实现于网络之中，故对于基础卷积神经网络的设计一般会沿用经典图像识别网络设计，如VGG、GoogLeNet和ResNet，网络设计中的参数皆为超参数，不随着训练而发生改变</p>
+<p><strong>网络参数初始化及与训练</strong>：可以小随机数初始化，如果要对方差大小进行规范化可以采用<a href="https://link.zhihu.com/?target=https%3A//blog.csdn.net/victoriaw/article/details/73000632">Xavier初始化</a>或<a href="https://link.zhihu.com/?target=https%3A//blog.csdn.net/VictoriaW/article/details/73166752">Kaming初始化</a>，也可以将之前的模型训练结果(pre-trained models，或称为模型载入)进行初始化</p>
+<p><strong>防止过拟合设计</strong>：增强模型的泛化能力，即需要进行正则化(regularization)和随机失活(dropout)</p>
+<h4 id="分类函数与loss定义"><a href="#分类函数与loss定义" class="headerlink" title="分类函数与loss定义"></a>分类函数与loss定义</h4><p><strong>分类函数</strong>由回归函数定义，常见的回归函数有一维线性回归、多维线性回归、多项式回归、Logistic回归、Softmax回归。行为识别属于多标签分类，对于多标签来说最常用的就是Softmax回归，原理是处理多分类任务时将可以判定为某类的特征进行相加，然后将特征转化为判定。</p>
+<p><strong>Loss</strong>：MSE、合页损失函数(hinge loss)和交叉熵函数(cross entropy loss)</p>
+<p>对于Softmax回归最常用的Loss即是交叉熵函数，它是真实的概率分布One-hot编码后取对数再乘以预测的概率分布求和取反。</p>
+<h4 id="优化器定义"><a href="#优化器定义" class="headerlink" title="优化器定义"></a>优化器定义</h4><p>SGD(随机梯度下降)、SGD+Momentum(动量)、SGD+Nesterov Momentum(牛顿型动量)、Adagrad(自适应学习率)、Adadelta、RMSProp、Adam。</p>
+<p>一般用Adam来作为默认的优化算法。初始的学习率一般为0.01或0.001，在训练过程中学习率的调整可以按照固<strong>定次减缓、指数减缓、分数减缓</strong>来进行。</p>
+<h4 id="训练与验证过程"><a href="#训练与验证过程" class="headerlink" title="训练与验证过程"></a>训练与验证过程</h4><p>通过不断迭代，以mini-batch为单位将数据喂给模型，同时计算梯度，更新学习参数，返回本次的accuracy和loss。</p>
+<p>在每个epoch每次批处理(mini-batch)训练后在该训练集和验证集上分别作网络前向运算，预测训练集和验证集样本标记(label)，返回本次的accuracy和loss，绘制学习曲线来检验模型泛化能力。</p>
+<p>每个epoch训练前将数据集随机打乱来确保不同回合喂给模型的数据是不同的；每隔一段时间存储模型参数，以免crash从头训练</p>
+<p>模型微调：可将训练好的模型带入网络进行初始化，选择一个较小的学习率，甚至可以不同层设置不同的学习率微调整个网络模型。</p>
+<h4 id="测试阶段"><a href="#测试阶段" class="headerlink" title="测试阶段"></a>测试阶段</h4><p>只是前向计算没有训练收敛过程，故对于同一个样本输入，输出结果也应该一致。最后，可通过正负样本、Top-1/5或混淆矩阵多种方式表示准确率。</p>
+<h2 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h2><p><img src="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/20190926211248102.png" alt="动作识别与分类"></p>
+<p>方法：</p>
+<p>人体图像分割</p>
+<p>人体骨骼关键点检测</p>
+<p>人体姿态估计</p>
+<p>纯粹的图像（动作）分类</p>
+<p>光流法</p>
+<p>动作的识别最终就能转变成<strong>特征提取、分类</strong>两个主要过程</p>
+<p>特征提取包含<strong>静态帧的特征，动态帧间的特征</strong>。</p>
+<h2 id="动作识别实现"><a href="#动作识别实现" class="headerlink" title="动作识别实现"></a>动作识别实现</h2><p>视频逐帧分析，采用连续的动作识别出人物动作，如走路、跑步、蹲下等。在计算机视觉中人机交互中有很大的应用，主要处理模型大概分为两个大类：卷积神经网络（3D-CNN）、基于循环神经网络与其扩展模型（CNN + LSTM）</p>
+<p>要识别出人物的动作通常需要连续的视频数据进行分析处理，需要采集的特征通常有单帧图像数据的特征和多帧图像数据之间时间上的特征，简单来说就是静态帧数据+帧间数据。</p>
+<p>a、静态帧数据，表示单帧图像空间信息</p>
+<p>b、帧间数据，表示时间信息（光流数据）</p>
+<p>常用的数据集有：KTH、Weizmaan、HOHA、Keck Gesture、MSR action、YouTube Action、UT-Interaction等等。</p>
+<p>从目标分析的角度上看，动作识别也能看作是分类的问题，每个动作就是一类，如果有二十个动作就是二十类。那么动作的识别最终就能转变成特征提取、分类两个主要过程。特征提取包含静态帧的特征，动态帧间的特征。算法在不断的迭代发展，产生了很多经典的处理模型、算法。一般的识别流程为：</p>
+<p><img src="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/640.webp" alt="img"></p>
+<h1 id="传统有监督特征提取方法"><a href="#传统有监督特征提取方法" class="headerlink" title="传统有监督特征提取方法"></a>传统有监督特征提取方法</h1><p>时空关键点，密集轨迹方法</p>
+<h2 id="学习过程"><a href="#学习过程" class="headerlink" title="学习过程"></a>学习过程</h2><p>恰巧我也算是没人带在看这方面的事情，如果基于深度学习的话，你不妨先了解神经网络-&gt;卷积-&gt;循环神经网络。 了解一些通用的众人皆知的卷积神经网络（CNN）之后（如lenet5，alexnet，resnet，googlenet等），再去了解动作识别用神经网络如何去做，通常分为（静态、动态）。静态的话CNN基本可以完成，动态的话，你需要去了解双流结构，Two-Stream Convolutional Networks for Action Recognition in Videos.pdf，去了解3D卷积神经网络（搜索3D convolution for action recognition, C3D network）。 接下来，你可以去了解是否需要加入RNN的模块来帮助构造模型更好的去解析时序类的数据，看一些LSTM+action recognition的论文，在接下来，你可以看看目前火热的Attention机制，</p>
+<h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ol>
+<li><a href="https://zhuanlan.zhihu.com/p/44420871" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/44420871</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/45444790" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/45444790</a></li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/07/24/VS2013+OpenCV4.2.0%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/" rel="prev" title="VS2013+OpenCV4.2.0安装与配置">
+      <i class="fa fa-chevron-left"></i> VS2013+OpenCV4.2.0安装与配置
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/07/24/%E5%B7%A5%E4%BD%9C%E5%B2%97%E4%BD%8D%E9%9C%80%E6%B1%82/" rel="next" title="工作岗位需求">
+      工作岗位需求 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#动作（行为）识别与分类"><span class="nav-number">1.</span> <span class="nav-text">动作（行为）识别与分类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#视频理解"><span class="nav-number">1.1.</span> <span class="nav-text">视频理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图像分类的传统方法"><span class="nav-number">1.2.</span> <span class="nav-text">图像分类的传统方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#特征提取概述"><span class="nav-number">1.2.1.</span> <span class="nav-text">特征提取概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特征提取"><span class="nav-number">1.2.2.</span> <span class="nav-text">特征提取</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#整体表示方式"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">整体表示方式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ROI提取表示"><span class="nav-number">1.2.2.1.1.</span> <span class="nav-text">ROI提取表示</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#时空体积-Space-time-volume-表示"><span class="nav-number">1.2.2.1.2.</span> <span class="nav-text">时空体积(Space-time volume)表示</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#网络切分-Grid-based-表示"><span class="nav-number">1.2.2.1.3.</span> <span class="nav-text">网络切分(Grid-based)表示</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#局部表示方式"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">局部表示方式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#时空兴趣点检测"><span class="nav-number">1.2.2.2.1.</span> <span class="nav-text">时空兴趣点检测</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#STIP"><span class="nav-number">1.2.2.2.1.1.</span> <span class="nav-text">STIP</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Cuboid"><span class="nav-number">1.2.2.2.1.2.</span> <span class="nav-text">Cuboid</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#MEI-MHI"><span class="nav-number">1.2.2.2.1.3.</span> <span class="nav-text">MEI+MHI</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#HoG-HoF"><span class="nav-number">1.2.2.2.1.4.</span> <span class="nav-text">HoG+HoF</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#局部网格表示"><span class="nav-number">1.2.2.2.2.</span> <span class="nav-text">局部网格表示</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特征融合"><span class="nav-number">1.2.3.</span> <span class="nav-text">特征融合</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Bag-of-Feature-词袋-，Bag-of-Visual"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">Bag of Feature(词袋)，Bag of Visual</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Fisher-Vector"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">Fisher Vector</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特征分类"><span class="nav-number">1.2.4.</span> <span class="nav-text">特征分类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#直接分类法"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">直接分类法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#时域状态空间融合模型"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">时域状态空间融合模型</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#动态时间规划"><span class="nav-number">1.2.4.2.1.</span> <span class="nav-text">动态时间规划</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#以iDT算法为例看传统方法的出理过程"><span class="nav-number">1.2.5.</span> <span class="nav-text">以iDT算法为例看传统方法的出理过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图像分类的深度学习方法"><span class="nav-number">1.3.</span> <span class="nav-text">图像分类的深度学习方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#深度学习方法具体流程"><span class="nav-number">1.3.1.</span> <span class="nav-text">深度学习方法具体流程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据载入和数据预处理"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">数据载入和数据预处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网络构建"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">网络构建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分类函数与loss定义"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">分类函数与loss定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优化器定义"><span class="nav-number">1.3.1.4.</span> <span class="nav-text">优化器定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#训练与验证过程"><span class="nav-number">1.3.1.5.</span> <span class="nav-text">训练与验证过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试阶段"><span class="nav-number">1.3.1.6.</span> <span class="nav-text">测试阶段</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据集"><span class="nav-number">1.4.</span> <span class="nav-text">数据集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动作识别实现"><span class="nav-number">1.5.</span> <span class="nav-text">动作识别实现</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#传统有监督特征提取方法"><span class="nav-number">2.</span> <span class="nav-text">传统有监督特征提取方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#学习过程"><span class="nav-number">2.1.</span> <span class="nav-text">学习过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">2.2.</span> <span class="nav-text">References</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Chenyang Min</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chenyang Min</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '809715bb1dc3b600fe38',
+      clientSecret: '962bbbd3c02e9ff070497a47a3a7dc38e33d97f2',
+      repo        : 'perfectism13.github.io',
+      owner       : 'perfectism13',
+      admin       : ['perfectism13'],
+      id          : 'b8b9224485087a88b8212aaccacf8557',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

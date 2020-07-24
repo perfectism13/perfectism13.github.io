@@ -20,19 +20,21 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":"trut","trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="计算机视觉：算法与应用 笔记1 图像形成1.1.1 几何基元与变换几何基元：2D点、2D直线、2D圆锥曲线、3D点、3D平面、3D直线、3D二次曲面 齐次坐标（投影坐标）：用于投影几何里的坐标系统，给定欧氏平面上的一点 (x, y)，对任意非零实数 Z，三元组 (xZ, yZ, Z) 即称之为该点的齐次坐标 笛卡尔坐标与齐次坐标的关系：  投影平面上的任何点都可以表示成一三元组 (X, Y, Z)">
+  <meta name="description" content="Tricks of Training Deep Neural WorksOverfitting训练数据包含抽样误差，训练时，复杂的模型将抽样误差也考虑在内，将抽样误差也进行了很好的拟合。最终模型在训练集上效果好；在测试集上效果差。模型泛化能力弱  过拟合的表现：  train loss不断下降，test loss趋于不变 训练集和测试集准确率相差过大 15%以上  减少模型的复杂程度（容量）L2正">
 <meta property="og:type" content="article">
-<meta property="og:title" content="计算机视觉：算法与应用 笔记">
-<meta property="og:url" content="http://yoursite.com/2020/07/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%EF%BC%9A%E7%AE%97%E6%B3%95%E4%B8%8E%E5%BA%94%E7%94%A8%20%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:title" content="Tricks of Training Deep Neural Works">
+<meta property="og:url" content="http://yoursite.com/2020/07/24/Tricks%20of%20Training%20Deep%20Neural%20Works/index.html">
 <meta property="og:site_name" content="perfectism&#39;s blog">
-<meta property="og:description" content="计算机视觉：算法与应用 笔记1 图像形成1.1.1 几何基元与变换几何基元：2D点、2D直线、2D圆锥曲线、3D点、3D平面、3D直线、3D二次曲面 齐次坐标（投影坐标）：用于投影几何里的坐标系统，给定欧氏平面上的一点 (x, y)，对任意非零实数 Z，三元组 (xZ, yZ, Z) 即称之为该点的齐次坐标 笛卡尔坐标与齐次坐标的关系：  投影平面上的任何点都可以表示成一三元组 (X, Y, Z)">
+<meta property="og:description" content="Tricks of Training Deep Neural WorksOverfitting训练数据包含抽样误差，训练时，复杂的模型将抽样误差也考虑在内，将抽样误差也进行了很好的拟合。最终模型在训练集上效果好；在测试集上效果差。模型泛化能力弱  过拟合的表现：  train loss不断下降，test loss趋于不变 训练集和测试集准确率相差过大 15%以上  减少模型的复杂程度（容量）L2正">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-07-24T04:18:44.382Z">
-<meta property="article:modified_time" content="2020-07-24T03:03:12.000Z">
+<meta property="og:image" content="https://perfectism13.github.io/2020/02/13/Tricks%20of%20Training%20Deep%20Neural%20Works/v2-953f6e7ce85ac1856764572e1c855705_hd.jpg">
+<meta property="article:published_time" content="2020-07-24T05:10:01.128Z">
+<meta property="article:modified_time" content="2020-03-31T02:28:09.000Z">
 <meta property="article:author" content="Chenyang Min">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://perfectism13.github.io/2020/02/13/Tricks%20of%20Training%20Deep%20Neural%20Works/v2-953f6e7ce85ac1856764572e1c855705_hd.jpg">
 
-<link rel="canonical" href="http://yoursite.com/2020/07/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%EF%BC%9A%E7%AE%97%E6%B3%95%E4%B8%8E%E5%BA%94%E7%94%A8%20%E7%AC%94%E8%AE%B0/">
+<link rel="canonical" href="http://yoursite.com/2020/07/24/Tricks%20of%20Training%20Deep%20Neural%20Works/">
 
 
 <script id="page-configurations">
@@ -45,7 +47,7 @@
   };
 </script>
 
-  <title>计算机视觉：算法与应用 笔记 | perfectism's blog</title>
+  <title>Tricks of Training Deep Neural Works | perfectism's blog</title>
   
 
 
@@ -192,7 +194,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%EF%BC%9A%E7%AE%97%E6%B3%95%E4%B8%8E%E5%BA%94%E7%94%A8%20%E7%AC%94%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/24/Tricks%20of%20Training%20Deep%20Neural%20Works/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -205,7 +207,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          计算机视觉：算法与应用 笔记
+          Tricks of Training Deep Neural Works
         </h1>
 
         <div class="post-meta">
@@ -214,10 +216,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-07-24 12:18:44 / 修改时间：11:03:12" itemprop="dateCreated datePublished" datetime="2020-07-24T12:18:44+08:00">2020-07-24</time>
+              <time title="创建时间：2020-07-24 13:10:01" itemprop="dateCreated datePublished" datetime="2020-07-24T13:10:01+08:00">2020-07-24</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-31 10:28:09" itemprop="dateModified" datetime="2020-03-31T10:28:09+08:00">2020-03-31</time>
+              </span>
 
           
 
@@ -230,16 +238,31 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="计算机视觉：算法与应用-笔记"><a href="#计算机视觉：算法与应用-笔记" class="headerlink" title="计算机视觉：算法与应用 笔记"></a>计算机视觉：算法与应用 笔记</h1><h1 id="1-图像形成"><a href="#1-图像形成" class="headerlink" title="1 图像形成"></a>1 图像形成</h1><h2 id="1-1-1-几何基元与变换"><a href="#1-1-1-几何基元与变换" class="headerlink" title="1.1.1 几何基元与变换"></a>1.1.1 几何基元与变换</h2><p><code>几何基元</code>：2D点、2D直线、2D圆锥曲线、3D点、3D平面、3D直线、3D二次曲面</p>
-<p><code>齐次坐标（投影坐标）</code>：用于投影几何里的坐标系统，给定欧氏平面上的一点 (<em>x</em>, <em>y</em>)，对任意非零实数 Z，三元组 (<em>xZ</em>, <em>yZ</em>, <em>Z</em>) 即称之为该点的齐次坐标</p>
-<p><code>笛卡尔坐标与齐次坐标的关系</code>：</p>
+        <h1 id="Tricks-of-Training-Deep-Neural-Works"><a href="#Tricks-of-Training-Deep-Neural-Works" class="headerlink" title="Tricks of Training Deep Neural Works"></a>Tricks of Training Deep Neural Works</h1><h2 id="Overfitting"><a href="#Overfitting" class="headerlink" title="Overfitting"></a>Overfitting</h2><p>训练数据包含<strong>抽样误差</strong>，训练时，复杂的模型将抽样误差也考虑在内，将抽样误差也进行了很好的拟合。最终模型在训练集上效果好；在测试集上效果差。模型泛化能力弱</p>
+<p><img src="https://perfectism13.github.io/2020/02/13/Tricks%20of%20Training%20Deep%20Neural%20Works/v2-953f6e7ce85ac1856764572e1c855705_hd.jpg" alt="img"></p>
+<p>过拟合的表现：</p>
 <ul>
-<li>投影平面上的任何点都可以表示成一三元组 (<em>X</em>, <em>Y</em>, <em>Z</em>)，称之为该点的<strong>齐次坐标</strong>或<strong>投影坐标</strong>，其中 X、Y 及 Z 不全为 0</li>
-<li>当 Z 为 0，则该点表示一无穷远点</li>
-<li>三元组 (0, 0, 0) 不表示任何点。原点表示为 (0, 0, 1)</li>
+<li>train loss不断下降，test loss趋于不变</li>
+<li>训练集和测试集准确率相差过大 15%以上</li>
 </ul>
-<h2 id="1-1-2-2D变换"><a href="#1-1-2-2D变换" class="headerlink" title="1.1.2 2D变换"></a>1.1.2 2D变换</h2><p>平移、刚体运动（旋转+平移）、相似（放缩旋转）、仿射、投影（透视变换）、拉伸/挤压、平面状表面流（经历小的3D运动时）、双线性内插（任意非共线的四点运动的内插）</p>
-<h2 id="1-1-2-3D变换"><a href="#1-1-2-3D变换" class="headerlink" title="1.1.2 3D变换"></a>1.1.2 3D变换</h2><h2 id="4-特征检测与匹配"><a href="#4-特征检测与匹配" class="headerlink" title="4 特征检测与匹配"></a>4 特征检测与匹配</h2><h3 id="4-3-线条"><a href="#4-3-线条" class="headerlink" title="4.3 线条"></a>4.3 线条</h3>
+<h3 id="减少模型的复杂程度（容量）"><a href="#减少模型的复杂程度（容量）" class="headerlink" title="减少模型的复杂程度（容量）"></a>减少模型的复杂程度（容量）</h3><p><strong>L2正则化</strong></p>
+<p><strong>Dropout</strong>：提高dropout的rate</p>
+<p><strong>减少预训练的锁定层数</strong></p>
+<h3 id="更多的数据"><a href="#更多的数据" class="headerlink" title="更多的数据"></a>更多的数据</h3><p>让模型感受更多的数据，逼迫模型泛化</p>
+<p><strong>数据增强</strong></p>
+<p><strong>采集更多的数据</strong></p>
+<p><strong>查看数据集的分割是否合适</strong></p>
+<h3 id="学习率的调整"><a href="#学习率的调整" class="headerlink" title="学习率的调整"></a>学习率的调整</h3><p>trick是 <strong>warm up（热身），就是先采用小的学习率（0.01）进行训练，</strong>训练了400iterations之后将学习率调整至0.1开始正式训练</p>
+<p>在学习遇到瓶颈，即训练和验证损失均趋于不变时，适当调小batch_size,用更细的笔来画画</p>
+<h3 id="进行交叉验证"><a href="#进行交叉验证" class="headerlink" title="进行交叉验证"></a>进行交叉验证</h3><p>当数据集比较小的时候，交叉验证可以“充分利用”有限的数据找到合适的模型参数，防止过度拟合</p>
+<p>做法：就是把样本集S分成k份，分别使用其中的(k-1)份作为训练集，剩下的1份作为交叉验证集，最后取最后的平均误差，来评估这个模型</p>
+<p>最后对k个模型的结果取平均</p>
+<h3 id="Early-Stopping"><a href="#Early-Stopping" class="headerlink" title="Early Stopping"></a>Early Stopping</h3><h2 id="Owe-fitting"><a href="#Owe-fitting" class="headerlink" title="Owe fitting"></a>Owe fitting</h2><p>若准确率很低，检查数据和标签的对应关系，或者损失函数是否导致无法梯度下降</p>
+<p>1、观察数据中是否有异常样本或异常label导致数据读取异常<br>2、调小初始化权重，以便使softmax输入的feature尽可能变小<br>3、降低学习率，这样就能减小权重参数的波动范围，从而减小权重变大的可能性。这条也是网上出现较多的方法。</p>
+<p>4、调大batch_size<br>5、如果有BN（batch normalization）层，finetune时最好不要冻结BN的参数，否则数据分布不一致时很容易使输出值变的很大。</p>
+<p>6、神经网络不够深。</p>
+<p>7、训练的epoch不够。</p>
+<h2 id="训练和验证集loss相差不大，验证集准确率为1或者0"><a href="#训练和验证集loss相差不大，验证集准确率为1或者0" class="headerlink" title="训练和验证集loss相差不大，验证集准确率为1或者0"></a>训练和验证集loss相差不大，验证集准确率为1或者0</h2><h2 id="检查数据集是否存在inf或者NaN"><a href="#检查数据集是否存在inf或者NaN" class="headerlink" title="检查数据集是否存在inf或者NaN"></a>检查数据集是否存在inf或者NaN</h2><h2 id="有时在第一代打乱数据，后续不再打乱，可能会有意想不到的好结果"><a href="#有时在第一代打乱数据，后续不再打乱，可能会有意想不到的好结果" class="headerlink" title="有时在第一代打乱数据，后续不再打乱，可能会有意想不到的好结果"></a><strong>有时在第一代打乱数据，后续不再打乱，可能会有意想不到的好结果</strong></h2><h2 id="References"><a href="#References" class="headerlink" title="References"></a><strong>Referenc</strong>es</h2>
     </div>
 
     
@@ -254,12 +277,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2019/11/10/note%20of%20opencv2python/" rel="prev" title="Note of Opencv2Python">
-      <i class="fa fa-chevron-left"></i> Note of Opencv2Python
+    <a href="/2020/07/24/PyTorch%E7%AC%94%E8%AE%B0/" rel="prev" title="PyTorch笔记">
+      <i class="fa fa-chevron-left"></i> PyTorch笔记
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/07/24/C++%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="next" title="C++学习笔记">
-      C++学习笔记 <i class="fa fa-chevron-right"></i>
+    <a href="/2020/07/24/VS2013+OpenCV4.2.0%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/" rel="next" title="VS2013+OpenCV4.2.0安装与配置">
+      VS2013+OpenCV4.2.0安装与配置 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -320,7 +343,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#计算机视觉：算法与应用-笔记"><span class="nav-number">1.</span> <span class="nav-text">计算机视觉：算法与应用 笔记</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-图像形成"><span class="nav-number">2.</span> <span class="nav-text">1 图像形成</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-1-几何基元与变换"><span class="nav-number">2.1.</span> <span class="nav-text">1.1.1 几何基元与变换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-2-2D变换"><span class="nav-number">2.2.</span> <span class="nav-text">1.1.2 2D变换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-2-3D变换"><span class="nav-number">2.3.</span> <span class="nav-text">1.1.2 3D变换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-特征检测与匹配"><span class="nav-number">2.4.</span> <span class="nav-text">4 特征检测与匹配</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-线条"><span class="nav-number">2.4.1.</span> <span class="nav-text">4.3 线条</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Tricks-of-Training-Deep-Neural-Works"><span class="nav-number">1.</span> <span class="nav-text">Tricks of Training Deep Neural Works</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Overfitting"><span class="nav-number">1.1.</span> <span class="nav-text">Overfitting</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#减少模型的复杂程度（容量）"><span class="nav-number">1.1.1.</span> <span class="nav-text">减少模型的复杂程度（容量）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更多的数据"><span class="nav-number">1.1.2.</span> <span class="nav-text">更多的数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#学习率的调整"><span class="nav-number">1.1.3.</span> <span class="nav-text">学习率的调整</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进行交叉验证"><span class="nav-number">1.1.4.</span> <span class="nav-text">进行交叉验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Early-Stopping"><span class="nav-number">1.1.5.</span> <span class="nav-text">Early Stopping</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Owe-fitting"><span class="nav-number">1.2.</span> <span class="nav-text">Owe fitting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#训练和验证集loss相差不大，验证集准确率为1或者0"><span class="nav-number">1.3.</span> <span class="nav-text">训练和验证集loss相差不大，验证集准确率为1或者0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#检查数据集是否存在inf或者NaN"><span class="nav-number">1.4.</span> <span class="nav-text">检查数据集是否存在inf或者NaN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有时在第一代打乱数据，后续不再打乱，可能会有意想不到的好结果"><span class="nav-number">1.5.</span> <span class="nav-text">有时在第一代打乱数据，后续不再打乱，可能会有意想不到的好结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">1.6.</span> <span class="nav-text">References</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -449,7 +472,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'perfectism13.github.io',
       owner       : 'perfectism13',
       admin       : ['perfectism13'],
-      id          : '17ad01bdd858e8a9abd89cddb3c75ba6',
+      id          : 'bcec9109d5b71e2f24f97dea18c42716',
         language: 'zh-CN',
       distractionFreeMode: true
     });

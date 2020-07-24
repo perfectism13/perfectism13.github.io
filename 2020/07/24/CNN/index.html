@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":"trut","trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="CNNConvolutional Neural Networks Foundation卷积层（Convolutional layer)作用：对输入的数据进行特征提取，可对应多个卷积核，一般来说经过卷积层后，尺寸变小，厚度变厚，越往后面感受野变大，既降尺寸，又降厚度，参数需要学习 卷积核和图像一样有通道数，卷积核滑动步长（stride），每个卷积核对应一个局部特征（梯度特征） 为了让输入图像的全部像">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CNN">
+<meta property="og:url" content="http://yoursite.com/2020/07/24/CNN/index.html">
+<meta property="og:site_name" content="perfectism&#39;s blog">
+<meta property="og:description" content="CNNConvolutional Neural Networks Foundation卷积层（Convolutional layer)作用：对输入的数据进行特征提取，可对应多个卷积核，一般来说经过卷积层后，尺寸变小，厚度变厚，越往后面感受野变大，既降尺寸，又降厚度，参数需要学习 卷积核和图像一样有通道数，卷积核滑动步长（stride），每个卷积核对应一个局部特征（梯度特征） 为了让输入图像的全部像">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/23/CNN/j8kLBKs.gif">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/23/CNN/img.png">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/23/CNN/5413944-d91ffdd1cd88f593.webp">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/23/CNN/3.png">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/23/CNN/AlexNet_Summary_Table.jpg">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/23/CNN/image-20191130201534590.png">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/23/CNN/4.png">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/23/CNN/0_HREIJ1hjF7z4y9Dd.jpg">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/23/CNN/VGG16_Summary-Table.jpg">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/23/CNN/image-20191201134358397.png">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/23/CNN/image-20191201135206376.png">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/23/CNN/1207807-20190324141917298-1669677542.png">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/23/CNN/1_rXcdL9OV5YKlYyks9XK-wA.png">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/23/CNN/image-20191201162719817.png">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/23/CNN/th.tiff">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/23/CNN/th.jpg">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/23/CNN/image-20191201201755562.png">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/23/CNN/image-20191201201856514.png">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/23/CNN/image-20191201202413767.png">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/23/CNN/image-20191201203933188.png">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/23/CNN/image-20191201204319424.png">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/23/CNN/image-20191203000234253.png">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/23/CNN/image-20191202223355957.png">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/23/CNN/Users/%E9%97%B5%E6%99%A8%E9%98%B31998/AppData/Roaming/Typora/typora-user-images/image-20191202235511488.png">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/23/CNN/resnet-architectures-34-101.png">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/23/CNN/image-20191203151455943.png">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/23/CNN/resnext_table.png">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/23/CNN/Users/%E9%97%B5%E6%99%A8%E9%98%B31998/AppData/Roaming/Typora/typora-user-images/image-20191203154319654.png">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/23/CNN/image-20191203184638688.png">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/23/CNN/image-20191203185114194.png">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/23/CNN/image-20191203171558330.png">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/23/CNN/Users/%E9%97%B5%E6%99%A8%E9%98%B31998/AppData/Roaming/Typora/typora-user-images/image-20191203184243798.png">
+<meta property="article:published_time" content="2020-07-24T05:10:01.112Z">
+<meta property="article:modified_time" content="2020-03-16T13:41:55.000Z">
+<meta property="article:author" content="Chenyang Min">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://perfectism13.github.io/2019/11/23/CNN/j8kLBKs.gif">
+
+<link rel="canonical" href="http://yoursite.com/2020/07/24/CNN/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>CNN | perfectism's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">perfectism's blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/perfectism13" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/24/CNN/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Chenyang Min">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="perfectism's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          CNN
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-24 13:10:01" itemprop="dateCreated datePublished" datetime="2020-07-24T13:10:01+08:00">2020-07-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-16 21:41:55" itemprop="dateModified" datetime="2020-03-16T21:41:55+08:00">2020-03-16</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="CNN"><a href="#CNN" class="headerlink" title="CNN"></a>CNN</h1><p>Convolutional Neural Networks</p>
+<h2 id="Foundation"><a href="#Foundation" class="headerlink" title="Foundation"></a>Foundation</h2><h3 id="卷积层（Convolutional-layer"><a href="#卷积层（Convolutional-layer" class="headerlink" title="卷积层（Convolutional layer)"></a>卷积层（Convolutional layer)</h3><p><strong>作用：</strong>对输入的数据进行<strong>特征提取</strong>，可对应多个卷积核，一般来说经过卷积层后，尺寸变小，厚度变厚，越往后面感受野变大，既降尺寸，又降厚度，参数需要学习</p>
+<p>卷积核和图像一样有通道数，卷积核滑动步长（stride），每个卷积核对应一个局部特征（梯度特征）</p>
+<p>为了让输入图像的全部像素都能被滑动窗口捕获，使用same方式在输入图像最外层加上指定层数（padding）全为0的像素边界，使用valid方式不做像素填充。经过卷积后输出图像的宽度与高度参数如下：</p>
+<p> Woutput =Winput −Wfilter +2PS+1Houtput =Hintput−Hfilter +2PS+1 Woutput =Winput −Wfilter +2PS+1Houtput =Hintput−Hfilter +2PS+1</p>
+<p>多通道卷积操作：卷积核变为$ kernelsize<em>kernelsize</em>c $单独通道卷积后求和+偏置,如下图：</p>
+<p><img src="https://perfectism13.github.io/2019/11/23/CNN/j8kLBKs.gif" alt="img"></p>
+<h3 id="池化层-Pooling-layer"><a href="#池化层-Pooling-layer" class="headerlink" title="池化层(Pooling layer)"></a>池化层(Pooling layer)</h3><p><strong>作用：**</strong>一种提取输入数据核心特征的方式，特征融合、降维压缩原始数据**，减少参与模型计算的参数，不降通道数，只降图片尺寸，参数不需要学习</p>
+<p>常用方法：平均池化、最大池化</p>
+<p>WoutputHoutput=Winput−WfilterS+1=Hinput−HfilterS+1Woutput=Winput−WfilterS+1Houtput=Hinput−HfilterS+1</p>
+<h3 id="全连接层-Fully-Connected-layer"><a href="#全连接层-Fully-Connected-layer" class="headerlink" title="全连接层(Fully-Connected layer)"></a>全连接层(Fully-Connected layer)</h3><p><strong>作用：推理器、分类器</strong>，将前两层的输出给到一个完全连接前馈网络，经激活函数处理，便可以得到分类预测的结果，全局感受野，直接去除空间信息，需要学习参数，等效于全局卷积（1x1卷积）</p>
+<p>下图是一张28x28的图片经3x3的卷积核（最外层加一层0、步长为1）的卷积层，2x2的步长为2的最大池化层、再经过一个全连接层的结果。</p>
+<p><img src="https://perfectism13.github.io/2019/11/23/CNN/img.png" alt="img"></p>
+<h3 id="Softmax层-批量归一化层-Batch-Normalization-layer"><a href="#Softmax层-批量归一化层-Batch-Normalization-layer" class="headerlink" title="Softmax层(批量归一化层-Batch Normalization layer)"></a>Softmax层(批量归一化层-Batch Normalization layer)</h3><p>指数归一化函数</p>
+<p>σ(z)j=ezj∑Kk=1ezk for j=1,…,Kσ(z)j=ezj∑k=1Kezk for j=1,…,K</p>
+<p>将一个实数值向量压缩到（0，1）</p>
+<h2 id="Traning-tricks"><a href="#Traning-tricks" class="headerlink" title="Traning tricks"></a>Traning tricks</h2><h3 id="图像像素中心化"><a href="#图像像素中心化" class="headerlink" title="图像像素中心化"></a>图像像素中心化</h3><p>（R,G,B)减去各自通道的均值</p>
+<h3 id="防过拟合，提高泛化能力"><a href="#防过拟合，提高泛化能力" class="headerlink" title="防过拟合，提高泛化能力"></a>防过拟合，提高泛化能力</h3><p><strong>数据增强</strong>：</p>
+<p>1.在256x256的图片中，随机裁剪一块224x224的子区域</p>
+<p>2.旋转、反转</p>
+<p><strong>Dropout随机失活</strong>：一般是让一半的神经元仍有推断能力，反向传播时不经过这些节点，防止网络过度依赖全部节点，只在training时dropout</p>
+<p><strong>Weight decay权重衰减（L2正则）</strong>：其中C0C0为原本的loss function</p>
+<p>C=C0+λ2n∑ww2C=C0+λ2n∑ww2</p>
+<h2 id="感受野（-Receptive-Field-）"><a href="#感受野（-Receptive-Field-）" class="headerlink" title="感受野（ Receptive Field ）"></a>感受野（ Receptive Field ）</h2><p>在卷积神经网络中，感受野（Receptive Field）的定义是卷积神经网络每一层输出的特征图（feature map）上每个像素点在原始图像上映射的区域大小，这里的原始图像是指网络的输入图像，是经过预处理（如resize，warp，crop）后的图像。</p>
+<p>神经元之所以无法对原始图像的所有信息进行感知，是因为在卷积神经网络中普遍使用卷积层和pooling层，在层与层之间均为局部连接。</p>
+<p>神经元感受野的值越大表示其能接触到的原始图像范围就越大，也意味着它可能蕴含更为全局，语义层次更高的特征；相反，值越小则表示其所包含的特征越趋向局部和细节。因此感受野的值可以用来大致判断每一层的抽象层次.</p>
+<p>i.e,</p>
+<p><img src="https://perfectism13.github.io/2019/11/23/CNN/5413944-d91ffdd1cd88f593.webp" alt="img"></p>
+<p>计算公式：</p>
+<p>rn=rn−1∗kn−(kn−1)∗(rn−1−∏i=1n−1si)n&gt;=2rn=rn−1∗kn−(kn−1)∗(rn−1−∏i=1n−1si)n&gt;=2</p>
+<h2 id="CNN的发展"><a href="#CNN的发展" class="headerlink" title="CNN的发展"></a>CNN的发展</h2><p><img src="https://perfectism13.github.io/2019/11/23/CNN/3.png" alt="img"></p>
+<p>常见的CNN 结构一般为：输入～＞［［ 卷积～＞激活函数］ × N ～＞池化］ × M ～〉［ 全连接～＞激活］ × K ～＞全连接， N 个卷积＋激活＋池化构成一个子网络，通过叠加这个子网络达到增强整个网络表达能力的效果，接着再跟上几组全连接加激活的子网络， 最后进行一次全连接＋ s。如nax （对于二分类使用sigmoid ）。这样就可以使网络模块化，搭建网络就像搭积木一样简洁。</p>
+<h3 id="AlexNet"><a href="#AlexNet" class="headerlink" title="AlexNet"></a>AlexNet</h3><p>Hinton课题组，2012ILSVRC冠军，一举超越SVM，标志着DNN革命的开始</p>
+<p>训练时长：2weeks，5个卷积层，3个全连接层，60M个参数，650k个神经元</p>
+<p>新技术：ReLU、最大池化、dropout、局部响应归一化（Local Response Normalization,LRN)</p>
+<p>详细参数如下表：</p>
+<p><img src="https://perfectism13.github.io/2019/11/23/CNN/AlexNet_Summary_Table.jpg" alt="img"></p>
+<p><img src="https://perfectism13.github.io/2019/11/23/CNN/image-20191130201534590.png" alt="image-20191130201534590"></p>
+<p><img src="https://perfectism13.github.io/2019/11/23/CNN/4.png" alt="img"></p>
+<p>对于conv1的Pad是否为2仍然有争议</p>
+<h4 id="局部响应归一化（Local-Response-Normalization"><a href="#局部响应归一化（Local-Response-Normalization" class="headerlink" title="局部响应归一化（Local Response Normalization)"></a>局部响应归一化（Local Response Normalization)</h4><p>bix,y=aix,y(k+α∑i+n/2j=i−n/2(ajx,y)2)βbx,yi=ax,yi(k+α∑j=i−n/2i+n/2(ax,yj)2)β</p>
+<p>在某一层得到多通道的响应图后，对相应图上某一位置和临近通道的值按上式做归一化，k,α,βk,α,β均为超参数，nn为局部通道的总数，模拟的是动物神经的横向抑制效应。</p>
+<p>若该通道和邻近通道的绝对之都比较大，归一后值有更小的趋势。但VGG组发现LRN在11层网络中已经起了负作用。而且将LRN放在maxpool层前，在计算上并不经济，caffenet将两层的顺序更换，进行了改进。</p>
+<h3 id="VGG"><a href="#VGG" class="headerlink" title="VGG"></a>VGG</h3><p>由牛津大学视觉几何组（visual geometry group),2014ILSVRC定位第一，分类第二，网络改造的首选基础网络</p>
+<p>核心思想卷积核拆解，或者说将卷积核的size固定为3x3，5拆成两个3x3,7拆成3x3,不同层数的VGG参数如下：</p>
+<p><img src="https://perfectism13.github.io/2019/11/23/CNN/0_HREIJ1hjF7z4y9Dd.jpg" alt="img"></p>
+<p><img src="https://perfectism13.github.io/2019/11/23/CNN/VGG16_Summary-Table.jpg" alt="img"></p>
+<h3 id="NiN（Network-in-Network"><a href="#NiN（Network-in-Network" class="headerlink" title="NiN（Network-in-Network)"></a>NiN（Network-in-Network)</h3><p>提高CNN的局部感知区域（bottleneck）,为1x1卷积层，通过调整1×1卷积核的数量，可以在不改变输入feature map尺寸和感受野的情况下，灵活地增加或减少feature map的channel数量，<strong>特征组合与降维、引入更多的非线性</strong>，当然也可以升维，表达能力更强，在实现feature map间信息交流的同时，获得信息的压缩或增广表示。 相当于直接压缩特征图厚度，节省了计算资源。</p>
+<h3 id="全局平均池化（Global-Average-Pooling）"><a href="#全局平均池化（Global-Average-Pooling）" class="headerlink" title="全局平均池化（Global Average Pooling）"></a>全局平均池化（Global Average Pooling）</h3><p>对最后一层卷积的响应图，每个通道求整个响应图的均值，再接一层全连接，全局池化后的值相当于一像素，最后的全连接相当于一个加权相加，这种结构比直接的全连接更直观，泛化性更好。</p>
+<p>把特征图全局平均一下输出一个值，也就是把$H<em>W</em>D的一个张量变成的一个张量变成1<em>1</em>D$的张量</p>
+<h3 id="GoogleNet"><a href="#GoogleNet" class="headerlink" title="GoogleNet"></a>GoogleNet</h3><p>2014分类第一，减少参数，降低计算，增加宽度、深度</p>
+<h4 id="Naive-Inception"><a href="#Naive-Inception" class="headerlink" title="Naive Inception"></a>Naive Inception</h4><p><img src="https://perfectism13.github.io/2019/11/23/CNN/image-20191201134358397.png" alt="image-20191201134358397"></p>
+<p>1）所有卷积层直接和上层的输出对接，卷积核的参数异常多，计算量异常大，2）最大池化层不改变深度，合并时深度增加明显，计算量过大</p>
+<h4 id="Inception-V1"><a href="#Inception-V1" class="headerlink" title="Inception V1"></a>Inception V1</h4><p><img src="https://perfectism13.github.io/2019/11/23/CNN/image-20191201135206376.png" alt="image-20191201135206376"></p>
+<p>1）<strong>分离与合并</strong>，增加多尺度适应性，增加网络宽度 ，串接合并所有分支输出，2）使用<strong>1x1卷积</strong>进行特征降维与组合，极大降低后续卷积操作的卷积参数数量，3）取消参数量大的FC，本质是全尺寸的卷积层，由<strong>全局平均池化</strong>代替，4）<strong>两个辅助分类器</strong>，解决前几层的梯度消失，测试阶段不使用</p>
+<p>具体的参数如下：</p>
+<p><img src="https://perfectism13.github.io/2019/11/23/CNN/1207807-20190324141917298-1669677542.png" alt="img"></p>
+<p><img src="https://perfectism13.github.io/2019/11/23/CNN/1_rXcdL9OV5YKlYyks9XK-wA.png" alt="img"></p>
+<p>网络结构如下：</p>
+<p><img src="https://perfectism13.github.io/2019/11/23/CNN/image-20191201162719817.png" alt="image-20191201162719817"></p>
+<h4 id="Inception-V2"><a href="#Inception-V2" class="headerlink" title="Inception V2"></a>Inception V2</h4><p><img src="https://perfectism13.github.io/2019/11/23/CNN/th.tiff" alt="img"></p>
+<p>1）<strong>批量归一化（Batch Normalization)</strong>，在batch范围内对每个特征通道分别进行归一化,解决Internal Covariate Shift问题（神经元数据分布发生变动）,保证训练数据里数值都在同一<strong>量级</strong>上，使训练时的数值更加稳定。 <strong>批量归一化层</strong>的提出是针对这个情况。它<strong>将一个批量里的输入数据进行归一化然后输出</strong>。如果我们将批量归一化层放置在网络的各个层之间，那么就可以不断的对中间输出进行调整，从而保证整个网络的中间输出的<strong>数值稳定性</strong>。</p>
+<ul>
+<li><p>白化：使每一层的输出规范到N(0,1)N(0,1),因为大多数激活函数在(−1,1)(−1,1)间都有较大梯度，故可以允许较高学习率, conv→BN→ReLUconv→BN→ReLU</p>
+</li>
+<li><p>可取代部分Dropout，注意BN在卷积层，Dropout在全连接层</p>
+</li>
+<li><p>μ←1m∑mi=1xiσ2=1m∑mi=1(xi−μ)x^i←xi−μσ2+ε√μ←1m∑i=1mxiσ2=1m∑i=1m(xi−μ)x^i←xi−μσ2+ε</p>
+</li>
+<li><p>这里ϵ是一个很小的常数保证不除以0 ，但这样并不是最好的分布，i.e,数据本身不对称，激活函数在(−1,1)(−1,1)间梯度变化不大，因此配对使用scale和shift，γ,βγ,β需要学习</p>
+</li>
+<li><p>y^i←γx^i+βy^i←γx^i+β</p>
+</li>
+<li><p>Training：每个batch中μ,σμ,σ会被存储，Testing:使用所有batch的μ,σμ,σ均值</p>
+</li>
+</ul>
+<p>2）卷积核：卷积核拆解</p>
+<h4 id="Inception-V3"><a href="#Inception-V3" class="headerlink" title="Inception V3"></a>Inception V3</h4><p>工程实验因素明显</p>
+<p><img src="https://perfectism13.github.io/2019/11/23/CNN/th.jpg" alt="img"></p>
+<p>1）<strong>非对称卷积</strong>：NXN分解成$1<em>N\to N</em>1$,降低参数数量和计算量</p>
+<p>2）不同分辨率使用不同inception modules</p>
+<ul>
+<li><img src="https://perfectism13.github.io/2019/11/23/CNN/image-20191201201755562.png" alt="image-20191201201755562"></li>
+<li><img src="https://perfectism13.github.io/2019/11/23/CNN/image-20191201201856514.png" alt="image-20191201201856514"></li>
+</ul>
+<p><img src="https://perfectism13.github.io/2019/11/23/CNN/image-20191201202413767.png" alt="image-20191201202413767"></p>
+<p>3）解决pooling导致的特征损失与计算量增大之间的矛盾</p>
+<p><img src="https://perfectism13.github.io/2019/11/23/CNN/image-20191201203933188.png" alt="image-20191201203933188"></p>
+<p> 提出了如下解决方案：卷积分支与池化分支并行，然后串接分支结果</p>
+<p><img src="https://perfectism13.github.io/2019/11/23/CNN/image-20191201204319424.png" alt="image-20191201204319424"></p>
+<p>4）取消完全无用的浅层分类器，深层辅助分类器只在训练后期有用，起到一定正则化作用</p>
+<h4 id="Inception-V4"><a href="#Inception-V4" class="headerlink" title="Inception V4"></a>Inception V4</h4><p>引入残差的思想：</p>
+<p><img src="https://perfectism13.github.io/2019/11/23/CNN/image-20191203000234253.png" alt="image-20191203000234253"></p>
+<h3 id="ResNet残差网络"><a href="#ResNet残差网络" class="headerlink" title="ResNet残差网络"></a>ResNet残差网络</h3><p>2015分类任务第一，发明者为何凯明，现在Facebook AI</p>
+<p><strong>目的：</strong>解决退化问题</p>
+<p><strong>退化问题</strong>：随着层数加深到一定程度，越深的网络效果反而更差，并不是因为”深”造成了过拟合或梯度传播的衰减</p>
+<p> <strong>简单的例子</strong>：堆叠一层使堆叠后的输出和堆叠前的输出相同，即使用全为1x1的值为1的卷积核，但实验结果表明，网络层数达到一定深度，结果变差</p>
+<p>深度更深，∂L∂W&gt;1∂L∂W&gt;1，一般来说浅层的卷积核尺寸大，因为浅层需要大的感受野来感知原始信息</p>
+<p><img src="https://perfectism13.github.io/2019/11/23/CNN/image-20191202223355957.png" alt="image-20191202223355957"></p>
+<p>1）残差网络（Residual net)</p>
+<ul>
+<li>因为Plain net（朴素网络）可以拟合任意目标映射，故Residual可以拟合任意目标映射，</li>
+<li>F(x)F(x)对于xx来说是残差映射</li>
+<li>当H(X)H(X)接近xx时，很容易捕捉到小的波动</li>
+</ul>
+<p>2) 除了第一层的7X7卷积层，剩下全是3x3卷积层</p>
+<p>3）卷积步长为2代替池化，使用BN，取消全连接层，取消Dropout</p>
+<p>4）恒等映射两种使用情况：残差模块的输入数据若和输出结果的维度一致，贝lj 直接相加；若维度不一致，则先进行线性投影，在得到一致的维度后，再进行相加或者对维度不一致的部分使用0 填充。</p>
+<p><img src="https://perfectism13.github.io/2019/11/23/CNN/Users/%E9%97%B5%E6%99%A8%E9%98%B31998/AppData/Roaming/Typora/typora-user-images/image-20191202235511488.png" alt="image-20191202235511488"></p>
+<p>注意此处的相加为通道直接叠加，详细参数：</p>
+<p><img src="https://perfectism13.github.io/2019/11/23/CNN/resnet-architectures-34-101.png" alt="img"></p>
+<h3 id="ResNeXt网络"><a href="#ResNeXt网络" class="headerlink" title="ResNeXt网络"></a>ResNeXt网络</h3><p>2016竞赛第二</p>
+<p>1)提出第三个DNN维度，<strong>cardinality基数</strong>，采用Split-Transform-Aggregate策略将卷积核按通道分组，形成32个并行分支，最后逐像素进行加法合并</p>
+<p>2）100层ResNeXt相当于200层ResNet，</p>
+<p><img src="https://perfectism13.github.io/2019/11/23/CNN/image-20191203151455943.png" alt="image-20191203151455943"></p>
+<p>没有基数前的参数数量：$256<em>1</em>1<em>64+64</em>3<em>3</em>64+64<em>1</em>1*256 = 69632$</p>
+<p>并行分支后的参数数量：$32<em>(256</em>1<em>1</em>4+4<em>3</em>3<em>4+4</em>1<em>1</em>256) = 70144$可见参数数量差别不大</p>
+<p>3）增加基数会不断提高性能</p>
+<p>详细参数：</p>
+<p><img src="https://perfectism13.github.io/2019/11/23/CNN/resnext_table.png" alt="img"></p>
+<p><strong>FLOPs</strong>： floating point operations ， 意指浮点运算数，理解为计算量。可以用来衡量算法/模型的复杂度</p>
+<p><strong>FLOPS</strong>: floating point operations per second , 意指每秒浮点运算次数，理解为计算速度。是一个衡量硬件性能的指标。</p>
+<h3 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h3><p><img src="https://perfectism13.github.io/2019/11/23/CNN/Users/%E9%97%B5%E6%99%A8%E9%98%B31998/AppData/Roaming/Typora/typora-user-images/image-20191203154319654.png" alt="image-20191203154319654"></p>
+<p>ImageNet分类的准确性和执行效率对比：</p>
+<p><img src="https://perfectism13.github.io/2019/11/23/CNN/image-20191203184638688.png" alt="image-20191203184638688"></p>
+<p>场景分类的性能对比：</p>
+<p><img src="https://perfectism13.github.io/2019/11/23/CNN/image-20191203185114194.png" alt="image-20191203185114194"></p>
+<h3 id="CNN的设计准则"><a href="#CNN的设计准则" class="headerlink" title="CNN的设计准则"></a>CNN的设计准则</h3><p>1.<strong>避免信息瓶颈</strong>:使数据量$H<em>W</em>C$缓慢变小，不能突降或突升</p>
+<p>2.<strong>通道（卷积核）数量保持在可控范围内</strong>，假设输入通道为CC，输出通道为KK,则参数数量为$H<em>{f}*W</em>{f}<em>C</em>K,操作数量为,操作数量为\frac {H<em>H_{f}}{stride}</em>\frac {W<em>W_{f}}{stride}</em>C*K$</p>
+<p>3.<strong>感受野要足够大</strong></p>
+<ul>
+<li>多个小尺寸卷积核比用一个大的卷积核更优，参数少，计算快；多个非线性激活，i,e. $64<em>5</em>5<em>64&lt;64</em>(3<em>3+3</em>3)*64$,且多了一个激活函数，非线性因素更多</li>
+</ul>
+<p>4.<strong>分组策略</strong>，降低计算量，i,e.$64<em>3</em>3<em>64+32</em>3<em>3</em>32&lt;96<em>3</em>3*96$</p>
+<p><img src="https://perfectism13.github.io/2019/11/23/CNN/image-20191203171558330.png" alt="image-20191203171558330"></p>
+<p>5.<strong>低秩分解</strong>：降低参数，降低计算量</p>
+<p><img src="https://perfectism13.github.io/2019/11/23/CNN/Users/%E9%97%B5%E6%99%A8%E9%98%B31998/AppData/Roaming/Typora/typora-user-images/image-20191203184243798.png" alt="image-20191203184243798"></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/07/24/C++%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="prev" title="C++学习笔记">
+      <i class="fa fa-chevron-left"></i> C++学习笔记
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/07/24/Detection%20of%20Secondary%20Driving%20Tasks/" rel="next" title="Detection of Secondary Driving Tasks">
+      Detection of Secondary Driving Tasks <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CNN"><span class="nav-number">1.</span> <span class="nav-text">CNN</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Foundation"><span class="nav-number">1.1.</span> <span class="nav-text">Foundation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#卷积层（Convolutional-layer"><span class="nav-number">1.1.1.</span> <span class="nav-text">卷积层（Convolutional layer)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#池化层-Pooling-layer"><span class="nav-number">1.1.2.</span> <span class="nav-text">池化层(Pooling layer)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全连接层-Fully-Connected-layer"><span class="nav-number">1.1.3.</span> <span class="nav-text">全连接层(Fully-Connected layer)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Softmax层-批量归一化层-Batch-Normalization-layer"><span class="nav-number">1.1.4.</span> <span class="nav-text">Softmax层(批量归一化层-Batch Normalization layer)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Traning-tricks"><span class="nav-number">1.2.</span> <span class="nav-text">Traning tricks</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#图像像素中心化"><span class="nav-number">1.2.1.</span> <span class="nav-text">图像像素中心化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#防过拟合，提高泛化能力"><span class="nav-number">1.2.2.</span> <span class="nav-text">防过拟合，提高泛化能力</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#感受野（-Receptive-Field-）"><span class="nav-number">1.3.</span> <span class="nav-text">感受野（ Receptive Field ）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CNN的发展"><span class="nav-number">1.4.</span> <span class="nav-text">CNN的发展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#AlexNet"><span class="nav-number">1.4.1.</span> <span class="nav-text">AlexNet</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#局部响应归一化（Local-Response-Normalization"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">局部响应归一化（Local Response Normalization)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VGG"><span class="nav-number">1.4.2.</span> <span class="nav-text">VGG</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NiN（Network-in-Network"><span class="nav-number">1.4.3.</span> <span class="nav-text">NiN（Network-in-Network)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全局平均池化（Global-Average-Pooling）"><span class="nav-number">1.4.4.</span> <span class="nav-text">全局平均池化（Global Average Pooling）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GoogleNet"><span class="nav-number">1.4.5.</span> <span class="nav-text">GoogleNet</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Naive-Inception"><span class="nav-number">1.4.5.1.</span> <span class="nav-text">Naive Inception</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Inception-V1"><span class="nav-number">1.4.5.2.</span> <span class="nav-text">Inception V1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Inception-V2"><span class="nav-number">1.4.5.3.</span> <span class="nav-text">Inception V2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Inception-V3"><span class="nav-number">1.4.5.4.</span> <span class="nav-text">Inception V3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Inception-V4"><span class="nav-number">1.4.5.5.</span> <span class="nav-text">Inception V4</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ResNet残差网络"><span class="nav-number">1.4.6.</span> <span class="nav-text">ResNet残差网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ResNeXt网络"><span class="nav-number">1.4.7.</span> <span class="nav-text">ResNeXt网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对比"><span class="nav-number">1.4.8.</span> <span class="nav-text">对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CNN的设计准则"><span class="nav-number">1.4.9.</span> <span class="nav-text">CNN的设计准则</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Chenyang Min</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chenyang Min</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '809715bb1dc3b600fe38',
+      clientSecret: '962bbbd3c02e9ff070497a47a3a7dc38e33d97f2',
+      repo        : 'perfectism13.github.io',
+      owner       : 'perfectism13',
+      admin       : ['perfectism13'],
+      id          : 'd056a0980434975450444d0a764e14d1',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>

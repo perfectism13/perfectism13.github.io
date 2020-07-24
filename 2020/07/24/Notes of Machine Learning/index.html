@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":"trut","trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Notes of Machine LearningMin Chen Yang, Hunan University, 2019.11 初识机器学习从原始数据中提取模式的能力。 进入21世纪，纵观机器学习发展历程，研究热点可以简单总结为2000-2006年的流形学习、2006年-2011年的稀疏学习、2012年至今的深度学习 、未来迁移学习？ 人工智能的真正挑战在于解决对人来说很容易执行，但很难形式化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Notes of Machine Learning">
+<meta property="og:url" content="http://yoursite.com/2020/07/24/Notes%20of%20Machine%20Learning/index.html">
+<meta property="og:site_name" content="perfectism&#39;s blog">
+<meta property="og:description" content="Notes of Machine LearningMin Chen Yang, Hunan University, 2019.11 初识机器学习从原始数据中提取模式的能力。 进入21世纪，纵观机器学习发展历程，研究热点可以简单总结为2000-2006年的流形学习、2006年-2011年的稀疏学习、2012年至今的深度学习 、未来迁移学习？ 人工智能的真正挑战在于解决对人来说很容易执行，但很难形式化">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/21.PNG">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/22.PNG">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/23.PNG">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/jacobian-1572707333030.PNG">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/hessian.PNG">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/v2-01d06795480b91a9bc1fa57ce5fd7009_hd.webp">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/2.png">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/logistic-1572783311445.PNG">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/19.png">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/20.PNG">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/3-1573908546270.PNG">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/4-1573908942871.PNG">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/frame.PNG">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/15.PNG">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/2.PNG">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/7.PNG">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/5.PNG">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/6.PNG">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/8.PNG">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/9.PNG">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/10.PNG">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/11.PNG">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/12.PNG">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/13.png">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/14.PNG">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/16.PNG">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/17.PNG">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/18.png">
+<meta property="og:image" content="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/image-20191208211006443.png">
+<meta property="article:published_time" content="2020-07-24T05:10:01.121Z">
+<meta property="article:modified_time" content="2020-03-16T13:50:39.000Z">
+<meta property="article:author" content="Chenyang Min">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/21.PNG">
+
+<link rel="canonical" href="http://yoursite.com/2020/07/24/Notes%20of%20Machine%20Learning/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Notes of Machine Learning | perfectism's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">perfectism's blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/perfectism13" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/24/Notes%20of%20Machine%20Learning/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Chenyang Min">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="perfectism's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Notes of Machine Learning
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-24 13:10:01" itemprop="dateCreated datePublished" datetime="2020-07-24T13:10:01+08:00">2020-07-24</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-16 21:50:39" itemprop="dateModified" datetime="2020-03-16T21:50:39+08:00">2020-03-16</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Notes-of-Machine-Learning"><a href="#Notes-of-Machine-Learning" class="headerlink" title="Notes of Machine Learning"></a>Notes of Machine Learning</h1><p>Min Chen Yang, Hunan University, 2019.11</p>
+<h2 id="初识机器学习"><a href="#初识机器学习" class="headerlink" title="初识机器学习"></a>初识机器学习</h2><p><strong>从原始数据中提取模式的能力。</strong></p>
+<p>进入21世纪，纵观机器学习发展历程，研究热点可以简单总结为2000-2006年的流形学习、2006年-2011年的稀疏学习、2012年至今的深度学习 、未来迁移学习？</p>
+<p>人工智能的真正挑战在于解决对人来说很容易执行，但很难形式化描述的任务。</p>
+<p>常用的10大机器学习算法有：决策树、随机森林、逻辑回归、SVM、朴素贝叶斯、K最近邻算法、K均值算法、Adaboost算法、神经网络、马尔科夫</p>
+<p>大致分类：</p>
+<p>监督式学习：决策树、KNN（K邻近）、朴素贝叶斯(贝叶斯分类器）、逻辑回归、支持向量机</p>
+<p>非监督式学习：聚类、主成分分析PCA</p>
+<p>深度学习：卷积神经网络、自编码器、循环神经网络</p>
+<p><img src="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/21.PNG" alt="img"></p>
+<p><img src="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/22.PNG" alt="22"></p>
+<p>机器学习的三个步骤：搭建model（一系列函数），选择评价loss，选择最优的model</p>
+<p><img src="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/23.PNG" alt="23"></p>
+<p>结构化学习：超出分类的问题，如seq2seq、机器翻译、语音辨识</p>
+<p>半监督学习：少量带label数据和大量没有label的数据，让model从没有label的数据中获益</p>
+<p>无监督学习：全为无label数据，如让机器画画、阅读文章等</p>
+<p>强化学习：从惩罚或者批评中学习，而监督学习从老师学习，需要老师手把手交，显然强化学习更加智能</p>
+<h2 id="Deep-Learning"><a href="#Deep-Learning" class="headerlink" title="Deep Learning"></a>Deep Learning</h2><h3 id="初识"><a href="#初识" class="headerlink" title="初识"></a>初识</h3><p><strong>让计算机从经验中学习，根据层次化的概念体系来理解世界，每个概念通过与相对简单的概念之间的关系定义。</strong></p>
+<h3 id="数学基础"><a href="#数学基础" class="headerlink" title="数学基础"></a>数学基础</h3><p>一维数组，二维矩阵，三维张量</p>
+<h4 id="雅可比Jacobian矩阵"><a href="#雅可比Jacobian矩阵" class="headerlink" title="雅可比Jacobian矩阵"></a>雅可比Jacobian矩阵</h4><p><img src="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/jacobian-1572707333030.PNG" alt="img"></p>
+<h4 id="海森Hessian矩阵"><a href="#海森Hessian矩阵" class="headerlink" title="海森Hessian矩阵"></a>海森Hessian矩阵</h4><p><img src="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/hessian.PNG" alt="img"></p>
+<h4 id="softmax函数（归一化指数函数）"><a href="#softmax函数（归一化指数函数）" class="headerlink" title="softmax函数（归一化指数函数）"></a>softmax函数（归一化指数函数）</h4><p>σ(z)j=ezj∑Kk=1ezk for j=1,…,Kσ(z)j=ezj∑k=1Kezk for j=1,…,K</p>
+<p>观察到的数据属于某个类的概率,经常将其作为神经网络的输出层</p>
+<h4 id="linear-algebra"><a href="#linear-algebra" class="headerlink" title="linear algebra"></a>linear algebra</h4><p>标量、向量、矩阵、张量</p>
+<p>矩阵乘积、矩阵点积</p>
+<p>单位矩阵、逆矩阵</p>
+<p>生成子空间（列空间、值域）、线性相关（无关）、矩阵的奇异性</p>
+<p>范数、欧几里得范数、最大范数</p>
+<p>对角矩阵、正交矩阵、实对称矩阵</p>
+<p>特征值、特征向量、矩阵的特征分解、实对称矩阵特征分解来优化二次方程</p>
+<h3 id="DNN基础"><a href="#DNN基础" class="headerlink" title="DNN基础"></a>DNN基础</h3><p>感知机是神经网络的最小单元</p>
+<h4 id="线性变化与仿射变换"><a href="#线性变化与仿射变换" class="headerlink" title="线性变化与仿射变换"></a>线性变化与仿射变换</h4><p><strong>线性变换</strong>：</p>
+<ul>
+<li>变换前是直线的，变换后依然是直线</li>
+<li>直线比例保持不变</li>
+<li>变换前是原点的，变换后依然是原点</li>
+</ul>
+<p><strong>仿射变换</strong>：线性变换+平移</p>
+<ul>
+<li><p>变换前是直线的，变换后依然是直线</p>
+</li>
+<li><p>直线比例保持不变</p>
+</li>
+<li><p>变换前是原点的，变换后依然是原点</p>
+</li>
+</ul>
+<p>  y⃗ =Ax⃗ +b⃗ y→=Ax→+b→</p>
+<p><strong>通过线性变换来完成仿射变换</strong></p>
+<p>通过高维度的线性变换完成低维度的仿射变换：</p>
+<p>[y⃗ 1]=[A0b⃗ 1][x⃗ 1][y→1]=[Ab→01][x→1]</p>
+<p>假设某二维图形上每个点为x⃗ x→，则[x⃗ 1][x→1]表示将其平移到z=1z=1的平面上</p>
+<p><img src="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/v2-01d06795480b91a9bc1fa57ce5fd7009_hd.webp" alt="img"></p>
+<p>线性不可分的样本在经过仿射变换后，仍然是不可分的</p>
+<h4 id="监督学习"><a href="#监督学习" class="headerlink" title="监督学习"></a>监督学习</h4><p>提供一组输入数据和其对应的标签数据，然后搭建一个模型，让模型在通过训练后准确地找到输入数据和标签数据之间的最优映射关系，在输入新的数据后，模型能够通过之前学到的最优映射关系， 快速地预测出这组新数据的标签。</p>
+<h5 id="回归问题"><a href="#回归问题" class="headerlink" title="回归问题"></a>回归问题</h5><p>模型通过训练后得到一个连续的线性映射关系，i.e,根据离散的（房屋面积，房屋价格）之间的关系找到房屋价格与房屋面积间的连续函数关系</p>
+<h5 id="分类问题"><a href="#分类问题" class="headerlink" title="分类问题"></a>分类问题</h5><p>模型通过训练后得到一个离散的线性映射关系，输出结果为有限个</p>
+<h4 id="无监督学习"><a href="#无监督学习" class="headerlink" title="无监督学习"></a>无监督学习</h4><p>提供一组没有任何标签的输入数据，将其在我们搭建好的模型中进行训练，对整个训练过程不做任何干涉，最后得到一个能够发现数据之间隐藏特征的映射模型，使用这个映射模型能够实现对新数据的分类，使用无监督学习实现分类的算法叫做<strong>聚类</strong>。更具有创造性，有利于提高机器学习算法对新鲜样本的适应能力（泛化能力）。</p>
+<p><strong>半监督学习、弱监督学习</strong>等创新方法也在出现。</p>
+<h4 id="欠拟合、过拟合"><a href="#欠拟合、过拟合" class="headerlink" title="欠拟合、过拟合"></a>欠拟合、过拟合</h4><p><img src="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/2.png" alt="image-20191128224211081"></p>
+<p>如图：a)为欠拟合，b)为过拟合，c）为正常训练出的模型</p>
+<p>欠拟合：对已有数据的匹配性很差，但对数据中的噪声不敏感，不能对新数据准确预测</p>
+<p>原因及解决方法：1）没有把握数据的主要特征，加入更多和原数据有重要相关性的特征来训练，2）增加函数次项来增加泛化能力，3）减少正则化参数:正则化参数是为了防止过拟合，若出现欠拟合，可减少正则化参数</p>
+<p>过拟合：对数据的匹配性太好，对数据中的噪声特别敏感</p>
+<p>解决方法：1）过度捕获了数据的有限特征，可增大训练的数据量，2）正则化：对目标函数增加一个参数范数惩罚，限制其学习能力</p>
+<h4 id="后向传播"><a href="#后向传播" class="headerlink" title="后向传播"></a>后向传播</h4><h4 id="损失和优化"><a href="#损失和优化" class="headerlink" title="损失和优化"></a>损失和优化</h4><p><strong>损失函数</strong>:进行损失值计算的函数，均方误差（MSE)、均方根误差(RMSE)、平均绝对误差(MAE)</p>
+<p>MSE=1N∑i=1N(yitrue −yipred )2MSE=1N∑i=1N(ytrue i−ypred i)2</p>
+<p>RMSE=1N∑i=1N(yitrue −yipred )2−−−−−−−−−−−−−−−−−−⎷RMSE=1N∑i=1N(ytrue i−ypred i)2</p>
+<p>MAE=1N∑i=1N∣∣(yitrue −yipred )∣∣MAE=1N∑i=1N|(ytrue i−ypred i)|</p>
+<p><strong>优化函数</strong>：对模型参数进行优化的函数，解决参数初始化、参数微调形式、学习速率如何选取的方案的集合</p>
+<p> 梯度：多元函数的偏导以向量的形式展示。</p>
+<p> 常用优化函数：</p>
+<p> <strong>1）全局梯度下降GD</strong>：模型的训练依赖整个训练集，增加了计算损失值的时间成本和模型训练过程的复杂度</p>
+<p> <strong>2）批量梯度下降BGD</strong>：将训练集分成若干份，每个批次（batch）使用一次来进行梯度更新，可能会导致局部最优</p>
+<p> <strong>3）随机梯度下降SGD</strong>：随机从数据集中选取一部分参与模型训练，可能导致局部最优，受噪声影响严重</p>
+<p> <strong>4）Adam</strong>：损失值大时采用大的ηη,反之采用小的ηη，对梯度消失、收敛过慢、高方差的参数更新等导致的损失值波动均有很好的方法。ηη过大会导致局部最优和抖动，反之会使参数优化的时间变长</p>
+<p> <strong>5）扰动—动量算法</strong></p>
+<h4 id="激活函数"><a href="#激活函数" class="headerlink" title="激活函数"></a>激活函数</h4><p>多层感知机无论多深，始终为线性，线性模型很难处理非线性问题，激活函数可带来非线性元素，抑制输出，便可近似拟合所有函数</p>
+<h5 id="Logistic-sigmoid-函数"><a href="#Logistic-sigmoid-函数" class="headerlink" title="Logistic sigmoid 函数"></a>Logistic sigmoid 函数</h5><p>f(x)=11+e−xf(x)=11+e−x</p>
+<p><img src="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/logistic-1572783311445.PNG" alt="img"></p>
+<p>与生物神经网络的工作机理非常相似，</p>
+<p><strong>1）</strong>因dfdx∈(0∼0.25)dfdx∈(0∼0.25),会导致梯度消失（后向传播时每逆向经过一个节点，梯度值缩小为1/41/4,t梯度值越来越小）</p>
+<p><strong>2）</strong>因f(x)&gt;0f(x)&gt;0,模型优化时收敛速度变慢，会增加时间成本，因此应尽量使用零中心数据，保证计算得到的输出结果是零中心数据</p>
+<h5 id="tanh函数"><a href="#tanh函数" class="headerlink" title="tanh函数"></a>tanh函数</h5><p>f(x)=ex−e−xex+e−xf(x)=ex−e−xex+e−x</p>
+<p><img src="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/19.png" alt="img"></p>
+<p>tanh输出结果是零中心数据，可解决收敛速度变慢的问题，但dfdx∈(0∼1)dfdx∈(0∼1),仍可能出现梯度消失，特别是x→−∞x→−∞或x→+∞x→+∞时，dfdx→0dfdx→0</p>
+<h5 id="ReLU函数（修正线性单元）"><a href="#ReLU函数（修正线性单元）" class="headerlink" title="ReLU函数（修正线性单元）"></a>ReLU函数（修正线性单元）</h5><p>f(x)=max(0,x)f(x)=max(0,x)</p>
+<p><img src="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/20.PNG" alt="img"></p>
+<p>分段线性、收敛速度非常快、无饱和问题、明显减轻梯度消失问题，但输出不是零中心数据，可能导致某些神经元永远不被激活，对应参数永远不被更新</p>
+<p>解决方法：使用Xavier方法初始化参数</p>
+<p>改进版本：Leaky—ReLU、R-ReLU</p>
+<h3 id="李宏毅note"><a href="#李宏毅note" class="headerlink" title="李宏毅note"></a>李宏毅note</h3><p>DNN:深度神经网络</p>
+<p>CNN：卷积神经网络</p>
+<p>RNN：递归（循环）神经网络</p>
+<p>LSTM：长短期记忆</p>
+<h5 id="单层感知机模型实现与门、或门、非门"><a href="#单层感知机模型实现与门、或门、非门" class="headerlink" title="单层感知机模型实现与门、或门、非门"></a>单层感知机模型实现与门、或门、非门</h5><p>假定三个输入：x0=1,x1,x2x0=1,x1,x2,激活函数为用小于0时输出10，大于等于0时输出1</p>
+<p>与门：输入均为1输出为1，其他输出为0，设定w0=−8,w1=5,w2=5w0=−8,w1=5,w2=5可实现</p>
+<p>或门：有1为1，设定w0=−5,w1=8,w2=8w0=−5,w1=8,w2=8可实现</p>
+<p>非门：去掉输入x2x2,设定w0=10,w1=20w0=10,w1=20可实现</p>
+<p>异或门：单层只能处理线性可分问题，不能处理非线性问题，因此多层感知机诞生了。</p>
+<h5 id="完全连接前馈网络"><a href="#完全连接前馈网络" class="headerlink" title="完全连接前馈网络"></a>完全连接前馈网络</h5><p>定义一组函数：</p>
+<p><img src="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/3-1573908546270.PNG" alt="3"></p>
+<ul>
+<li><p>给定参数 𝜃, 定义一个函数；给定网络结构，定义一个函数集</p>
+</li>
+<li><p><img src="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/4-1573908942871.PNG" alt="4"></p>
+</li>
+<li><p>f([1−1])=[0.620.83]f([1−1])=[0.620.83]</p>
+</li>
+</ul>
+<p>深度学习的三个步骤：</p>
+<p><img src="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/frame.PNG" alt="img"></p>
+<p>模型和数据的拟合：</p>
+<ul>
+<li>准备训练数据—图片及其标签</li>
+<li>softmax层作为输出层，正确结果应对应输出层的最大值</li>
+</ul>
+<p>最优函数的选择：</p>
+<ul>
+<li>神经网络的两个参数：权重和偏差</li>
+<li>损失是神经网络输出和目标之间的距离</li>
+<li>最优的函数：找到使总损失最小的参数 𝜽</li>
+<li>关键计算算是关于参数的偏导</li>
+</ul>
+<p>选择的方法：梯度下降 Backpropagation？</p>
+<ul>
+<li>选取W的初始值,计算w←w−η∂L/∂ww←w−η∂L/∂w,直到∂L/∂w∂L/∂w足够小</li>
+<li>不能保证全局最小值，不同的初始点到达不同的初始值</li>
+<li>反向传播是一种有效的计算∂L/∂w∂L/∂w的方法—深度学习框架</li>
+<li><img src="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/15.PNG" alt="img"></li>
+<li>ηη可认为其参数值更新的快慢，即学习率</li>
+</ul>
+<h5 id="为什么使用深度神经网络"><a href="#为什么使用深度神经网络" class="headerlink" title="为什么使用深度神经网络"></a>为什么使用深度神经网络</h5><p>对于同样个数的神经元数量，浅胖或者深瘦？</p>
+<p><strong>EX</strong>：深瘦：长短发，男孩女孩，浅胖：长发男孩、长发女孩、短法男孩、短法女孩</p>
+<p>深瘦: 每个基础分类器都可以有足够的训练实例 浅胖：长发男孩样本少，没有足够的训练实例</p>
+<p><img src="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/2.PNG" alt="img"></p>
+<h5 id="神经网络变体"><a href="#神经网络变体" class="headerlink" title="神经网络变体"></a>神经网络变体</h5><h6 id="卷积神经网络（CNN"><a href="#卷积神经网络（CNN" class="headerlink" title="卷积神经网络（CNN)"></a>卷积神经网络（CNN)</h6><p><strong>为什么CNN用于图像识别</strong></p>
+<ol>
+<li>当处理图像时，全连接网络的第一层将会非常大</li>
+<li>一些模式比整张图片小得多（如：识别鸟嘴即可识别出鸟），神经元通过较少的参数连接到小区域去发现模式</li>
+<li>同样的模式可能出现在图像的不同区域，不同区域的神经元可能相同</li>
+<li>对图像进行二次采样不会改变图像中的物体、使图像变小（获取图像压缩比例、加载图像缩略图、避免图片加载时的OOM异常 ）</li>
+<li><img src="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/7.PNG" alt="7"></li>
+</ol>
+<p><strong>滤波器</strong></p>
+<p>给定宽度和高度的滤波器，不同滤波器提取一个 patch 的不同特性。例如，一个滤波器寻找特定颜色，另一个寻找特定物体的特定形状。卷积层滤波器的数量被称为滤波器深度。</p>
+<p><strong>图像的最大池化（Max Pooling）</strong></p>
+<p>最大池化是基于样本的离散化过程。目的是对输入表示（图像，隐藏层输出矩阵等）进行下采样，以减小其尺寸，并允许对合并的子区域中包含的特征进行假设.</p>
+<p>通过提供表示形式的抽象形式来帮助过度拟合。同样，它通过减少学习参数的数量来减少计算成本，并为内部表示提供基本的平移不变性 。下图为步长为2的最大池化：</p>
+<p><img src="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/5.PNG" alt="5"></p>
+<p><strong>CNN整体结构</strong></p>
+<p><img src="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/6.PNG" alt="6"></p>
+<h6 id="循环神经网络（RNN"><a href="#循环神经网络（RNN" class="headerlink" title="循环神经网络（RNN)"></a>循环神经网络（RNN)</h6><p><strong>插槽填充</strong></p>
+<p>输入序列向量化，将每一个输入的单词用向量表示，可以使用 One-of-N Encoding 或者是 Word hashing 等编码方法，输出预测槽位的概率分布</p>
+<p><strong>1.1-of-N encoding</strong></p>
+<p>向量是词典大小；每个维度对应于词典中的一个单词；这个词的维数是1，其他的是0；为了表示一些不知道的词汇，加入other这个维度</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">词典 &#x3D; &#123;apple, bag, cat, dog, elephant&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>2.Word hashing</strong>（字串比对）</p>
+<p><img src="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/8.PNG" alt="8"></p>
+<p>不同的序列如：arrive Taipei和leave Taipei，此时Taipei应该被放入不同的slot</p>
+<p>因此引入具有记忆属性的RNN</p>
+<p><strong>3.RNN（Elman Network）</strong></p>
+<p><img src="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/9.PNG" alt="9"></p>
+<p>变式：深层、双向（可以考虑整个sequence的input）、Jordan Network</p>
+<p><img src="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/10.PNG" alt="10"></p>
+<p>输出是有目标的，因此Jordan Network表现更好</p>
+<p><strong>4.LSTM（长短期记忆）</strong></p>
+<p>一种特殊神经元机构：4 inputs，1 output，memory cell</p>
+<p><img src="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/11.PNG" alt="11"></p>
+<p><img src="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/12.PNG" alt="12"></p>
+<p>图中c′=g(z)f(zi)+cf(zf)c′=g(z)f(zi)+cf(zf),为memory cell的记忆更新值，激活函数使用sigmoid function，输出表示门的打开和关闭。输入向量点乘相应的权重向量得到输入、输出、以及遗忘“门”的输入通过激活函数的输出来决定“门”的开闭。</p>
+<p><strong>5.Multiple-layer LSTM</strong></p>
+<p><img src="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/13.png" alt="img"></p>
+<p>一般的LSTM还靖上一层LSTM的memory cell的值、output与当前时刻的input合并为一个新的向量，再点乘相应权重向量，来控制该层LSTM。</p>
+<p>Keras 支持LSTM、GRU（Gated Recurrent Unit、two gates、参数量少1/3、旧的不去新的不来）、SimpleRNN（memory不断被洗掉）</p>
+<p><strong>6.RNN 训练技巧</strong></p>
+<p><img src="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/14.PNG" alt="img"></p>
+<p>原因：memory cell不断与权重乘积</p>
+<p>导致的问题：</p>
+<ol>
+<li>当∂L/∂w∂L/∂w非常大时，梯度下降的参数更新会将参数抛出很远，导致lost异常增大，因此应选择衰减速度足够慢的学习率，避免上坡运动。</li>
+<li>会出现梯度消失</li>
+</ol>
+<p><strong>解决方法：</strong></p>
+<p><strong>截断梯度</strong>：在参数更新前，逐元素地截断<strong>小批量产生的参数梯度</strong>或<strong>截断梯度gg的范数</strong></p>
+<p> if ∥g∥&gt;vg←gv∥g∥ if ‖g‖&gt;vg←gv‖g‖</p>
+<p><strong>LSTM</strong>:可以解决梯度消失 (不能解决梯度爆炸)</p>
+<ol>
+<li>当forget gate打开时梯度永远不会消失</li>
+</ol>
+<p>GRU可将input gate与forget gate联动，只有一个gate可打开，只有将memory cell清掉，才能输入；或者没有输入时，memory cell才能更新</p>
+<p><strong>clockwise RNN、Structurally Constrained Recurrent Network (SCRN)</strong></p>
+<p><strong>7.应用</strong></p>
+<ol>
+<li><p>many to one :setiment analysis(情感分析)</p>
+</li>
+<li><p>many to many（output is shorter）:语音识别，通过Connectionist Temporal Classification (CTC)来剔除重复的声音vector对应的输出（添加null来隔开相同的输出）</p>
+</li>
+<li><p>many to many（No limition、sequence to sequence):机器翻译，EX：根据中文声音信号转成英文文字</p>
+</li>
+<li><p>beyond sequence: syntactic parsing(语法分析)</p>
+</li>
+<li><p>auto-encoder:<strong>Text</strong>:考虑文件或语句的顺序将其变为向量 <strong>Speech</strong>：将声音信号编码为向量</p>
+<p><img src="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/16.PNG" alt="img"></p>
+<p>此时编码器和解码器同时工作，目标是使经过编码和解码后的输出与输入尽量相似。</p>
+</li>
+</ol>
+<h6 id="注意力集中模型"><a href="#注意力集中模型" class="headerlink" title="注意力集中模型"></a>注意力集中模型</h6><p>Attention-based Model、Neural Turing machine</p>
+<p><img src="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/17.PNG" alt="img"></p>
+<p><strong>应用</strong></p>
+<p>Reading Comprehension、Visual Question Answering</p>
+<p>EX：Speech Question Answering</p>
+<p><img src="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/18.png" alt="image-20191119214456154"></p>
+<h4 id="RNN-vs-Structured-Learning"><a href="#RNN-vs-Structured-Learning" class="headerlink" title="RNN vs Structured Learning"></a>RNN vs Structured Learning</h4><h3 id="深度学习框架"><a href="#深度学习框架" class="headerlink" title="深度学习框架"></a>深度学习框架</h3><p>theano: 蒙特利尔大学蒙特利尔学习算法研究所开发</p>
+<p>caffe: CAFFE是一个深度学习框架，最初开发于加利福尼亚大学伯克利分校。Caffe在BSD许可下开源，使用C++编写，带有Python接口</p>
+<p>tensorflow: TensorFlow是一个开源软件库，用于各种感知和语言理解任务的机器学习</p>
+<p>keras: Keras是一个用Python编写的开源神经网络库，能够在TensorFlow、Microsoft Cognitive Toolkit、Theano或PlaidML之上运行</p>
+<p><img src="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/image-20191208211006443.png" alt="image-20191208211006443"></p>
+<p>API风格：上方为命令式，趋于统一；下方为符号式</p>
+<h3 id="深度学习与计算机视觉"><a href="#深度学习与计算机视觉" class="headerlink" title="深度学习与计算机视觉"></a>深度学习与计算机视觉</h3><p>图片分类（二分类、多分类），图像的目标识别，图像的语义分割、风格迁移</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/07/24/Note%20of%20ROS%20to%20Ubantu/" rel="prev" title="Note of ROS to Ubantu">
+      <i class="fa fa-chevron-left"></i> Note of ROS to Ubantu
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/07/24/Numpy%20%E7%AC%94%E8%AE%B0/" rel="next" title="Numpy 笔记">
+      Numpy 笔记 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="gitalk-container"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Notes-of-Machine-Learning"><span class="nav-number">1.</span> <span class="nav-text">Notes of Machine Learning</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#初识机器学习"><span class="nav-number">1.1.</span> <span class="nav-text">初识机器学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deep-Learning"><span class="nav-number">1.2.</span> <span class="nav-text">Deep Learning</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#初识"><span class="nav-number">1.2.1.</span> <span class="nav-text">初识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数学基础"><span class="nav-number">1.2.2.</span> <span class="nav-text">数学基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#雅可比Jacobian矩阵"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">雅可比Jacobian矩阵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#海森Hessian矩阵"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">海森Hessian矩阵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#softmax函数（归一化指数函数）"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">softmax函数（归一化指数函数）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#linear-algebra"><span class="nav-number">1.2.2.4.</span> <span class="nav-text">linear algebra</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DNN基础"><span class="nav-number">1.2.3.</span> <span class="nav-text">DNN基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#线性变化与仿射变换"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">线性变化与仿射变换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#监督学习"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">监督学习</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#回归问题"><span class="nav-number">1.2.3.2.1.</span> <span class="nav-text">回归问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#分类问题"><span class="nav-number">1.2.3.2.2.</span> <span class="nav-text">分类问题</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#无监督学习"><span class="nav-number">1.2.3.3.</span> <span class="nav-text">无监督学习</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#欠拟合、过拟合"><span class="nav-number">1.2.3.4.</span> <span class="nav-text">欠拟合、过拟合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#后向传播"><span class="nav-number">1.2.3.5.</span> <span class="nav-text">后向传播</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#损失和优化"><span class="nav-number">1.2.3.6.</span> <span class="nav-text">损失和优化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#激活函数"><span class="nav-number">1.2.3.7.</span> <span class="nav-text">激活函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Logistic-sigmoid-函数"><span class="nav-number">1.2.3.7.1.</span> <span class="nav-text">Logistic sigmoid 函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tanh函数"><span class="nav-number">1.2.3.7.2.</span> <span class="nav-text">tanh函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ReLU函数（修正线性单元）"><span class="nav-number">1.2.3.7.3.</span> <span class="nav-text">ReLU函数（修正线性单元）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#李宏毅note"><span class="nav-number">1.2.4.</span> <span class="nav-text">李宏毅note</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#单层感知机模型实现与门、或门、非门"><span class="nav-number">1.2.4.0.1.</span> <span class="nav-text">单层感知机模型实现与门、或门、非门</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#完全连接前馈网络"><span class="nav-number">1.2.4.0.2.</span> <span class="nav-text">完全连接前馈网络</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#为什么使用深度神经网络"><span class="nav-number">1.2.4.0.3.</span> <span class="nav-text">为什么使用深度神经网络</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#神经网络变体"><span class="nav-number">1.2.4.0.4.</span> <span class="nav-text">神经网络变体</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#卷积神经网络（CNN"><span class="nav-number">1.2.4.0.4.1.</span> <span class="nav-text">卷积神经网络（CNN)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#循环神经网络（RNN"><span class="nav-number">1.2.4.0.4.2.</span> <span class="nav-text">循环神经网络（RNN)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#注意力集中模型"><span class="nav-number">1.2.4.0.4.3.</span> <span class="nav-text">注意力集中模型</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RNN-vs-Structured-Learning"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">RNN vs Structured Learning</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深度学习框架"><span class="nav-number">1.2.5.</span> <span class="nav-text">深度学习框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深度学习与计算机视觉"><span class="nav-number">1.2.6.</span> <span class="nav-text">深度学习与计算机视觉</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Chenyang Min</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Chenyang Min</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '809715bb1dc3b600fe38',
+      clientSecret: '962bbbd3c02e9ff070497a47a3a7dc38e33d97f2',
+      repo        : 'perfectism13.github.io',
+      owner       : 'perfectism13',
+      admin       : ['perfectism13'],
+      id          : '6a822d49ad296545a6c7e91af72b5abe',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
+
+</body>
+</html>
