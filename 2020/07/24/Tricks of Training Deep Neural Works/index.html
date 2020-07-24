@@ -20,16 +20,16 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":"trut","trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Tricks of Training Deep Neural WorksOverfitting训练数据包含抽样误差，训练时，复杂的模型将抽样误差也考虑在内，将抽样误差也进行了很好的拟合。最终模型在训练集上效果好；在测试集上效果差。模型泛化能力弱  过拟合的表现：  train loss不断下降，test loss趋于不变 训练集和测试集准确率相差过大 15%以上  减少模型的复杂程度（容量）L2正">
+  <meta name="description" content="Tricks of Training Deep Neural WorksOverfitting训练数据包含抽样误差，训练时，复杂的模型将抽样误差也考虑在内，将抽样误差也进行了很好的拟合。最终模型在训练集上效果好；在测试集上效果差。模型泛化能力弱  过拟合的表现：  train loss不断下降，test loss趋于不变  训练集和测试集准确率相差过大 15%以上">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tricks of Training Deep Neural Works">
 <meta property="og:url" content="http://yoursite.com/2020/07/24/Tricks%20of%20Training%20Deep%20Neural%20Works/index.html">
 <meta property="og:site_name" content="perfectism&#39;s blog">
-<meta property="og:description" content="Tricks of Training Deep Neural WorksOverfitting训练数据包含抽样误差，训练时，复杂的模型将抽样误差也考虑在内，将抽样误差也进行了很好的拟合。最终模型在训练集上效果好；在测试集上效果差。模型泛化能力弱  过拟合的表现：  train loss不断下降，test loss趋于不变 训练集和测试集准确率相差过大 15%以上  减少模型的复杂程度（容量）L2正">
+<meta property="og:description" content="Tricks of Training Deep Neural WorksOverfitting训练数据包含抽样误差，训练时，复杂的模型将抽样误差也考虑在内，将抽样误差也进行了很好的拟合。最终模型在训练集上效果好；在测试集上效果差。模型泛化能力弱  过拟合的表现：  train loss不断下降，test loss趋于不变  训练集和测试集准确率相差过大 15%以上">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://perfectism13.github.io/2020/02/13/Tricks%20of%20Training%20Deep%20Neural%20Works/v2-953f6e7ce85ac1856764572e1c855705_hd.jpg">
 <meta property="article:published_time" content="2020-07-24T05:10:01.128Z">
-<meta property="article:modified_time" content="2020-03-31T02:28:09.000Z">
+<meta property="article:modified_time" content="2020-07-24T05:42:54.521Z">
 <meta property="article:author" content="Chenyang Min">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://perfectism13.github.io/2020/02/13/Tricks%20of%20Training%20Deep%20Neural%20Works/v2-953f6e7ce85ac1856764572e1c855705_hd.jpg">
@@ -216,16 +216,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-07-24 13:10:01" itemprop="dateCreated datePublished" datetime="2020-07-24T13:10:01+08:00">2020-07-24</time>
+              <time title="创建时间：2020-07-24 13:10:01 / 修改时间：13:42:54" itemprop="dateCreated datePublished" datetime="2020-07-24T13:10:01+08:00">2020-07-24</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-31 10:28:09" itemprop="dateModified" datetime="2020-03-31T10:28:09+08:00">2020-03-31</time>
-              </span>
 
           
 
@@ -242,8 +236,11 @@
 <p><img src="https://perfectism13.github.io/2020/02/13/Tricks%20of%20Training%20Deep%20Neural%20Works/v2-953f6e7ce85ac1856764572e1c855705_hd.jpg" alt="img"></p>
 <p>过拟合的表现：</p>
 <ul>
-<li>train loss不断下降，test loss趋于不变</li>
-<li>训练集和测试集准确率相差过大 15%以上</li>
+<li><p>train loss不断下降，test loss趋于不变</p>
+</li>
+<li><p>训练集和测试集准确率相差过大 15%以上</p>
+<a id="more"></a>
+</li>
 </ul>
 <h3 id="减少模型的复杂程度（容量）"><a href="#减少模型的复杂程度（容量）" class="headerlink" title="减少模型的复杂程度（容量）"></a>减少模型的复杂程度（容量）</h3><p><strong>L2正则化</strong></p>
 <p><strong>Dropout</strong>：提高dropout的rate</p>
@@ -357,7 +354,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

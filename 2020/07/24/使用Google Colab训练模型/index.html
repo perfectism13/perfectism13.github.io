@@ -28,7 +28,7 @@
 <meta property="og:description" content="使用Google Colab训练模型挂载Google Drive并修改运行路径方法一123456789101112!apt-get install -y -qq software-properties-common python-software-properties module-init-tools!add-apt-repository -y ppa:alessandro-strada&amp;#x2">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-07-24T05:10:01.144Z">
-<meta property="article:modified_time" content="2020-03-16T13:39:33.000Z">
+<meta property="article:modified_time" content="2020-07-24T05:45:00.982Z">
 <meta property="article:author" content="Chenyang Min">
 <meta name="twitter:card" content="summary">
 
@@ -214,16 +214,10 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-07-24 13:10:01" itemprop="dateCreated datePublished" datetime="2020-07-24T13:10:01+08:00">2020-07-24</time>
+              <time title="创建时间：2020-07-24 13:10:01 / 修改时间：13:45:00" itemprop="dateCreated datePublished" datetime="2020-07-24T13:10:01+08:00">2020-07-24</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-16 21:39:33" itemprop="dateModified" datetime="2020-03-16T21:39:33+08:00">2020-03-16</time>
-              </span>
 
           
 
@@ -237,6 +231,7 @@
 
       
         <h1 id="使用Google-Colab训练模型"><a href="#使用Google-Colab训练模型" class="headerlink" title="使用Google Colab训练模型"></a>使用Google Colab训练模型</h1><h2 id="挂载Google-Drive并修改运行路径"><a href="#挂载Google-Drive并修改运行路径" class="headerlink" title="挂载Google Drive并修改运行路径"></a>挂载Google Drive并修改运行路径</h2><h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">!apt-get install -y -qq software-properties-common python-software-properties module-init-tools</span><br><span class="line">!add-apt-repository -y ppa:alessandro-strada&#x2F;ppa 2&gt;&amp;1 &gt; &#x2F;dev&#x2F;null</span><br><span class="line">!apt-get update -qq 2&gt;&amp;1 &gt; &#x2F;dev&#x2F;null</span><br><span class="line">!apt-get -y install -qq google-drive-ocamlfuse fuse</span><br><span class="line">from google.colab import auth</span><br><span class="line">auth.authenticate_user()</span><br><span class="line">from oauth2client.client import GoogleCredentials</span><br><span class="line">creds &#x3D; GoogleCredentials.get_application_default()</span><br><span class="line">import getpass</span><br><span class="line">!google-drive-ocamlfuse -headless -id&#x3D;&#123;creds.client_id&#125; -secret&#x3D;&#123;creds.client_secret&#125; &lt; &#x2F;dev&#x2F;null 2&gt;&amp;1 | grep URL</span><br><span class="line">vcode &#x3D; getpass.getpass()</span><br><span class="line">!echo &#123;vcode&#125; | google-drive-ocamlfuse -headless -id&#x3D;&#123;creds.client_id&#125; -secret&#x3D;&#123;creds.client_secret&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">!mkdir -p drive</span><br><span class="line">!google-drive-ocamlfuse -o nonempty drive</span><br><span class="line">import os</span><br><span class="line">os.chdir(&quot;drive&#x2F;colab&#x2F;resnet_20191204&quot;) #修改此处来修改colab在google drive中的运行路径</span><br></pre></td></tr></table></figure>
 <h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">from google.colab import drive</span><br><span class="line">drive.mount(&#39;&#x2F;content&#x2F;drive&#39;)</span><br><span class="line"></span><br><span class="line">import os</span><br><span class="line">os.chdir(r&#39;&#x2F;content&#x2F;drive&#x2F;My Drive&#x2F;colab&#x2F;resnet_20191204&#39;)</span><br><span class="line">print(os.getcwd())</span><br></pre></td></tr></table></figure>
 <h2 id="使用linux命令安装PyTorch"><a href="#使用linux命令安装PyTorch" class="headerlink" title="使用linux命令安装PyTorch"></a>使用linux命令安装PyTorch</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">! pip3 install torch torchvision</span><br></pre></td></tr></table></figure>
@@ -349,7 +344,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
