@@ -28,7 +28,7 @@
 <meta property="og:description" content="计算机视觉：算法与应用 笔记1 图像形成1.1.1 几何基元与变换几何基元：2D点、2D直线、2D圆锥曲线、3D点、3D平面、3D直线、3D二次曲面 齐次坐标（投影坐标）：用于投影几何里的坐标系统，给定欧氏平面上的一点 (x, y)，对任意非零实数 Z，三元组 (xZ, yZ, Z) 即称之为该点的齐次坐标 笛卡尔坐标与齐次坐标的关系：  投影平面上的任何点都可以表示成一三元组 (X, Y, Z)">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-07-24T04:18:44.382Z">
-<meta property="article:modified_time" content="2020-07-24T05:43:23.866Z">
+<meta property="article:modified_time" content="2020-07-26T11:31:16.876Z">
 <meta property="article:author" content="Chenyang Min">
 <meta name="twitter:card" content="summary">
 
@@ -222,10 +222,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-07-24 12:18:44 / 修改时间：13:43:23" itemprop="dateCreated datePublished" datetime="2020-07-24T12:18:44+08:00">2020-07-24</time>
+              <time title="创建时间：2020-07-24 12:18:44" itemprop="dateCreated datePublished" datetime="2020-07-24T12:18:44+08:00">2020-07-24</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-26 19:31:16" itemprop="dateModified" datetime="2020-07-26T19:31:16+08:00">2020-07-26</time>
+              </span>
 
           
             <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
@@ -258,7 +264,8 @@
 </li>
 </ul>
 <h2 id="1-1-2-2D变换"><a href="#1-1-2-2D变换" class="headerlink" title="1.1.2 2D变换"></a>1.1.2 2D变换</h2><p>平移、刚体运动（旋转+平移）、相似（放缩旋转）、仿射、投影（透视变换）、拉伸/挤压、平面状表面流（经历小的3D运动时）、双线性内插（任意非共线的四点运动的内插）</p>
-<h2 id="1-1-2-3D变换"><a href="#1-1-2-3D变换" class="headerlink" title="1.1.2 3D变换"></a>1.1.2 3D变换</h2><h2 id="4-特征检测与匹配"><a href="#4-特征检测与匹配" class="headerlink" title="4 特征检测与匹配"></a>4 特征检测与匹配</h2><h3 id="4-3-线条"><a href="#4-3-线条" class="headerlink" title="4.3 线条"></a>4.3 线条</h3>
+<h2 id="1-1-2-3D变换"><a href="#1-1-2-3D变换" class="headerlink" title="1.1.2 3D变换"></a>1.1.2 3D变换</h2><h2 id="4-特征检测与匹配"><a href="#4-特征检测与匹配" class="headerlink" title="4 特征检测与匹配"></a>4 特征检测与匹配</h2><h3 id="4-3-线条"><a href="#4-3-线条" class="headerlink" title="4.3 线条"></a>4.3 线条</h3><p>来自一位大佬的笔记：</p>
+<div class="pdfobject-container" data-target="2szxioyk.pdf" data-height="500px"></div>
     </div>
 
     
@@ -489,6 +496,26 @@
 
 
 
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
 
 
 
