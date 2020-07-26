@@ -144,11 +144,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>New Words</title>
-    <url>/2020/07/24/New%20Words/</url>
-    <content><![CDATA[<h1 id="New-Words"><a href="#New-Words" class="headerlink" title="New Words"></a>New Words</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">scalar 标量的</span><br><span class="line">neuron 神经元</span><br><span class="line">neural 神经的</span><br><span class="line">vector 向量</span><br><span class="line">parameter 参数</span><br><span class="line">gradient descent 梯度下降</span><br><span class="line">backpropagation 反向传播</span><br><span class="line">sentiment 感情、情绪</span><br><span class="line">embedded 嵌入的、植入的</span><br><span class="line">trimming 整理、修剪、切除</span><br><span class="line">syntactic parsing 语法分析</span><br><span class="line">semantic analysis 语义分析</span><br><span class="line">indicator 指示器，指示符</span><br><span class="line">shallow 浅的</span><br><span class="line">adversarial 对抗的</span><br><span class="line">indent 缩进</span><br><span class="line">contour 轮廓</span><br><span class="line">approx&#x3D;approxiate 大约的</span><br><span class="line">hierarchy 层级，等级制度</span><br><span class="line">Skeleton Joint 骨骼关节</span><br><span class="line">Semantic Segmentation 语义分割</span><br><span class="line">advent 来临</span><br><span class="line">gaze 注视</span><br><span class="line">row 行</span><br><span class="line">colunm 列</span><br><span class="line">extremum 极值</span><br><span class="line">gray level 灰度</span><br><span class="line">entropy 熵</span><br><span class="line">stochastic 随机的，猜测的</span><br><span class="line">crop 修剪，种植</span><br><span class="line">shuffle 随机播放，打乱顺序</span><br><span class="line">transpose 调换，转置</span><br><span class="line">precisely 恰好地</span><br><span class="line">dilation 扩张</span><br><span class="line">co-adaptation 过拟合</span><br><span class="line">syllabus 教学摘要，课程表</span><br><span class="line">spatial 空间的</span><br><span class="line">stochastic 随机的</span><br><span class="line">bottleneck 瓶颈</span><br><span class="line">geometry 几何结构</span><br><span class="line">plain 平的，简单的，朴素的</span><br><span class="line">Fine-tune 微调</span><br><span class="line">spatial 空间的</span><br><span class="line">sparse 稀疏的</span><br><span class="line">backend 后端</span><br><span class="line">attribute 属性</span><br><span class="line">deque 双端队列</span><br><span class="line">combat 反抗战斗</span><br><span class="line">temporal，temporary 暂时的</span><br></pre></td></tr></table></figure>]]></content>
-  </entry>
-  <entry>
     <title>Detection of Secondary Driving Tasks</title>
     <url>/2020/07/24/Detection%20of%20Secondary%20Driving%20Tasks/</url>
     <content><![CDATA[<h1 id="Detection-of-Secondary-Driving-Tasks"><a href="#Detection-of-Secondary-Driving-Tasks" class="headerlink" title="Detection of Secondary Driving Tasks"></a>Detection of Secondary Driving Tasks</h1><p>MIT—AVT</p>
@@ -406,12 +401,9 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Note of ROS to Ubantu</title>
-    <url>/2020/07/24/Note%20of%20ROS%20to%20Ubantu/</url>
-    <content><![CDATA[<h3 id="Note-of-ROS-to-Ubantu"><a href="#Note-of-ROS-to-Ubantu" class="headerlink" title="Note of ROS to Ubantu"></a>Note of ROS to Ubantu</h3><h4 id="terminal命令"><a href="#terminal命令" class="headerlink" title="terminal命令"></a>terminal命令</h4><p>echo $PATH： echo $PATH用于列出变量PATH的值，里面包含了已添加的目录</p>
-<p>env：env命令是environment的缩写，用于列出所有的环境变量</p>
-<p>export：单独使用export命令也可以像env列出所有的环境变量，不过export命令还有其他额外的功能</p>
-]]></content>
+    <title>New Words</title>
+    <url>/2020/07/24/New%20Words/</url>
+    <content><![CDATA[<h1 id="New-Words"><a href="#New-Words" class="headerlink" title="New Words"></a>New Words</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">scalar 标量的</span><br><span class="line">neuron 神经元</span><br><span class="line">neural 神经的</span><br><span class="line">vector 向量</span><br><span class="line">parameter 参数</span><br><span class="line">gradient descent 梯度下降</span><br><span class="line">backpropagation 反向传播</span><br><span class="line">sentiment 感情、情绪</span><br><span class="line">embedded 嵌入的、植入的</span><br><span class="line">trimming 整理、修剪、切除</span><br><span class="line">syntactic parsing 语法分析</span><br><span class="line">semantic analysis 语义分析</span><br><span class="line">indicator 指示器，指示符</span><br><span class="line">shallow 浅的</span><br><span class="line">adversarial 对抗的</span><br><span class="line">indent 缩进</span><br><span class="line">contour 轮廓</span><br><span class="line">approx&#x3D;approxiate 大约的</span><br><span class="line">hierarchy 层级，等级制度</span><br><span class="line">Skeleton Joint 骨骼关节</span><br><span class="line">Semantic Segmentation 语义分割</span><br><span class="line">advent 来临</span><br><span class="line">gaze 注视</span><br><span class="line">row 行</span><br><span class="line">colunm 列</span><br><span class="line">extremum 极值</span><br><span class="line">gray level 灰度</span><br><span class="line">entropy 熵</span><br><span class="line">stochastic 随机的，猜测的</span><br><span class="line">crop 修剪，种植</span><br><span class="line">shuffle 随机播放，打乱顺序</span><br><span class="line">transpose 调换，转置</span><br><span class="line">precisely 恰好地</span><br><span class="line">dilation 扩张</span><br><span class="line">co-adaptation 过拟合</span><br><span class="line">syllabus 教学摘要，课程表</span><br><span class="line">spatial 空间的</span><br><span class="line">stochastic 随机的</span><br><span class="line">bottleneck 瓶颈</span><br><span class="line">geometry 几何结构</span><br><span class="line">plain 平的，简单的，朴素的</span><br><span class="line">Fine-tune 微调</span><br><span class="line">spatial 空间的</span><br><span class="line">sparse 稀疏的</span><br><span class="line">backend 后端</span><br><span class="line">attribute 属性</span><br><span class="line">deque 双端队列</span><br><span class="line">combat 反抗战斗</span><br><span class="line">temporal，temporary 暂时的</span><br></pre></td></tr></table></figure>]]></content>
   </entry>
   <entry>
     <title>Notes of Machine Learning</title>
@@ -639,12 +631,12 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Numpy 笔记</title>
-    <url>/2020/07/24/Numpy%20%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="Numpy-笔记"><a href="#Numpy-笔记" class="headerlink" title="Numpy 笔记"></a>Numpy 笔记</h1><h2 id="transpose"><a href="#transpose" class="headerlink" title="transpose"></a>transpose</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">numpy.transpose(a, axes&#x3D;None)</span><br><span class="line">#修改张量的维度</span><br><span class="line">&gt;&gt;&gt; x &#x3D; np.arange(4).reshape((2,2))</span><br><span class="line">&gt;&gt;&gt; x</span><br><span class="line">array([[0, 1],</span><br><span class="line">       [2, 3]])</span><br><span class="line">&gt;&gt;&gt; np.transpose(x)</span><br><span class="line">array([[0, 2],</span><br><span class="line">       [1, 3]])</span><br><span class="line">&gt;&gt;&gt; x &#x3D; np.ones((1, 2, 3))</span><br><span class="line">&gt;&gt;&gt; np.transpose(x, (1, 0, 2)).shape</span><br><span class="line">(2, 1, 3)</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h2 id="nonzero"><a href="#nonzero" class="headerlink" title="nonzero"></a>nonzero</h2><p>找到非零元素的下标</p>
-<h2 id="where"><a href="#where" class="headerlink" title="where"></a>where</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">np.where(x&lt;0,0,x) #分段函数</span><br></pre></td></tr></table></figure>]]></content>
+    <title>Note of ROS to Ubantu</title>
+    <url>/2020/07/24/Note%20of%20ROS%20to%20Ubantu/</url>
+    <content><![CDATA[<h3 id="Note-of-ROS-to-Ubantu"><a href="#Note-of-ROS-to-Ubantu" class="headerlink" title="Note of ROS to Ubantu"></a>Note of ROS to Ubantu</h3><h4 id="terminal命令"><a href="#terminal命令" class="headerlink" title="terminal命令"></a>terminal命令</h4><p>echo $PATH： echo $PATH用于列出变量PATH的值，里面包含了已添加的目录</p>
+<p>env：env命令是environment的缩写，用于列出所有的环境变量</p>
+<p>export：单独使用export命令也可以像env列出所有的环境变量，不过export命令还有其他额外的功能</p>
+]]></content>
   </entry>
   <entry>
     <title>PyTorch笔记</title>
@@ -717,6 +709,14 @@
 <h4 id="随机选取测试集数据测试"><a href="#随机选取测试集数据测试" class="headerlink" title="随机选取测试集数据测试"></a>随机选取测试集数据测试</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">data_loader_test &#x3D; torch.utils.data.DataLoader(dataset&#x3D;data_test,</span><br><span class="line">                                               batch_size &#x3D; 4,</span><br><span class="line">                                               shuffle &#x3D; True)</span><br><span class="line"></span><br><span class="line">X_test, y_test &#x3D; next(iter(data_loader_test))</span><br><span class="line">inputs &#x3D; Variable(X_test)</span><br><span class="line">pred &#x3D; model(inputs)</span><br><span class="line">_,pred &#x3D; torch.max(pred, 1)</span><br><span class="line">print(&quot;Predict Label is:&quot;, [ i for i in pred.data])</span><br><span class="line">print(&quot;Real Label is:&quot;,[i for i in y_test])</span><br><span class="line"></span><br><span class="line">img &#x3D; torchvision.utils.make_grid(X_test)</span><br><span class="line">img &#x3D; img.numpy().transpose(1,2,0)</span><br><span class="line"></span><br><span class="line">std &#x3D; [0.5,0.5,0.5]</span><br><span class="line">mean &#x3D; [0.5,0.5,0.5]</span><br><span class="line">img &#x3D; img*std+mean</span><br><span class="line">plt.imshow(img)</span><br></pre></td></tr></table></figure>
 <h2 id="动态图还是静态图"><a href="#动态图还是静态图" class="headerlink" title="动态图还是静态图"></a>动态图还是静态图</h2><p>对于使用者来说，两种形式的计算图有着非常大的区别，同时静态图和动态图都有他们各自的优点，比如动态图比较方便debug，使用者能够用任何他们喜欢的方式进行debug，同时非常直观，而静态图是通过先定义后运行的方式，之后再次运行的时候就不再需要重新构建计算图，所以速度会比动态图更快。</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>Numpy 笔记</title>
+    <url>/2020/07/24/Numpy%20%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="Numpy-笔记"><a href="#Numpy-笔记" class="headerlink" title="Numpy 笔记"></a>Numpy 笔记</h1><h2 id="transpose"><a href="#transpose" class="headerlink" title="transpose"></a>transpose</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">numpy.transpose(a, axes&#x3D;None)</span><br><span class="line">#修改张量的维度</span><br><span class="line">&gt;&gt;&gt; x &#x3D; np.arange(4).reshape((2,2))</span><br><span class="line">&gt;&gt;&gt; x</span><br><span class="line">array([[0, 1],</span><br><span class="line">       [2, 3]])</span><br><span class="line">&gt;&gt;&gt; np.transpose(x)</span><br><span class="line">array([[0, 2],</span><br><span class="line">       [1, 3]])</span><br><span class="line">&gt;&gt;&gt; x &#x3D; np.ones((1, 2, 3))</span><br><span class="line">&gt;&gt;&gt; np.transpose(x, (1, 0, 2)).shape</span><br><span class="line">(2, 1, 3)</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="nonzero"><a href="#nonzero" class="headerlink" title="nonzero"></a>nonzero</h2><p>找到非零元素的下标</p>
+<h2 id="where"><a href="#where" class="headerlink" title="where"></a>where</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">np.where(x&lt;0,0,x) #分段函数</span><br></pre></td></tr></table></figure>]]></content>
   </entry>
   <entry>
     <title>Python学习笔记</title>
@@ -1553,7 +1553,7 @@ C_{x}=\frac{M_{10}}{M_{00}}, \quad C_{y}=\frac{M_{01}}{M_{00}}</script><h6 id="�
 </ul>
 <h2 id="1-1-2-2D变换"><a href="#1-1-2-2D变换" class="headerlink" title="1.1.2 2D变换"></a>1.1.2 2D变换</h2><p>平移、刚体运动（旋转+平移）、相似（放缩旋转）、仿射、投影（透视变换）、拉伸/挤压、平面状表面流（经历小的3D运动时）、双线性内插（任意非共线的四点运动的内插）</p>
 <h2 id="1-1-2-3D变换"><a href="#1-1-2-3D变换" class="headerlink" title="1.1.2 3D变换"></a>1.1.2 3D变换</h2><h2 id="4-特征检测与匹配"><a href="#4-特征检测与匹配" class="headerlink" title="4 特征检测与匹配"></a>4 特征检测与匹配</h2><h3 id="4-3-线条"><a href="#4-3-线条" class="headerlink" title="4.3 线条"></a>4.3 线条</h3><p>来自一位大佬的笔记：</p>
-<div class="pdfobject-container" data-target="2szxioyk.pdf" data-height="500px"></div>]]></content>
+<div class="pdfobject-container" data-target="2szxioyk.pdf" data-height="2000px"></div>]]></content>
   </entry>
   <entry>
     <title>迁移学习</title>
