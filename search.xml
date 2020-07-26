@@ -1321,6 +1321,38 @@ C_{x}=\frac{M_{10}}{M_{00}}, \quad C_{y}=\frac{M_{01}}{M_{00}}</script><h6 id="�
 ]]></content>
   </entry>
   <entry>
+    <title>环境配置常见问题</title>
+    <url>/2020/07/24/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h1 id="环境配置常见问题"><a href="#环境配置常见问题" class="headerlink" title="环境配置常见问题"></a>环境配置常见问题</h1><h2 id="hexo博客"><a href="#hexo博客" class="headerlink" title="hexo博客"></a>hexo博客</h2><h3 id="sh-deploy-sh出现-spawn-failed"><a href="#sh-deploy-sh出现-spawn-failed" class="headerlink" title="sh deploy.sh出现 spawn failed"></a>sh deploy.sh出现 spawn failed</h3><p>执行</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+<h2 id="Anaconda"><a href="#Anaconda" class="headerlink" title="Anaconda"></a>Anaconda</h2><h3 id="navigator不能打开"><a href="#navigator不能打开" class="headerlink" title="navigator不能打开"></a>navigator不能打开</h3><p>1.重置源</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda config --remove -key channels</span><br></pre></td></tr></table></figure>
+<p>2.删除清华镜像：删除 <code>.condarc</code>中的<code>defaults</code>行</p>
+<p>2.管理员运行<code>conda prompt</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#conda update </span><br><span class="line">conda update anaconda-navigator</span><br><span class="line">anaconda-navigator --reset</span><br><span class="line">conda update anaconda-client</span><br><span class="line">conda update -f anaconda-client</span><br><span class="line">anaconda-navigator   #命令行启动Navigator</span><br></pre></td></tr></table></figure>
+<h2 id="PyTorch"><a href="#PyTorch" class="headerlink" title="PyTorch"></a>PyTorch</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">No module named &#39;torchtext&#39;</span><br></pre></td></tr></table></figure>
+<p>办法：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install https:&#x2F;&#x2F;github.com&#x2F;pytorch&#x2F;text&#x2F;archive&#x2F;master.zip</span><br></pre></td></tr></table></figure>
+<p>tqdm模块<br>tqdm是一个快速、扩展性强的进度条工具库，<br>其githup地址：<a href="https://github.com/tqdm/tqdm" target="_blank" rel="noopener">https://github.com/tqdm/tqdm</a></p>
+<p>办法：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install tqdm</span><br><span class="line">device &#x3D; torch.device(&#39;cuda&#39; if torch.cuda.is_available() else &#39;cpu&#39;)</span><br><span class="line">#ouput cpu</span><br></pre></td></tr></table></figure>
+<h2 id="Jupyter-Lab"><a href="#Jupyter-Lab" class="headerlink" title="Jupyter Lab"></a>Jupyter Lab</h2><p>载入py文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">%load test.py</span><br></pre></td></tr></table></figure>
+<h2 id="CUDA-cudnn"><a href="#CUDA-cudnn" class="headerlink" title="CUDA cudnn"></a>CUDA cudnn</h2><p>CUDA 10.1</p>
+<p>cudnn 7.6.3</p>
+<h2 id="使用特定源安装"><a href="#使用特定源安装" class="headerlink" title="使用特定源安装"></a>使用特定源安装</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install tensorflow-gpu&#x3D;&#x3D;1.8 -i https:&#x2F;&#x2F;pypi.tuna.tsinghua.edu.cn&#x2F;simple</span><br></pre></td></tr></table></figure>
+<h3 id="升级pip"><a href="#升级pip" class="headerlink" title="升级pip"></a>升级pip</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python -m pip install -U pip</span><br></pre></td></tr></table></figure>
+<p>tensorflow与keras间的兼容</p>
+<p><a href="https://docs.floydhub.com/guides/environments/" target="_blank" rel="noopener">https://docs.floydhub.com/guides/environments/</a></p>
+<h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><h3 id="解压zip"><a href="#解压zip" class="headerlink" title="解压zip"></a>解压zip</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">unzip test.zip</span><br></pre></td></tr></table></figure>
+<h3 id="解压7z"><a href="#解压7z" class="headerlink" title="解压7z"></a>解压7z</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get install p7zip</span><br><span class="line">7z x test.7z</span><br></pre></td></tr></table></figure>
+<p>详见 <a href="https://blog.csdn.net/AC_huang/article/details/23279641" target="_blank" rel="noopener">https://blog.csdn.net/AC_huang/article/details/23279641</a></p>
+<h3 id="展示文件树状结构"><a href="#展示文件树状结构" class="headerlink" title="展示文件树状结构"></a>展示文件树状结构</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install tree</span><br><span class="line">tree --dirsfirst --filelimit 50</span><br></pre></td></tr></table></figure>
+<h3 id="命令行退出python"><a href="#命令行退出python" class="headerlink" title="命令行退出python"></a>命令行退出python</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">quit()</span><br></pre></td></tr></table></figure>
+<h2 id="matlab"><a href="#matlab" class="headerlink" title="matlab"></a>matlab</h2><p>匿名函数求导后，求某点值</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">syms y</span><br><span class="line">f&#x3D;@(x) 2*x^2+3;</span><br><span class="line">diff&#x3D;diff(f(y)) </span><br><span class="line">diff&#x3D;matlabFunction(diff)</span><br><span class="line">diff(0.5)</span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
+  <entry>
     <title>平台框架部分补充</title>
     <url>/2020/07/24/%E5%B9%B3%E5%8F%B0%E6%A1%86%E6%9E%B6%E9%83%A8%E5%88%86%E8%A1%A5%E5%85%85/</url>
     <content><![CDATA[<h1 id="平台框架部分补充"><a href="#平台框架部分补充" class="headerlink" title="平台框架部分补充"></a>平台框架部分补充</h1><p>闵晨阳 车辆1601 2019.11.14</p>
@@ -1471,36 +1503,24 @@ C_{x}=\frac{M_{10}}{M_{00}}, \quad C_{y}=\frac{M_{01}}{M_{00}}</script><h6 id="�
 ]]></content>
   </entry>
   <entry>
-    <title>环境配置常见问题</title>
-    <url>/2020/07/24/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h1 id="环境配置常见问题"><a href="#环境配置常见问题" class="headerlink" title="环境配置常见问题"></a>环境配置常见问题</h1><h2 id="hexo博客"><a href="#hexo博客" class="headerlink" title="hexo博客"></a>hexo博客</h2><h3 id="sh-deploy-sh出现-spawn-failed"><a href="#sh-deploy-sh出现-spawn-failed" class="headerlink" title="sh deploy.sh出现 spawn failed"></a>sh deploy.sh出现 spawn failed</h3><p>执行</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
-<h2 id="Anaconda"><a href="#Anaconda" class="headerlink" title="Anaconda"></a>Anaconda</h2><h3 id="navigator不能打开"><a href="#navigator不能打开" class="headerlink" title="navigator不能打开"></a>navigator不能打开</h3><p>1.重置源</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda config --remove -key channels</span><br></pre></td></tr></table></figure>
-<p>2.删除清华镜像：删除 <code>.condarc</code>中的<code>defaults</code>行</p>
-<p>2.管理员运行<code>conda prompt</code></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#conda update </span><br><span class="line">conda update anaconda-navigator</span><br><span class="line">anaconda-navigator --reset</span><br><span class="line">conda update anaconda-client</span><br><span class="line">conda update -f anaconda-client</span><br><span class="line">anaconda-navigator   #命令行启动Navigator</span><br></pre></td></tr></table></figure>
-<h2 id="PyTorch"><a href="#PyTorch" class="headerlink" title="PyTorch"></a>PyTorch</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">No module named &#39;torchtext&#39;</span><br></pre></td></tr></table></figure>
-<p>办法：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install https:&#x2F;&#x2F;github.com&#x2F;pytorch&#x2F;text&#x2F;archive&#x2F;master.zip</span><br></pre></td></tr></table></figure>
-<p>tqdm模块<br>tqdm是一个快速、扩展性强的进度条工具库，<br>其githup地址：<a href="https://github.com/tqdm/tqdm" target="_blank" rel="noopener">https://github.com/tqdm/tqdm</a></p>
-<p>办法：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install tqdm</span><br><span class="line">device &#x3D; torch.device(&#39;cuda&#39; if torch.cuda.is_available() else &#39;cpu&#39;)</span><br><span class="line">#ouput cpu</span><br></pre></td></tr></table></figure>
-<h2 id="Jupyter-Lab"><a href="#Jupyter-Lab" class="headerlink" title="Jupyter Lab"></a>Jupyter Lab</h2><p>载入py文件</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">%load test.py</span><br></pre></td></tr></table></figure>
-<h2 id="CUDA-cudnn"><a href="#CUDA-cudnn" class="headerlink" title="CUDA cudnn"></a>CUDA cudnn</h2><p>CUDA 10.1</p>
-<p>cudnn 7.6.3</p>
-<h2 id="使用特定源安装"><a href="#使用特定源安装" class="headerlink" title="使用特定源安装"></a>使用特定源安装</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install tensorflow-gpu&#x3D;&#x3D;1.8 -i https:&#x2F;&#x2F;pypi.tuna.tsinghua.edu.cn&#x2F;simple</span><br></pre></td></tr></table></figure>
-<h3 id="升级pip"><a href="#升级pip" class="headerlink" title="升级pip"></a>升级pip</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python -m pip install -U pip</span><br></pre></td></tr></table></figure>
-<p>tensorflow与keras间的兼容</p>
-<p><a href="https://docs.floydhub.com/guides/environments/" target="_blank" rel="noopener">https://docs.floydhub.com/guides/environments/</a></p>
-<h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><h3 id="解压zip"><a href="#解压zip" class="headerlink" title="解压zip"></a>解压zip</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">unzip test.zip</span><br></pre></td></tr></table></figure>
-<h3 id="解压7z"><a href="#解压7z" class="headerlink" title="解压7z"></a>解压7z</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get install p7zip</span><br><span class="line">7z x test.7z</span><br></pre></td></tr></table></figure>
-<p>详见 <a href="https://blog.csdn.net/AC_huang/article/details/23279641" target="_blank" rel="noopener">https://blog.csdn.net/AC_huang/article/details/23279641</a></p>
-<h3 id="展示文件树状结构"><a href="#展示文件树状结构" class="headerlink" title="展示文件树状结构"></a>展示文件树状结构</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install tree</span><br><span class="line">tree --dirsfirst --filelimit 50</span><br></pre></td></tr></table></figure>
-<h3 id="命令行退出python"><a href="#命令行退出python" class="headerlink" title="命令行退出python"></a>命令行退出python</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">quit()</span><br></pre></td></tr></table></figure>
-<h2 id="matlab"><a href="#matlab" class="headerlink" title="matlab"></a>matlab</h2><p>匿名函数求导后，求某点值</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">syms y</span><br><span class="line">f&#x3D;@(x) 2*x^2+3;</span><br><span class="line">diff&#x3D;diff(f(y)) </span><br><span class="line">diff&#x3D;matlabFunction(diff)</span><br><span class="line">diff(0.5)</span><br></pre></td></tr></table></figure>]]></content>
+    <title>计算机视觉：算法与应用 笔记</title>
+    <url>/2020/07/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%EF%BC%9A%E7%AE%97%E6%B3%95%E4%B8%8E%E5%BA%94%E7%94%A8%20%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="计算机视觉：算法与应用-笔记"><a href="#计算机视觉：算法与应用-笔记" class="headerlink" title="计算机视觉：算法与应用 笔记"></a>计算机视觉：算法与应用 笔记</h1><h1 id="1-图像形成"><a href="#1-图像形成" class="headerlink" title="1 图像形成"></a>1 图像形成</h1><h2 id="1-1-1-几何基元与变换"><a href="#1-1-1-几何基元与变换" class="headerlink" title="1.1.1 几何基元与变换"></a>1.1.1 几何基元与变换</h2><p><code>几何基元</code>：2D点、2D直线、2D圆锥曲线、3D点、3D平面、3D直线、3D二次曲面</p>
+<p><code>齐次坐标（投影坐标）</code>：用于投影几何里的坐标系统，给定欧氏平面上的一点 (<em>x</em>, <em>y</em>)，对任意非零实数 Z，三元组 (<em>xZ</em>, <em>yZ</em>, <em>Z</em>) 即称之为该点的齐次坐标</p>
+<p><code>笛卡尔坐标与齐次坐标的关系</code>：</p>
+<ul>
+<li><p>投影平面上的任何点都可以表示成一三元组 (<em>X</em>, <em>Y</em>, <em>Z</em>)，称之为该点的<strong>齐次坐标</strong>或<strong>投影坐标</strong>，其中 X、Y 及 Z 不全为 0</p>
+</li>
+<li><p>当 Z 为 0，则该点表示一无穷远点</p>
+</li>
+<li><p>三元组 (0, 0, 0) 不表示任何点。原点表示为 (0, 0, 1)</p>
+<a id="more"></a>
+</li>
+</ul>
+<h2 id="1-1-2-2D变换"><a href="#1-1-2-2D变换" class="headerlink" title="1.1.2 2D变换"></a>1.1.2 2D变换</h2><p>平移、刚体运动（旋转+平移）、相似（放缩旋转）、仿射、投影（透视变换）、拉伸/挤压、平面状表面流（经历小的3D运动时）、双线性内插（任意非共线的四点运动的内插）</p>
+<h2 id="1-1-2-3D变换"><a href="#1-1-2-3D变换" class="headerlink" title="1.1.2 3D变换"></a>1.1.2 3D变换</h2><h2 id="4-特征检测与匹配"><a href="#4-特征检测与匹配" class="headerlink" title="4 特征检测与匹配"></a>4 特征检测与匹配</h2><h3 id="4-3-线条"><a href="#4-3-线条" class="headerlink" title="4.3 线条"></a>4.3 线条</h3><p>来自一位大佬的笔记：</p>
+<div class="pdfobject-container" data-target="2szxioyk.pdf" data-height="2000px"></div>
+]]></content>
   </entry>
   <entry>
     <title>用Keras实现视频动作分类</title>
@@ -1534,26 +1554,6 @@ C_{x}=\frac{M_{10}}{M_{00}}, \quad C_{y}=\frac{M_{01}}{M_{00}}</script><h6 id="�
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ol>
 <li><a href="https://www.pyimagesearch.com/2019/07/15/video-classification-with-keras-and-deep-learning/" target="_blank" rel="noopener">https://www.pyimagesearch.com/2019/07/15/video-classification-with-keras-and-deep-learning/</a></li>
 </ol>
-]]></content>
-  </entry>
-  <entry>
-    <title>计算机视觉：算法与应用 笔记</title>
-    <url>/2020/07/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%EF%BC%9A%E7%AE%97%E6%B3%95%E4%B8%8E%E5%BA%94%E7%94%A8%20%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="计算机视觉：算法与应用-笔记"><a href="#计算机视觉：算法与应用-笔记" class="headerlink" title="计算机视觉：算法与应用 笔记"></a>计算机视觉：算法与应用 笔记</h1><h1 id="1-图像形成"><a href="#1-图像形成" class="headerlink" title="1 图像形成"></a>1 图像形成</h1><h2 id="1-1-1-几何基元与变换"><a href="#1-1-1-几何基元与变换" class="headerlink" title="1.1.1 几何基元与变换"></a>1.1.1 几何基元与变换</h2><p><code>几何基元</code>：2D点、2D直线、2D圆锥曲线、3D点、3D平面、3D直线、3D二次曲面</p>
-<p><code>齐次坐标（投影坐标）</code>：用于投影几何里的坐标系统，给定欧氏平面上的一点 (<em>x</em>, <em>y</em>)，对任意非零实数 Z，三元组 (<em>xZ</em>, <em>yZ</em>, <em>Z</em>) 即称之为该点的齐次坐标</p>
-<p><code>笛卡尔坐标与齐次坐标的关系</code>：</p>
-<ul>
-<li><p>投影平面上的任何点都可以表示成一三元组 (<em>X</em>, <em>Y</em>, <em>Z</em>)，称之为该点的<strong>齐次坐标</strong>或<strong>投影坐标</strong>，其中 X、Y 及 Z 不全为 0</p>
-</li>
-<li><p>当 Z 为 0，则该点表示一无穷远点</p>
-</li>
-<li><p>三元组 (0, 0, 0) 不表示任何点。原点表示为 (0, 0, 1)</p>
-<a id="more"></a>
-</li>
-</ul>
-<h2 id="1-1-2-2D变换"><a href="#1-1-2-2D变换" class="headerlink" title="1.1.2 2D变换"></a>1.1.2 2D变换</h2><p>平移、刚体运动（旋转+平移）、相似（放缩旋转）、仿射、投影（透视变换）、拉伸/挤压、平面状表面流（经历小的3D运动时）、双线性内插（任意非共线的四点运动的内插）</p>
-<h2 id="1-1-2-3D变换"><a href="#1-1-2-3D变换" class="headerlink" title="1.1.2 3D变换"></a>1.1.2 3D变换</h2><h2 id="4-特征检测与匹配"><a href="#4-特征检测与匹配" class="headerlink" title="4 特征检测与匹配"></a>4 特征检测与匹配</h2><h3 id="4-3-线条"><a href="#4-3-线条" class="headerlink" title="4.3 线条"></a>4.3 线条</h3><p>来自一位大佬的笔记：</p>
-<div class="pdfobject-container" data-target="2szxioyk.pdf" data-height="2000px"></div>
 ]]></content>
   </entry>
   <entry>
