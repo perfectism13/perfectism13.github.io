@@ -639,14 +639,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Numpy 笔记</title>
-    <url>/2020/07/24/Numpy%20%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="Numpy-笔记"><a href="#Numpy-笔记" class="headerlink" title="Numpy 笔记"></a>Numpy 笔记</h1><h2 id="transpose"><a href="#transpose" class="headerlink" title="transpose"></a>transpose</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">numpy.transpose(a, axes&#x3D;None)</span><br><span class="line">#修改张量的维度</span><br><span class="line">&gt;&gt;&gt; x &#x3D; np.arange(4).reshape((2,2))</span><br><span class="line">&gt;&gt;&gt; x</span><br><span class="line">array([[0, 1],</span><br><span class="line">       [2, 3]])</span><br><span class="line">&gt;&gt;&gt; np.transpose(x)</span><br><span class="line">array([[0, 2],</span><br><span class="line">       [1, 3]])</span><br><span class="line">&gt;&gt;&gt; x &#x3D; np.ones((1, 2, 3))</span><br><span class="line">&gt;&gt;&gt; np.transpose(x, (1, 0, 2)).shape</span><br><span class="line">(2, 1, 3)</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h2 id="nonzero"><a href="#nonzero" class="headerlink" title="nonzero"></a>nonzero</h2><p>找到非零元素的下标</p>
-<h2 id="where"><a href="#where" class="headerlink" title="where"></a>where</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">np.where(x&lt;0,0,x) #分段函数</span><br></pre></td></tr></table></figure>]]></content>
-  </entry>
-  <entry>
     <title>PyTorch笔记</title>
     <url>/2020/07/24/PyTorch%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="PyTorch笔记"><a href="#PyTorch笔记" class="headerlink" title="PyTorch笔记"></a>PyTorch笔记</h1><p>PyTorch 1.3.0</p>
@@ -719,6 +711,46 @@
 ]]></content>
   </entry>
   <entry>
+    <title>Numpy 笔记</title>
+    <url>/2020/07/24/Numpy%20%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="Numpy-笔记"><a href="#Numpy-笔记" class="headerlink" title="Numpy 笔记"></a>Numpy 笔记</h1><h2 id="transpose"><a href="#transpose" class="headerlink" title="transpose"></a>transpose</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">numpy.transpose(a, axes&#x3D;None)</span><br><span class="line">#修改张量的维度</span><br><span class="line">&gt;&gt;&gt; x &#x3D; np.arange(4).reshape((2,2))</span><br><span class="line">&gt;&gt;&gt; x</span><br><span class="line">array([[0, 1],</span><br><span class="line">       [2, 3]])</span><br><span class="line">&gt;&gt;&gt; np.transpose(x)</span><br><span class="line">array([[0, 2],</span><br><span class="line">       [1, 3]])</span><br><span class="line">&gt;&gt;&gt; x &#x3D; np.ones((1, 2, 3))</span><br><span class="line">&gt;&gt;&gt; np.transpose(x, (1, 0, 2)).shape</span><br><span class="line">(2, 1, 3)</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="nonzero"><a href="#nonzero" class="headerlink" title="nonzero"></a>nonzero</h2><p>找到非零元素的下标</p>
+<h2 id="where"><a href="#where" class="headerlink" title="where"></a>where</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">np.where(x&lt;0,0,x) #分段函数</span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
+  <entry>
+    <title>Tricks of Training Deep Neural Works</title>
+    <url>/2020/07/24/Tricks%20of%20Training%20Deep%20Neural%20Works/</url>
+    <content><![CDATA[<h1 id="Tricks-of-Training-Deep-Neural-Works"><a href="#Tricks-of-Training-Deep-Neural-Works" class="headerlink" title="Tricks of Training Deep Neural Works"></a>Tricks of Training Deep Neural Works</h1><h2 id="Overfitting"><a href="#Overfitting" class="headerlink" title="Overfitting"></a>Overfitting</h2><p>训练数据包含<strong>抽样误差</strong>，训练时，复杂的模型将抽样误差也考虑在内，将抽样误差也进行了很好的拟合。最终模型在训练集上效果好；在测试集上效果差。模型泛化能力弱</p>
+<p><img src="https://perfectism13.github.io/2020/02/13/Tricks%20of%20Training%20Deep%20Neural%20Works/v2-953f6e7ce85ac1856764572e1c855705_hd.jpg" alt="img"></p>
+<p>过拟合的表现：</p>
+<ul>
+<li><p>train loss不断下降，test loss趋于不变</p>
+</li>
+<li><p>训练集和测试集准确率相差过大 15%以上</p>
+<a id="more"></a>
+</li>
+</ul>
+<h3 id="减少模型的复杂程度（容量）"><a href="#减少模型的复杂程度（容量）" class="headerlink" title="减少模型的复杂程度（容量）"></a>减少模型的复杂程度（容量）</h3><p><strong>L2正则化</strong></p>
+<p><strong>Dropout</strong>：提高dropout的rate</p>
+<p><strong>减少预训练的锁定层数</strong></p>
+<h3 id="更多的数据"><a href="#更多的数据" class="headerlink" title="更多的数据"></a>更多的数据</h3><p>让模型感受更多的数据，逼迫模型泛化</p>
+<p><strong>数据增强</strong></p>
+<p><strong>采集更多的数据</strong></p>
+<p><strong>查看数据集的分割是否合适</strong></p>
+<h3 id="学习率的调整"><a href="#学习率的调整" class="headerlink" title="学习率的调整"></a>学习率的调整</h3><p>trick是 <strong>warm up（热身），就是先采用小的学习率（0.01）进行训练，</strong>训练了400iterations之后将学习率调整至0.1开始正式训练</p>
+<p>在学习遇到瓶颈，即训练和验证损失均趋于不变时，适当调小batch_size,用更细的笔来画画</p>
+<h3 id="进行交叉验证"><a href="#进行交叉验证" class="headerlink" title="进行交叉验证"></a>进行交叉验证</h3><p>当数据集比较小的时候，交叉验证可以“充分利用”有限的数据找到合适的模型参数，防止过度拟合</p>
+<p>做法：就是把样本集S分成k份，分别使用其中的(k-1)份作为训练集，剩下的1份作为交叉验证集，最后取最后的平均误差，来评估这个模型</p>
+<p>最后对k个模型的结果取平均</p>
+<h3 id="Early-Stopping"><a href="#Early-Stopping" class="headerlink" title="Early Stopping"></a>Early Stopping</h3><h2 id="Owe-fitting"><a href="#Owe-fitting" class="headerlink" title="Owe fitting"></a>Owe fitting</h2><p>若准确率很低，检查数据和标签的对应关系，或者损失函数是否导致无法梯度下降</p>
+<p>1、观察数据中是否有异常样本或异常label导致数据读取异常<br>2、调小初始化权重，以便使softmax输入的feature尽可能变小<br>3、降低学习率，这样就能减小权重参数的波动范围，从而减小权重变大的可能性。这条也是网上出现较多的方法。</p>
+<p>4、调大batch_size<br>5、如果有BN（batch normalization）层，finetune时最好不要冻结BN的参数，否则数据分布不一致时很容易使输出值变的很大。</p>
+<p>6、神经网络不够深。</p>
+<p>7、训练的epoch不够。</p>
+<h2 id="训练和验证集loss相差不大，验证集准确率为1或者0"><a href="#训练和验证集loss相差不大，验证集准确率为1或者0" class="headerlink" title="训练和验证集loss相差不大，验证集准确率为1或者0"></a>训练和验证集loss相差不大，验证集准确率为1或者0</h2><h2 id="检查数据集是否存在inf或者NaN"><a href="#检查数据集是否存在inf或者NaN" class="headerlink" title="检查数据集是否存在inf或者NaN"></a>检查数据集是否存在inf或者NaN</h2><h2 id="有时在第一代打乱数据，后续不再打乱，可能会有意想不到的好结果"><a href="#有时在第一代打乱数据，后续不再打乱，可能会有意想不到的好结果" class="headerlink" title="有时在第一代打乱数据，后续不再打乱，可能会有意想不到的好结果"></a><strong>有时在第一代打乱数据，后续不再打乱，可能会有意想不到的好结果</strong></h2><h2 id="References"><a href="#References" class="headerlink" title="References"></a><strong>Referenc</strong>es</h2>]]></content>
+  </entry>
+  <entry>
     <title>Python学习笔记</title>
     <url>/2020/07/24/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="Python学习笔记"><a href="#Python学习笔记" class="headerlink" title="Python学习笔记"></a>Python学习笔记</h1><h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><h3 id="打印输出"><a href="#打印输出" class="headerlink" title="打印输出"></a>打印输出</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">print(&quot;hello world&quot;)</span><br><span class="line">print(&quot;-&quot;*10)</span><br><span class="line">print(&quot;hello&quot;,&quot;world&quot;)</span><br><span class="line">#打印变量值</span><br><span class="line">print(&quot;width : %s, height : %s channels : %s&quot; % (width, height, channels))</span><br><span class="line">#打印矩阵</span><br><span class="line">print(image)</span><br></pre></td></tr></table></figure>
@@ -754,38 +786,6 @@
 <p>其中x为数据，y代表数据标签</p>
 <h2 id="找到字符串中的数字"><a href="#找到字符串中的数字" class="headerlink" title="找到字符串中的数字"></a>找到字符串中的数字</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">s=<span class="string">'zs10nj23kl'</span></span><br><span class="line">f1=re.findall(<span class="string">'(\d+)'</span>,s)</span><br><span class="line">print(f1)</span><br></pre></td></tr></table></figure>
 ]]></content>
-  </entry>
-  <entry>
-    <title>Tricks of Training Deep Neural Works</title>
-    <url>/2020/07/24/Tricks%20of%20Training%20Deep%20Neural%20Works/</url>
-    <content><![CDATA[<h1 id="Tricks-of-Training-Deep-Neural-Works"><a href="#Tricks-of-Training-Deep-Neural-Works" class="headerlink" title="Tricks of Training Deep Neural Works"></a>Tricks of Training Deep Neural Works</h1><h2 id="Overfitting"><a href="#Overfitting" class="headerlink" title="Overfitting"></a>Overfitting</h2><p>训练数据包含<strong>抽样误差</strong>，训练时，复杂的模型将抽样误差也考虑在内，将抽样误差也进行了很好的拟合。最终模型在训练集上效果好；在测试集上效果差。模型泛化能力弱</p>
-<p><img src="https://perfectism13.github.io/2020/02/13/Tricks%20of%20Training%20Deep%20Neural%20Works/v2-953f6e7ce85ac1856764572e1c855705_hd.jpg" alt="img"></p>
-<p>过拟合的表现：</p>
-<ul>
-<li><p>train loss不断下降，test loss趋于不变</p>
-</li>
-<li><p>训练集和测试集准确率相差过大 15%以上</p>
-<a id="more"></a>
-</li>
-</ul>
-<h3 id="减少模型的复杂程度（容量）"><a href="#减少模型的复杂程度（容量）" class="headerlink" title="减少模型的复杂程度（容量）"></a>减少模型的复杂程度（容量）</h3><p><strong>L2正则化</strong></p>
-<p><strong>Dropout</strong>：提高dropout的rate</p>
-<p><strong>减少预训练的锁定层数</strong></p>
-<h3 id="更多的数据"><a href="#更多的数据" class="headerlink" title="更多的数据"></a>更多的数据</h3><p>让模型感受更多的数据，逼迫模型泛化</p>
-<p><strong>数据增强</strong></p>
-<p><strong>采集更多的数据</strong></p>
-<p><strong>查看数据集的分割是否合适</strong></p>
-<h3 id="学习率的调整"><a href="#学习率的调整" class="headerlink" title="学习率的调整"></a>学习率的调整</h3><p>trick是 <strong>warm up（热身），就是先采用小的学习率（0.01）进行训练，</strong>训练了400iterations之后将学习率调整至0.1开始正式训练</p>
-<p>在学习遇到瓶颈，即训练和验证损失均趋于不变时，适当调小batch_size,用更细的笔来画画</p>
-<h3 id="进行交叉验证"><a href="#进行交叉验证" class="headerlink" title="进行交叉验证"></a>进行交叉验证</h3><p>当数据集比较小的时候，交叉验证可以“充分利用”有限的数据找到合适的模型参数，防止过度拟合</p>
-<p>做法：就是把样本集S分成k份，分别使用其中的(k-1)份作为训练集，剩下的1份作为交叉验证集，最后取最后的平均误差，来评估这个模型</p>
-<p>最后对k个模型的结果取平均</p>
-<h3 id="Early-Stopping"><a href="#Early-Stopping" class="headerlink" title="Early Stopping"></a>Early Stopping</h3><h2 id="Owe-fitting"><a href="#Owe-fitting" class="headerlink" title="Owe fitting"></a>Owe fitting</h2><p>若准确率很低，检查数据和标签的对应关系，或者损失函数是否导致无法梯度下降</p>
-<p>1、观察数据中是否有异常样本或异常label导致数据读取异常<br>2、调小初始化权重，以便使softmax输入的feature尽可能变小<br>3、降低学习率，这样就能减小权重参数的波动范围，从而减小权重变大的可能性。这条也是网上出现较多的方法。</p>
-<p>4、调大batch_size<br>5、如果有BN（batch normalization）层，finetune时最好不要冻结BN的参数，否则数据分布不一致时很容易使输出值变的很大。</p>
-<p>6、神经网络不够深。</p>
-<p>7、训练的epoch不够。</p>
-<h2 id="训练和验证集loss相差不大，验证集准确率为1或者0"><a href="#训练和验证集loss相差不大，验证集准确率为1或者0" class="headerlink" title="训练和验证集loss相差不大，验证集准确率为1或者0"></a>训练和验证集loss相差不大，验证集准确率为1或者0</h2><h2 id="检查数据集是否存在inf或者NaN"><a href="#检查数据集是否存在inf或者NaN" class="headerlink" title="检查数据集是否存在inf或者NaN"></a>检查数据集是否存在inf或者NaN</h2><h2 id="有时在第一代打乱数据，后续不再打乱，可能会有意想不到的好结果"><a href="#有时在第一代打乱数据，后续不再打乱，可能会有意想不到的好结果" class="headerlink" title="有时在第一代打乱数据，后续不再打乱，可能会有意想不到的好结果"></a><strong>有时在第一代打乱数据，后续不再打乱，可能会有意想不到的好结果</strong></h2><h2 id="References"><a href="#References" class="headerlink" title="References"></a><strong>Referenc</strong>es</h2>]]></content>
   </entry>
   <entry>
     <title>VS2013+OpenCV4.2.0安装与配置</title>
@@ -1321,6 +1321,38 @@ C_{x}=\frac{M_{10}}{M_{00}}, \quad C_{y}=\frac{M_{01}}{M_{00}}</script><h6 id="�
 ]]></content>
   </entry>
   <entry>
+    <title>环境配置常见问题</title>
+    <url>/2020/07/24/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<h1 id="环境配置常见问题"><a href="#环境配置常见问题" class="headerlink" title="环境配置常见问题"></a>环境配置常见问题</h1><h2 id="hexo博客"><a href="#hexo博客" class="headerlink" title="hexo博客"></a>hexo博客</h2><h3 id="sh-deploy-sh出现-spawn-failed"><a href="#sh-deploy-sh出现-spawn-failed" class="headerlink" title="sh deploy.sh出现 spawn failed"></a>sh deploy.sh出现 spawn failed</h3><p>执行</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+<h2 id="Anaconda"><a href="#Anaconda" class="headerlink" title="Anaconda"></a>Anaconda</h2><h3 id="navigator不能打开"><a href="#navigator不能打开" class="headerlink" title="navigator不能打开"></a>navigator不能打开</h3><p>1.重置源</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda config --remove -key channels</span><br></pre></td></tr></table></figure>
+<p>2.删除清华镜像：删除 <code>.condarc</code>中的<code>defaults</code>行</p>
+<p>2.管理员运行<code>conda prompt</code></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#conda update </span><br><span class="line">conda update anaconda-navigator</span><br><span class="line">anaconda-navigator --reset</span><br><span class="line">conda update anaconda-client</span><br><span class="line">conda update -f anaconda-client</span><br><span class="line">anaconda-navigator   #命令行启动Navigator</span><br></pre></td></tr></table></figure>
+<h2 id="PyTorch"><a href="#PyTorch" class="headerlink" title="PyTorch"></a>PyTorch</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">No module named &#39;torchtext&#39;</span><br></pre></td></tr></table></figure>
+<p>办法：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install https:&#x2F;&#x2F;github.com&#x2F;pytorch&#x2F;text&#x2F;archive&#x2F;master.zip</span><br></pre></td></tr></table></figure>
+<p>tqdm模块<br>tqdm是一个快速、扩展性强的进度条工具库，<br>其githup地址：<a href="https://github.com/tqdm/tqdm" target="_blank" rel="noopener">https://github.com/tqdm/tqdm</a></p>
+<p>办法：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install tqdm</span><br><span class="line">device &#x3D; torch.device(&#39;cuda&#39; if torch.cuda.is_available() else &#39;cpu&#39;)</span><br><span class="line">#ouput cpu</span><br></pre></td></tr></table></figure>
+<h2 id="Jupyter-Lab"><a href="#Jupyter-Lab" class="headerlink" title="Jupyter Lab"></a>Jupyter Lab</h2><p>载入py文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">%load test.py</span><br></pre></td></tr></table></figure>
+<h2 id="CUDA-cudnn"><a href="#CUDA-cudnn" class="headerlink" title="CUDA cudnn"></a>CUDA cudnn</h2><p>CUDA 10.1</p>
+<p>cudnn 7.6.3</p>
+<h2 id="使用特定源安装"><a href="#使用特定源安装" class="headerlink" title="使用特定源安装"></a>使用特定源安装</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install tensorflow-gpu&#x3D;&#x3D;1.8 -i https:&#x2F;&#x2F;pypi.tuna.tsinghua.edu.cn&#x2F;simple</span><br></pre></td></tr></table></figure>
+<h3 id="升级pip"><a href="#升级pip" class="headerlink" title="升级pip"></a>升级pip</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python -m pip install -U pip</span><br></pre></td></tr></table></figure>
+<p>tensorflow与keras间的兼容</p>
+<p><a href="https://docs.floydhub.com/guides/environments/" target="_blank" rel="noopener">https://docs.floydhub.com/guides/environments/</a></p>
+<h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><h3 id="解压zip"><a href="#解压zip" class="headerlink" title="解压zip"></a>解压zip</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">unzip test.zip</span><br></pre></td></tr></table></figure>
+<h3 id="解压7z"><a href="#解压7z" class="headerlink" title="解压7z"></a>解压7z</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get install p7zip</span><br><span class="line">7z x test.7z</span><br></pre></td></tr></table></figure>
+<p>详见 <a href="https://blog.csdn.net/AC_huang/article/details/23279641" target="_blank" rel="noopener">https://blog.csdn.net/AC_huang/article/details/23279641</a></p>
+<h3 id="展示文件树状结构"><a href="#展示文件树状结构" class="headerlink" title="展示文件树状结构"></a>展示文件树状结构</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install tree</span><br><span class="line">tree --dirsfirst --filelimit 50</span><br></pre></td></tr></table></figure>
+<h3 id="命令行退出python"><a href="#命令行退出python" class="headerlink" title="命令行退出python"></a>命令行退出python</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">quit()</span><br></pre></td></tr></table></figure>
+<h2 id="matlab"><a href="#matlab" class="headerlink" title="matlab"></a>matlab</h2><p>匿名函数求导后，求某点值</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">syms y</span><br><span class="line">f&#x3D;@(x) 2*x^2+3;</span><br><span class="line">diff&#x3D;diff(f(y)) </span><br><span class="line">diff&#x3D;matlabFunction(diff)</span><br><span class="line">diff(0.5)</span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
+  <entry>
     <title>平台框架部分补充</title>
     <url>/2020/07/24/%E5%B9%B3%E5%8F%B0%E6%A1%86%E6%9E%B6%E9%83%A8%E5%88%86%E8%A1%A5%E5%85%85/</url>
     <content><![CDATA[<h1 id="平台框架部分补充"><a href="#平台框架部分补充" class="headerlink" title="平台框架部分补充"></a>平台框架部分补充</h1><p>闵晨阳 车辆1601 2019.11.14</p>
@@ -1471,38 +1503,6 @@ C_{x}=\frac{M_{10}}{M_{00}}, \quad C_{y}=\frac{M_{01}}{M_{00}}</script><h6 id="�
 ]]></content>
   </entry>
   <entry>
-    <title>环境配置常见问题</title>
-    <url>/2020/07/24/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<h1 id="环境配置常见问题"><a href="#环境配置常见问题" class="headerlink" title="环境配置常见问题"></a>环境配置常见问题</h1><h2 id="hexo博客"><a href="#hexo博客" class="headerlink" title="hexo博客"></a>hexo博客</h2><h3 id="sh-deploy-sh出现-spawn-failed"><a href="#sh-deploy-sh出现-spawn-failed" class="headerlink" title="sh deploy.sh出现 spawn failed"></a>sh deploy.sh出现 spawn failed</h3><p>执行</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
-<h2 id="Anaconda"><a href="#Anaconda" class="headerlink" title="Anaconda"></a>Anaconda</h2><h3 id="navigator不能打开"><a href="#navigator不能打开" class="headerlink" title="navigator不能打开"></a>navigator不能打开</h3><p>1.重置源</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">conda config --remove -key channels</span><br></pre></td></tr></table></figure>
-<p>2.删除清华镜像：删除 <code>.condarc</code>中的<code>defaults</code>行</p>
-<p>2.管理员运行<code>conda prompt</code></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#conda update </span><br><span class="line">conda update anaconda-navigator</span><br><span class="line">anaconda-navigator --reset</span><br><span class="line">conda update anaconda-client</span><br><span class="line">conda update -f anaconda-client</span><br><span class="line">anaconda-navigator   #命令行启动Navigator</span><br></pre></td></tr></table></figure>
-<h2 id="PyTorch"><a href="#PyTorch" class="headerlink" title="PyTorch"></a>PyTorch</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">No module named &#39;torchtext&#39;</span><br></pre></td></tr></table></figure>
-<p>办法：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install https:&#x2F;&#x2F;github.com&#x2F;pytorch&#x2F;text&#x2F;archive&#x2F;master.zip</span><br></pre></td></tr></table></figure>
-<p>tqdm模块<br>tqdm是一个快速、扩展性强的进度条工具库，<br>其githup地址：<a href="https://github.com/tqdm/tqdm" target="_blank" rel="noopener">https://github.com/tqdm/tqdm</a></p>
-<p>办法：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install tqdm</span><br><span class="line">device &#x3D; torch.device(&#39;cuda&#39; if torch.cuda.is_available() else &#39;cpu&#39;)</span><br><span class="line">#ouput cpu</span><br></pre></td></tr></table></figure>
-<h2 id="Jupyter-Lab"><a href="#Jupyter-Lab" class="headerlink" title="Jupyter Lab"></a>Jupyter Lab</h2><p>载入py文件</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">%load test.py</span><br></pre></td></tr></table></figure>
-<h2 id="CUDA-cudnn"><a href="#CUDA-cudnn" class="headerlink" title="CUDA cudnn"></a>CUDA cudnn</h2><p>CUDA 10.1</p>
-<p>cudnn 7.6.3</p>
-<h2 id="使用特定源安装"><a href="#使用特定源安装" class="headerlink" title="使用特定源安装"></a>使用特定源安装</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install tensorflow-gpu&#x3D;&#x3D;1.8 -i https:&#x2F;&#x2F;pypi.tuna.tsinghua.edu.cn&#x2F;simple</span><br></pre></td></tr></table></figure>
-<h3 id="升级pip"><a href="#升级pip" class="headerlink" title="升级pip"></a>升级pip</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python -m pip install -U pip</span><br></pre></td></tr></table></figure>
-<p>tensorflow与keras间的兼容</p>
-<p><a href="https://docs.floydhub.com/guides/environments/" target="_blank" rel="noopener">https://docs.floydhub.com/guides/environments/</a></p>
-<h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><h3 id="解压zip"><a href="#解压zip" class="headerlink" title="解压zip"></a>解压zip</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">unzip test.zip</span><br></pre></td></tr></table></figure>
-<h3 id="解压7z"><a href="#解压7z" class="headerlink" title="解压7z"></a>解压7z</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">apt-get install p7zip</span><br><span class="line">7z x test.7z</span><br></pre></td></tr></table></figure>
-<p>详见 <a href="https://blog.csdn.net/AC_huang/article/details/23279641" target="_blank" rel="noopener">https://blog.csdn.net/AC_huang/article/details/23279641</a></p>
-<h3 id="展示文件树状结构"><a href="#展示文件树状结构" class="headerlink" title="展示文件树状结构"></a>展示文件树状结构</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo apt-get install tree</span><br><span class="line">tree --dirsfirst --filelimit 50</span><br></pre></td></tr></table></figure>
-<h3 id="命令行退出python"><a href="#命令行退出python" class="headerlink" title="命令行退出python"></a>命令行退出python</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">quit()</span><br></pre></td></tr></table></figure>
-<h2 id="matlab"><a href="#matlab" class="headerlink" title="matlab"></a>matlab</h2><p>匿名函数求导后，求某点值</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">syms y</span><br><span class="line">f&#x3D;@(x) 2*x^2+3;</span><br><span class="line">diff&#x3D;diff(f(y)) </span><br><span class="line">diff&#x3D;matlabFunction(diff)</span><br><span class="line">diff(0.5)</span><br></pre></td></tr></table></figure>]]></content>
-  </entry>
-  <entry>
     <title>用Keras实现视频动作分类</title>
     <url>/2020/07/24/%E7%94%A8Keras%E5%AE%9E%E7%8E%B0%E8%A7%86%E9%A2%91%E5%8A%A8%E4%BD%9C%E5%88%86%E7%B1%BB/</url>
     <content><![CDATA[<h1 id="用Keras实现视频动作分类"><a href="#用Keras实现视频动作分类" class="headerlink" title="用Keras实现视频动作分类"></a>用Keras实现视频动作分类</h1><p>使用LSTM或者RNN处理时序信息太费时间</p>
@@ -1553,7 +1553,8 @@ C_{x}=\frac{M_{10}}{M_{00}}, \quad C_{y}=\frac{M_{01}}{M_{00}}</script><h6 id="�
 </ul>
 <h2 id="1-1-2-2D变换"><a href="#1-1-2-2D变换" class="headerlink" title="1.1.2 2D变换"></a>1.1.2 2D变换</h2><p>平移、刚体运动（旋转+平移）、相似（放缩旋转）、仿射、投影（透视变换）、拉伸/挤压、平面状表面流（经历小的3D运动时）、双线性内插（任意非共线的四点运动的内插）</p>
 <h2 id="1-1-2-3D变换"><a href="#1-1-2-3D变换" class="headerlink" title="1.1.2 3D变换"></a>1.1.2 3D变换</h2><h2 id="4-特征检测与匹配"><a href="#4-特征检测与匹配" class="headerlink" title="4 特征检测与匹配"></a>4 特征检测与匹配</h2><h3 id="4-3-线条"><a href="#4-3-线条" class="headerlink" title="4.3 线条"></a>4.3 线条</h3><p>来自一位大佬的笔记：</p>
-<div class="pdfobject-container" data-target="Computer" data-height="Vision"></div>]]></content>
+<div class="pdfobject-container" data-target="Computer" data-height="Vision"></div>
+]]></content>
   </entry>
   <entry>
     <title>迁移学习</title>
