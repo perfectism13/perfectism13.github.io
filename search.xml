@@ -406,6 +406,14 @@
     <content><![CDATA[<h1 id="New-Words"><a href="#New-Words" class="headerlink" title="New Words"></a>New Words</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">scalar 标量的</span><br><span class="line">neuron 神经元</span><br><span class="line">neural 神经的</span><br><span class="line">vector 向量</span><br><span class="line">parameter 参数</span><br><span class="line">gradient descent 梯度下降</span><br><span class="line">backpropagation 反向传播</span><br><span class="line">sentiment 感情、情绪</span><br><span class="line">embedded 嵌入的、植入的</span><br><span class="line">trimming 整理、修剪、切除</span><br><span class="line">syntactic parsing 语法分析</span><br><span class="line">semantic analysis 语义分析</span><br><span class="line">indicator 指示器，指示符</span><br><span class="line">shallow 浅的</span><br><span class="line">adversarial 对抗的</span><br><span class="line">indent 缩进</span><br><span class="line">contour 轮廓</span><br><span class="line">approx&#x3D;approxiate 大约的</span><br><span class="line">hierarchy 层级，等级制度</span><br><span class="line">Skeleton Joint 骨骼关节</span><br><span class="line">Semantic Segmentation 语义分割</span><br><span class="line">advent 来临</span><br><span class="line">gaze 注视</span><br><span class="line">row 行</span><br><span class="line">colunm 列</span><br><span class="line">extremum 极值</span><br><span class="line">gray level 灰度</span><br><span class="line">entropy 熵</span><br><span class="line">stochastic 随机的，猜测的</span><br><span class="line">crop 修剪，种植</span><br><span class="line">shuffle 随机播放，打乱顺序</span><br><span class="line">transpose 调换，转置</span><br><span class="line">precisely 恰好地</span><br><span class="line">dilation 扩张</span><br><span class="line">co-adaptation 过拟合</span><br><span class="line">syllabus 教学摘要，课程表</span><br><span class="line">spatial 空间的</span><br><span class="line">stochastic 随机的</span><br><span class="line">bottleneck 瓶颈</span><br><span class="line">geometry 几何结构</span><br><span class="line">plain 平的，简单的，朴素的</span><br><span class="line">Fine-tune 微调</span><br><span class="line">spatial 空间的</span><br><span class="line">sparse 稀疏的</span><br><span class="line">backend 后端</span><br><span class="line">attribute 属性</span><br><span class="line">deque 双端队列</span><br><span class="line">combat 反抗战斗</span><br><span class="line">temporal，temporary 暂时的</span><br></pre></td></tr></table></figure>]]></content>
   </entry>
   <entry>
+    <title>Note of ROS to Ubantu</title>
+    <url>/2020/07/24/Note%20of%20ROS%20to%20Ubantu/</url>
+    <content><![CDATA[<h3 id="Note-of-ROS-to-Ubantu"><a href="#Note-of-ROS-to-Ubantu" class="headerlink" title="Note of ROS to Ubantu"></a>Note of ROS to Ubantu</h3><h4 id="terminal命令"><a href="#terminal命令" class="headerlink" title="terminal命令"></a>terminal命令</h4><p>echo $PATH： echo $PATH用于列出变量PATH的值，里面包含了已添加的目录</p>
+<p>env：env命令是environment的缩写，用于列出所有的环境变量</p>
+<p>export：单独使用export命令也可以像env列出所有的环境变量，不过export命令还有其他额外的功能</p>
+]]></content>
+  </entry>
+  <entry>
     <title>Notes of Machine Learning</title>
     <url>/2020/07/24/Notes%20of%20Machine%20Learning/</url>
     <content><![CDATA[<h1 id="Notes-of-Machine-Learning"><a href="#Notes-of-Machine-Learning" class="headerlink" title="Notes of Machine Learning"></a>Notes of Machine Learning</h1><p>Min Chen Yang, Hunan University, 2019.11</p>
@@ -631,14 +639,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Note of ROS to Ubantu</title>
-    <url>/2020/07/24/Note%20of%20ROS%20to%20Ubantu/</url>
-    <content><![CDATA[<h3 id="Note-of-ROS-to-Ubantu"><a href="#Note-of-ROS-to-Ubantu" class="headerlink" title="Note of ROS to Ubantu"></a>Note of ROS to Ubantu</h3><h4 id="terminal命令"><a href="#terminal命令" class="headerlink" title="terminal命令"></a>terminal命令</h4><p>echo $PATH： echo $PATH用于列出变量PATH的值，里面包含了已添加的目录</p>
-<p>env：env命令是environment的缩写，用于列出所有的环境变量</p>
-<p>export：单独使用export命令也可以像env列出所有的环境变量，不过export命令还有其他额外的功能</p>
-]]></content>
-  </entry>
-  <entry>
     <title>Numpy 笔记</title>
     <url>/2020/07/24/Numpy%20%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="Numpy-笔记"><a href="#Numpy-笔记" class="headerlink" title="Numpy 笔记"></a>Numpy 笔记</h1><h2 id="transpose"><a href="#transpose" class="headerlink" title="transpose"></a>transpose</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">numpy.transpose(a, axes&#x3D;None)</span><br><span class="line">#修改张量的维度</span><br><span class="line">&gt;&gt;&gt; x &#x3D; np.arange(4).reshape((2,2))</span><br><span class="line">&gt;&gt;&gt; x</span><br><span class="line">array([[0, 1],</span><br><span class="line">       [2, 3]])</span><br><span class="line">&gt;&gt;&gt; np.transpose(x)</span><br><span class="line">array([[0, 2],</span><br><span class="line">       [1, 3]])</span><br><span class="line">&gt;&gt;&gt; x &#x3D; np.ones((1, 2, 3))</span><br><span class="line">&gt;&gt;&gt; np.transpose(x, (1, 0, 2)).shape</span><br><span class="line">(2, 1, 3)</span><br></pre></td></tr></table></figure>
@@ -795,6 +795,20 @@
 <p>密匙：BWG7X-J98B3-W34RT-33B3R-JVYW9</p>
 <h2 id="OpenCV4-2-0"><a href="#OpenCV4-2-0" class="headerlink" title="OpenCV4.2.0"></a>OpenCV4.2.0</h2><p>下载链接：<a href="https://opencv.org/releases/" target="_blank" rel="noopener">https://opencv.org/releases/</a></p>
 <h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p><a href="https://blog.csdn.net/qq_32717603/article/details/89234512" target="_blank" rel="noopener">https://blog.csdn.net/qq_32717603/article/details/89234512</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>交流思考</title>
+    <url>/2020/07/24/%E4%BA%A4%E6%B5%81%E6%80%9D%E8%80%83/</url>
+    <content><![CDATA[<h1 id="交流思考"><a href="#交流思考" class="headerlink" title="交流思考"></a>交流思考</h1><h2 id="2019-12-19下午三点于中楼"><a href="#2019-12-19下午三点于中楼" class="headerlink" title="2019.12.19下午三点于中楼"></a>2019.12.19下午三点于中楼</h2><p>1.如何产生新的idea：</p>
+<p>复现论文和阅读论文是一个循环的过程</p>
+<p>可以将其他领域的方法移植到自己的问题上来，也就是要找到问题的本质，也要求自己的知识面要足够广，i.e:将NLP中的方法移植到CV中来？</p>
+<p>2.要看好的大学的英文论文，要沉下心来，看看别人的想法是什么，最后一定要有自己的想法，找到论文之间的差异性，新颖点，不同点在哪里</p>
+<p>3.图像领域重要的就是准确度的提升、工程应用的难易程度？</p>
+<p>4.写小论文，申请专利，反复修改，论文框架？</p>
+<a id="more"></a>
+<h2 id="2019-12-19晚11点与天马公寓"><a href="#2019-12-19晚11点与天马公寓" class="headerlink" title="2019.12.19晚11点与天马公寓"></a>2019.12.19晚11点与天马公寓</h2><p>1.善于利用网络问别人问题<br>2.和师兄搞好关系<br>3.寻找每篇论文存在的问题，新颖点<br>4.每周报告认真写报告，越详细越好<br>5.大胆的假设结果，然后向目标求证<br>6.不同角度解读问题<br>7.必要时修改对结果的预判，甚至修改问题<br>8.不打迷糊仗，避免使用大概等词：有方法，有数据，有实验，有证明<br>10.现在每天工作14小时，以后8小时？<br>11.如何阅读论文<br>中国科学，机械工程学报<br>不要找含复杂数学知识的论文<br>重现论文<br>12.创新思维</p>
+<p>来源-崔老师《如何做科研》</p>
 ]]></content>
   </entry>
   <entry>
@@ -1055,20 +1069,6 @@ C_{x}=\frac{M_{10}}{M_{00}}, \quad C_{y}=\frac{M_{01}}{M_{00}}</script><h6 id="�
         <tag>python</tag>
         <tag>cv</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>交流思考</title>
-    <url>/2020/07/24/%E4%BA%A4%E6%B5%81%E6%80%9D%E8%80%83/</url>
-    <content><![CDATA[<h1 id="交流思考"><a href="#交流思考" class="headerlink" title="交流思考"></a>交流思考</h1><h2 id="2019-12-19下午三点于中楼"><a href="#2019-12-19下午三点于中楼" class="headerlink" title="2019.12.19下午三点于中楼"></a>2019.12.19下午三点于中楼</h2><p>1.如何产生新的idea：</p>
-<p>复现论文和阅读论文是一个循环的过程</p>
-<p>可以将其他领域的方法移植到自己的问题上来，也就是要找到问题的本质，也要求自己的知识面要足够广，i.e:将NLP中的方法移植到CV中来？</p>
-<p>2.要看好的大学的英文论文，要沉下心来，看看别人的想法是什么，最后一定要有自己的想法，找到论文之间的差异性，新颖点，不同点在哪里</p>
-<p>3.图像领域重要的就是准确度的提升、工程应用的难易程度？</p>
-<p>4.写小论文，申请专利，反复修改，论文框架？</p>
-<a id="more"></a>
-<h2 id="2019-12-19晚11点与天马公寓"><a href="#2019-12-19晚11点与天马公寓" class="headerlink" title="2019.12.19晚11点与天马公寓"></a>2019.12.19晚11点与天马公寓</h2><p>1.善于利用网络问别人问题<br>2.和师兄搞好关系<br>3.寻找每篇论文存在的问题，新颖点<br>4.每周报告认真写报告，越详细越好<br>5.大胆的假设结果，然后向目标求证<br>6.不同角度解读问题<br>7.必要时修改对结果的预判，甚至修改问题<br>8.不打迷糊仗，避免使用大概等词：有方法，有数据，有实验，有证明<br>10.现在每天工作14小时，以后8小时？<br>11.如何阅读论文<br>中国科学，机械工程学报<br>不要找含复杂数学知识的论文<br>重现论文<br>12.创新思维</p>
-<p>来源-崔老师《如何做科研》</p>
-]]></content>
   </entry>
   <entry>
     <title>使用Google Colab训练模型</title>
