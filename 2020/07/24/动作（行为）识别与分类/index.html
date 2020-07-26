@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":"trut","trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"perfectism13.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":"trut","trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="动作（行为）识别与分类闵晨阳 2019年12月 视频理解 长期动作和短期动作的区别 图像分类的传统方法传统方法：特征提取与特征分类两个过程进行的。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="动作（行为）识别与分类">
-<meta property="og:url" content="http://yoursite.com/2020/07/24/%E5%8A%A8%E4%BD%9C%EF%BC%88%E8%A1%8C%E4%B8%BA%EF%BC%89%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/index.html">
+<meta property="og:url" content="https://perfectism13.github.io/2020/07/24/%E5%8A%A8%E4%BD%9C%EF%BC%88%E8%A1%8C%E4%B8%BA%EF%BC%89%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/index.html">
 <meta property="og:site_name" content="perfectism&#39;s blog">
 <meta property="og:description" content="动作（行为）识别与分类闵晨阳 2019年12月 视频理解 长期动作和短期动作的区别 图像分类的传统方法传统方法：特征提取与特征分类两个过程进行的。">
 <meta property="og:locale" content="zh_CN">
@@ -58,7 +58,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://perfectism13.github.io/2019/12/05/%E5%8A%A8%E4%BD%9C%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/VideoUnderstanding.png">
 
-<link rel="canonical" href="http://yoursite.com/2020/07/24/%E5%8A%A8%E4%BD%9C%EF%BC%88%E8%A1%8C%E4%B8%BA%EF%BC%89%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/">
+<link rel="canonical" href="https://perfectism13.github.io/2020/07/24/%E5%8A%A8%E4%BD%9C%EF%BC%88%E8%A1%8C%E4%B8%BA%EF%BC%89%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/">
 
 
 <script id="page-configurations">
@@ -185,21 +185,18 @@
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
-           placeholder="搜索..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
+  <div class="search-input-container"></div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
-  </div>
+<div class="algolia-results">
+  <div id="algolia-stats"></div>
+  <div id="algolia-hits"></div>
+  <div id="algolia-pagination" class="algolia-pagination"></div>
 </div>
 
+      
     </div>
   </div>
 
@@ -229,7 +226,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/24/%E5%8A%A8%E4%BD%9C%EF%BC%88%E8%A1%8C%E4%B8%BA%EF%BC%89%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/">
+    <link itemprop="mainEntityOfPage" href="https://perfectism13.github.io/2020/07/24/%E5%8A%A8%E4%BD%9C%EF%BC%88%E8%A1%8C%E4%B8%BA%EF%BC%89%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -257,6 +254,13 @@
             </span>
 
           
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
 
         </div>
       </header>
@@ -494,6 +498,23 @@
     
     
     
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Chenyang Min
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://perfectism13.github.io/2020/07/24/%E5%8A%A8%E4%BD%9C%EF%BC%88%E8%A1%8C%E4%B8%BA%EF%BC%89%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/" title="动作（行为）识别与分类">https://perfectism13.github.io/2020/07/24/动作（行为）识别与分类/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
 
       <footer class="post-footer">
 
@@ -569,7 +590,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#动作（行为）识别与分类"><span class="nav-number">1.</span> <span class="nav-text">动作（行为）识别与分类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#视频理解"><span class="nav-number">1.1.</span> <span class="nav-text">视频理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图像分类的传统方法"><span class="nav-number">1.2.</span> <span class="nav-text">图像分类的传统方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#特征提取概述"><span class="nav-number">1.2.1.</span> <span class="nav-text">特征提取概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特征提取"><span class="nav-number">1.2.2.</span> <span class="nav-text">特征提取</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#整体表示方式"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">整体表示方式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ROI提取表示"><span class="nav-number">1.2.2.1.1.</span> <span class="nav-text">ROI提取表示</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#时空体积-Space-time-volume-表示"><span class="nav-number">1.2.2.1.2.</span> <span class="nav-text">时空体积(Space-time volume)表示</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#网络切分-Grid-based-表示"><span class="nav-number">1.2.2.1.3.</span> <span class="nav-text">网络切分(Grid-based)表示</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#局部表示方式"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">局部表示方式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#时空兴趣点检测"><span class="nav-number">1.2.2.2.1.</span> <span class="nav-text">时空兴趣点检测</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#STIP"><span class="nav-number">1.2.2.2.1.1.</span> <span class="nav-text">STIP</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Cuboid"><span class="nav-number">1.2.2.2.1.2.</span> <span class="nav-text">Cuboid</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#MEI-MHI"><span class="nav-number">1.2.2.2.1.3.</span> <span class="nav-text">MEI+MHI</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#HoG-HoF"><span class="nav-number">1.2.2.2.1.4.</span> <span class="nav-text">HoG+HoF</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#局部网格表示"><span class="nav-number">1.2.2.2.2.</span> <span class="nav-text">局部网格表示</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特征融合"><span class="nav-number">1.2.3.</span> <span class="nav-text">特征融合</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Bag-of-Feature-词袋-，Bag-of-Visual"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">Bag of Feature(词袋)，Bag of Visual</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Fisher-Vector"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">Fisher Vector</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特征分类"><span class="nav-number">1.2.4.</span> <span class="nav-text">特征分类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#直接分类法"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">直接分类法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#时域状态空间融合模型"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">时域状态空间融合模型</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#动态时间规划"><span class="nav-number">1.2.4.2.1.</span> <span class="nav-text">动态时间规划</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#以iDT算法为例看传统方法的出理过程"><span class="nav-number">1.2.5.</span> <span class="nav-text">以iDT算法为例看传统方法的出理过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图像分类的深度学习方法"><span class="nav-number">1.3.</span> <span class="nav-text">图像分类的深度学习方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#深度学习方法具体流程"><span class="nav-number">1.3.1.</span> <span class="nav-text">深度学习方法具体流程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据载入和数据预处理"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">数据载入和数据预处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网络构建"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">网络构建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分类函数与loss定义"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">分类函数与loss定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优化器定义"><span class="nav-number">1.3.1.4.</span> <span class="nav-text">优化器定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#训练与验证过程"><span class="nav-number">1.3.1.5.</span> <span class="nav-text">训练与验证过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试阶段"><span class="nav-number">1.3.1.6.</span> <span class="nav-text">测试阶段</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据集"><span class="nav-number">1.4.</span> <span class="nav-text">数据集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动作识别实现"><span class="nav-number">1.5.</span> <span class="nav-text">动作识别实现</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#传统有监督特征提取方法"><span class="nav-number">2.</span> <span class="nav-text">传统有监督特征提取方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#学习过程"><span class="nav-number">2.1.</span> <span class="nav-text">学习过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">2.2.</span> <span class="nav-text">References</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#动作（行为）识别与分类"><span class="nav-text">动作（行为）识别与分类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#视频理解"><span class="nav-text">视频理解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图像分类的传统方法"><span class="nav-text">图像分类的传统方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#特征提取概述"><span class="nav-text">特征提取概述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特征提取"><span class="nav-text">特征提取</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#整体表示方式"><span class="nav-text">整体表示方式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ROI提取表示"><span class="nav-text">ROI提取表示</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#时空体积-Space-time-volume-表示"><span class="nav-text">时空体积(Space-time volume)表示</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#网络切分-Grid-based-表示"><span class="nav-text">网络切分(Grid-based)表示</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#局部表示方式"><span class="nav-text">局部表示方式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#时空兴趣点检测"><span class="nav-text">时空兴趣点检测</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#STIP"><span class="nav-text">STIP</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Cuboid"><span class="nav-text">Cuboid</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#MEI-MHI"><span class="nav-text">MEI+MHI</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#HoG-HoF"><span class="nav-text">HoG+HoF</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#局部网格表示"><span class="nav-text">局部网格表示</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特征融合"><span class="nav-text">特征融合</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Bag-of-Feature-词袋-，Bag-of-Visual"><span class="nav-text">Bag of Feature(词袋)，Bag of Visual</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Fisher-Vector"><span class="nav-text">Fisher Vector</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特征分类"><span class="nav-text">特征分类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#直接分类法"><span class="nav-text">直接分类法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#时域状态空间融合模型"><span class="nav-text">时域状态空间融合模型</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#动态时间规划"><span class="nav-text">动态时间规划</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#以iDT算法为例看传统方法的出理过程"><span class="nav-text">以iDT算法为例看传统方法的出理过程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图像分类的深度学习方法"><span class="nav-text">图像分类的深度学习方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#深度学习方法具体流程"><span class="nav-text">深度学习方法具体流程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据载入和数据预处理"><span class="nav-text">数据载入和数据预处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网络构建"><span class="nav-text">网络构建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分类函数与loss定义"><span class="nav-text">分类函数与loss定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优化器定义"><span class="nav-text">优化器定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#训练与验证过程"><span class="nav-text">训练与验证过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#测试阶段"><span class="nav-text">测试阶段</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据集"><span class="nav-text">数据集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动作识别实现"><span class="nav-text">动作识别实现</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#传统有监督特征提取方法"><span class="nav-text">传统有监督特征提取方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#学习过程"><span class="nav-text">学习过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-text">References</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -629,10 +650,28 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Chenyang Min</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
-  </div>
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
 
 
 
@@ -671,7 +710,10 @@
 
 
   
-<script src="/js/local-search.js"></script>
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script>
+<script src="/js/algolia-search.js"></script>
+
 
 
 

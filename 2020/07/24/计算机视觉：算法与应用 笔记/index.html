@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":"trut","trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"perfectism13.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":"trut","trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="计算机视觉：算法与应用 笔记1 图像形成1.1.1 几何基元与变换几何基元：2D点、2D直线、2D圆锥曲线、3D点、3D平面、3D直线、3D二次曲面 齐次坐标（投影坐标）：用于投影几何里的坐标系统，给定欧氏平面上的一点 (x, y)，对任意非零实数 Z，三元组 (xZ, yZ, Z) 即称之为该点的齐次坐标 笛卡尔坐标与齐次坐标的关系：  投影平面上的任何点都可以表示成一三元组 (X, Y, Z)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="计算机视觉：算法与应用 笔记">
-<meta property="og:url" content="http://yoursite.com/2020/07/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%EF%BC%9A%E7%AE%97%E6%B3%95%E4%B8%8E%E5%BA%94%E7%94%A8%20%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:url" content="https://perfectism13.github.io/2020/07/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%EF%BC%9A%E7%AE%97%E6%B3%95%E4%B8%8E%E5%BA%94%E7%94%A8%20%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="perfectism&#39;s blog">
 <meta property="og:description" content="计算机视觉：算法与应用 笔记1 图像形成1.1.1 几何基元与变换几何基元：2D点、2D直线、2D圆锥曲线、3D点、3D平面、3D直线、3D二次曲面 齐次坐标（投影坐标）：用于投影几何里的坐标系统，给定欧氏平面上的一点 (x, y)，对任意非零实数 Z，三元组 (xZ, yZ, Z) 即称之为该点的齐次坐标 笛卡尔坐标与齐次坐标的关系：  投影平面上的任何点都可以表示成一三元组 (X, Y, Z)">
 <meta property="og:locale" content="zh_CN">
@@ -32,7 +32,7 @@
 <meta property="article:author" content="Chenyang Min">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/2020/07/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%EF%BC%9A%E7%AE%97%E6%B3%95%E4%B8%8E%E5%BA%94%E7%94%A8%20%E7%AC%94%E8%AE%B0/">
+<link rel="canonical" href="https://perfectism13.github.io/2020/07/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%EF%BC%9A%E7%AE%97%E6%B3%95%E4%B8%8E%E5%BA%94%E7%94%A8%20%E7%AC%94%E8%AE%B0/">
 
 
 <script id="page-configurations">
@@ -159,21 +159,18 @@
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
-           placeholder="搜索..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
+  <div class="search-input-container"></div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
-  </div>
+<div class="algolia-results">
+  <div id="algolia-stats"></div>
+  <div id="algolia-hits"></div>
+  <div id="algolia-pagination" class="algolia-pagination"></div>
 </div>
 
+      
     </div>
   </div>
 
@@ -203,7 +200,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%EF%BC%9A%E7%AE%97%E6%B3%95%E4%B8%8E%E5%BA%94%E7%94%A8%20%E7%AC%94%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="https://perfectism13.github.io/2020/07/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%EF%BC%9A%E7%AE%97%E6%B3%95%E4%B8%8E%E5%BA%94%E7%94%A8%20%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -231,6 +228,13 @@
             </span>
 
           
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
 
         </div>
       </header>
@@ -260,6 +264,23 @@
     
     
     
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Chenyang Min
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://perfectism13.github.io/2020/07/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%EF%BC%9A%E7%AE%97%E6%B3%95%E4%B8%8E%E5%BA%94%E7%94%A8%20%E7%AC%94%E8%AE%B0/" title="计算机视觉：算法与应用 笔记">https://perfectism13.github.io/2020/07/24/计算机视觉：算法与应用 笔记/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
 
       <footer class="post-footer">
 
@@ -335,7 +356,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#计算机视觉：算法与应用-笔记"><span class="nav-number">1.</span> <span class="nav-text">计算机视觉：算法与应用 笔记</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-图像形成"><span class="nav-number">2.</span> <span class="nav-text">1 图像形成</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-1-几何基元与变换"><span class="nav-number">2.1.</span> <span class="nav-text">1.1.1 几何基元与变换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-2-2D变换"><span class="nav-number">2.2.</span> <span class="nav-text">1.1.2 2D变换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-2-3D变换"><span class="nav-number">2.3.</span> <span class="nav-text">1.1.2 3D变换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-特征检测与匹配"><span class="nav-number">2.4.</span> <span class="nav-text">4 特征检测与匹配</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-线条"><span class="nav-number">2.4.1.</span> <span class="nav-text">4.3 线条</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#计算机视觉：算法与应用-笔记"><span class="nav-text">计算机视觉：算法与应用 笔记</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-图像形成"><span class="nav-text">1 图像形成</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-1-几何基元与变换"><span class="nav-text">1.1.1 几何基元与变换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-2-2D变换"><span class="nav-text">1.1.2 2D变换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-2-3D变换"><span class="nav-text">1.1.2 3D变换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-特征检测与匹配"><span class="nav-text">4 特征检测与匹配</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-线条"><span class="nav-text">4.3 线条</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -395,10 +416,28 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Chenyang Min</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
-  </div>
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
 
 
 
@@ -437,7 +476,10 @@
 
 
   
-<script src="/js/local-search.js"></script>
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script>
+<script src="/js/algolia-search.js"></script>
+
 
 
 

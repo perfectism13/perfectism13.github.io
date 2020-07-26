@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":"trut","trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"perfectism13.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":"trut","trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="Notes of Machine LearningMin Chen Yang, Hunan University, 2019.11 初识机器学习从原始数据中提取模式的能力。 进入21世纪，纵观机器学习发展历程，研究热点可以简单总结为2000-2006年的流形学习、2006年-2011年的稀疏学习、2012年至今的深度学习 、未来迁移学习？ 人工智能的真正挑战在于解决对人来说很容易执行，但很难形式化">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Notes of Machine Learning">
-<meta property="og:url" content="http://yoursite.com/2020/07/24/Notes%20of%20Machine%20Learning/index.html">
+<meta property="og:url" content="https://perfectism13.github.io/2020/07/24/Notes%20of%20Machine%20Learning/index.html">
 <meta property="og:site_name" content="perfectism&#39;s blog">
 <meta property="og:description" content="Notes of Machine LearningMin Chen Yang, Hunan University, 2019.11 初识机器学习从原始数据中提取模式的能力。 进入21世纪，纵观机器学习发展历程，研究热点可以简单总结为2000-2006年的流形学习、2006年-2011年的稀疏学习、2012年至今的深度学习 、未来迁移学习？ 人工智能的真正挑战在于解决对人来说很容易执行，但很难形式化">
 <meta property="og:locale" content="zh_CN">
@@ -62,7 +62,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://perfectism13.github.io/2019/11/16/Notes%20of%20Machine%20Learning/21.PNG">
 
-<link rel="canonical" href="http://yoursite.com/2020/07/24/Notes%20of%20Machine%20Learning/">
+<link rel="canonical" href="https://perfectism13.github.io/2020/07/24/Notes%20of%20Machine%20Learning/">
 
 
 <script id="page-configurations">
@@ -189,21 +189,18 @@
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
-           placeholder="搜索..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
+  <div class="search-input-container"></div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
-  </div>
+<div class="algolia-results">
+  <div id="algolia-stats"></div>
+  <div id="algolia-hits"></div>
+  <div id="algolia-pagination" class="algolia-pagination"></div>
 </div>
 
+      
     </div>
   </div>
 
@@ -233,7 +230,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/24/Notes%20of%20Machine%20Learning/">
+    <link itemprop="mainEntityOfPage" href="https://perfectism13.github.io/2020/07/24/Notes%20of%20Machine%20Learning/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -261,6 +258,13 @@
             </span>
 
           
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
 
         </div>
       </header>
@@ -497,6 +501,23 @@
     
     
     
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Chenyang Min
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://perfectism13.github.io/2020/07/24/Notes%20of%20Machine%20Learning/" title="Notes of Machine Learning">https://perfectism13.github.io/2020/07/24/Notes of Machine Learning/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
 
       <footer class="post-footer">
 
@@ -572,7 +593,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Notes-of-Machine-Learning"><span class="nav-number">1.</span> <span class="nav-text">Notes of Machine Learning</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#初识机器学习"><span class="nav-number">1.1.</span> <span class="nav-text">初识机器学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deep-Learning"><span class="nav-number">1.2.</span> <span class="nav-text">Deep Learning</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#初识"><span class="nav-number">1.2.1.</span> <span class="nav-text">初识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数学基础"><span class="nav-number">1.2.2.</span> <span class="nav-text">数学基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#雅可比Jacobian矩阵"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">雅可比Jacobian矩阵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#海森Hessian矩阵"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">海森Hessian矩阵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#softmax函数（归一化指数函数）"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">softmax函数（归一化指数函数）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#linear-algebra"><span class="nav-number">1.2.2.4.</span> <span class="nav-text">linear algebra</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DNN基础"><span class="nav-number">1.2.3.</span> <span class="nav-text">DNN基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#线性变化与仿射变换"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">线性变化与仿射变换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#监督学习"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">监督学习</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#回归问题"><span class="nav-number">1.2.3.2.1.</span> <span class="nav-text">回归问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#分类问题"><span class="nav-number">1.2.3.2.2.</span> <span class="nav-text">分类问题</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#无监督学习"><span class="nav-number">1.2.3.3.</span> <span class="nav-text">无监督学习</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#欠拟合、过拟合"><span class="nav-number">1.2.3.4.</span> <span class="nav-text">欠拟合、过拟合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#后向传播"><span class="nav-number">1.2.3.5.</span> <span class="nav-text">后向传播</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#损失和优化"><span class="nav-number">1.2.3.6.</span> <span class="nav-text">损失和优化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#激活函数"><span class="nav-number">1.2.3.7.</span> <span class="nav-text">激活函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Logistic-sigmoid-函数"><span class="nav-number">1.2.3.7.1.</span> <span class="nav-text">Logistic sigmoid 函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tanh函数"><span class="nav-number">1.2.3.7.2.</span> <span class="nav-text">tanh函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ReLU函数（修正线性单元）"><span class="nav-number">1.2.3.7.3.</span> <span class="nav-text">ReLU函数（修正线性单元）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#李宏毅note"><span class="nav-number">1.2.4.</span> <span class="nav-text">李宏毅note</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#单层感知机模型实现与门、或门、非门"><span class="nav-number">1.2.4.0.1.</span> <span class="nav-text">单层感知机模型实现与门、或门、非门</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#完全连接前馈网络"><span class="nav-number">1.2.4.0.2.</span> <span class="nav-text">完全连接前馈网络</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#为什么使用深度神经网络"><span class="nav-number">1.2.4.0.3.</span> <span class="nav-text">为什么使用深度神经网络</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#神经网络变体"><span class="nav-number">1.2.4.0.4.</span> <span class="nav-text">神经网络变体</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#卷积神经网络（CNN"><span class="nav-number">1.2.4.0.4.1.</span> <span class="nav-text">卷积神经网络（CNN)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#循环神经网络（RNN"><span class="nav-number">1.2.4.0.4.2.</span> <span class="nav-text">循环神经网络（RNN)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#注意力集中模型"><span class="nav-number">1.2.4.0.4.3.</span> <span class="nav-text">注意力集中模型</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RNN-vs-Structured-Learning"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">RNN vs Structured Learning</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深度学习框架"><span class="nav-number">1.2.5.</span> <span class="nav-text">深度学习框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深度学习与计算机视觉"><span class="nav-number">1.2.6.</span> <span class="nav-text">深度学习与计算机视觉</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Notes-of-Machine-Learning"><span class="nav-text">Notes of Machine Learning</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#初识机器学习"><span class="nav-text">初识机器学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deep-Learning"><span class="nav-text">Deep Learning</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#初识"><span class="nav-text">初识</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数学基础"><span class="nav-text">数学基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#雅可比Jacobian矩阵"><span class="nav-text">雅可比Jacobian矩阵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#海森Hessian矩阵"><span class="nav-text">海森Hessian矩阵</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#softmax函数（归一化指数函数）"><span class="nav-text">softmax函数（归一化指数函数）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#linear-algebra"><span class="nav-text">linear algebra</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DNN基础"><span class="nav-text">DNN基础</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#线性变化与仿射变换"><span class="nav-text">线性变化与仿射变换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#监督学习"><span class="nav-text">监督学习</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#回归问题"><span class="nav-text">回归问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#分类问题"><span class="nav-text">分类问题</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#无监督学习"><span class="nav-text">无监督学习</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#欠拟合、过拟合"><span class="nav-text">欠拟合、过拟合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#后向传播"><span class="nav-text">后向传播</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#损失和优化"><span class="nav-text">损失和优化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#激活函数"><span class="nav-text">激活函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Logistic-sigmoid-函数"><span class="nav-text">Logistic sigmoid 函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tanh函数"><span class="nav-text">tanh函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ReLU函数（修正线性单元）"><span class="nav-text">ReLU函数（修正线性单元）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#李宏毅note"><span class="nav-text">李宏毅note</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#单层感知机模型实现与门、或门、非门"><span class="nav-text">单层感知机模型实现与门、或门、非门</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#完全连接前馈网络"><span class="nav-text">完全连接前馈网络</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#为什么使用深度神经网络"><span class="nav-text">为什么使用深度神经网络</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#神经网络变体"><span class="nav-text">神经网络变体</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#卷积神经网络（CNN"><span class="nav-text">卷积神经网络（CNN)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#循环神经网络（RNN"><span class="nav-text">循环神经网络（RNN)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#注意力集中模型"><span class="nav-text">注意力集中模型</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#RNN-vs-Structured-Learning"><span class="nav-text">RNN vs Structured Learning</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深度学习框架"><span class="nav-text">深度学习框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深度学习与计算机视觉"><span class="nav-text">深度学习与计算机视觉</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -632,10 +653,28 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Chenyang Min</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
-  </div>
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
 
 
 
@@ -674,7 +713,10 @@
 
 
   
-<script src="/js/local-search.js"></script>
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script>
+<script src="/js/algolia-search.js"></script>
+
 
 
 

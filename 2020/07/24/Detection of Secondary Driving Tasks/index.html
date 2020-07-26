@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":"trut","trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"perfectism13.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":"trut","trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="Detection of Secondary Driving TasksMIT—AVT 王飞跃等的相关工作1.End-to-End Driving Activities and Secondary Tasks Recognition Using Deep Convolutional Neural Network and Transfer Learning  Specifically, seven">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Detection of Secondary Driving Tasks">
-<meta property="og:url" content="http://yoursite.com/2020/07/24/Detection%20of%20Secondary%20Driving%20Tasks/index.html">
+<meta property="og:url" content="https://perfectism13.github.io/2020/07/24/Detection%20of%20Secondary%20Driving%20Tasks/index.html">
 <meta property="og:site_name" content="perfectism&#39;s blog">
 <meta property="og:description" content="Detection of Secondary Driving TasksMIT—AVT 王飞跃等的相关工作1.End-to-End Driving Activities and Secondary Tasks Recognition Using Deep Convolutional Neural Network and Transfer Learning  Specifically, seven">
 <meta property="og:locale" content="zh_CN">
@@ -35,7 +35,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://perfectism13.github.io/2019/11/10/Driving%20Tasks%20review/image-20191204225003730.png">
 
-<link rel="canonical" href="http://yoursite.com/2020/07/24/Detection%20of%20Secondary%20Driving%20Tasks/">
+<link rel="canonical" href="https://perfectism13.github.io/2020/07/24/Detection%20of%20Secondary%20Driving%20Tasks/">
 
 
 <script id="page-configurations">
@@ -162,21 +162,18 @@
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
-           placeholder="搜索..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
+  <div class="search-input-container"></div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
-  </div>
+<div class="algolia-results">
+  <div id="algolia-stats"></div>
+  <div id="algolia-hits"></div>
+  <div id="algolia-pagination" class="algolia-pagination"></div>
 </div>
 
+      
     </div>
   </div>
 
@@ -206,7 +203,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/24/Detection%20of%20Secondary%20Driving%20Tasks/">
+    <link itemprop="mainEntityOfPage" href="https://perfectism13.github.io/2020/07/24/Detection%20of%20Secondary%20Driving%20Tasks/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -234,6 +231,13 @@
             </span>
 
           
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
 
         </div>
       </header>
@@ -266,7 +270,7 @@
 <h2 id="datasets"><a href="#datasets" class="headerlink" title="datasets"></a>datasets</h2><p><a href="https://devyhia.github.io/projects/auc-distracted-driver-dataset" target="_blank" rel="noopener">AUC Distracted Driver Dataset</a></p>
 <p>原文见《Real-time Distracted Driver Posture Classification》</p>
 <p><a href="https://www.kaggle.com/c/state-farm-distracted-driver-detection/overview" target="_blank" rel="noopener">State Farm Distracted Driver Detection</a></p>
-<p><a href="https://perfectism13.github.io/2019/11/10/Driving Tasks review/www.driveandact.com" target="_blank" rel="noopener">Drive&amp;Act</a></p>
+<p><a href="https://perfectism13.github.io/2019/11/10/Driving Tasks review/www.driveandact.com">Drive&amp;Act</a></p>
 <p><a href="https://sites.google.com/site/benkhalifaanouar1/6-datasets?tmpl=%2Fsystem%2Fapp%2Ftemplates%2Fprint%2F&amp;showPrintDialog=1" target="_blank" rel="noopener">MDAD: A Multimodal and Multiview in-Vehicle Driver Action Dataset</a></p>
 <p>R-DA</p>
 <p>原文见：《Feature refinement for image-based driver action recognition via multi-scale attention convolutional neural network》</p>
@@ -502,6 +506,23 @@
     
     
     
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Chenyang Min
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://perfectism13.github.io/2020/07/24/Detection%20of%20Secondary%20Driving%20Tasks/" title="Detection of Secondary Driving Tasks">https://perfectism13.github.io/2020/07/24/Detection of Secondary Driving Tasks/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
 
       <footer class="post-footer">
 
@@ -577,7 +598,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Detection-of-Secondary-Driving-Tasks"><span class="nav-number">1.</span> <span class="nav-text">Detection of Secondary Driving Tasks</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#王飞跃等的相关工作"><span class="nav-number">1.1.</span> <span class="nav-text">王飞跃等的相关工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#datasets"><span class="nav-number">1.2.</span> <span class="nav-text">datasets</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ideas"><span class="nav-number">1.3.</span> <span class="nav-text">ideas</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#skeleton"><span class="nav-number">1.3.1.</span> <span class="nav-text">skeleton</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#直接分类"><span class="nav-number">1.3.2.</span> <span class="nav-text">直接分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将传统图像处理的办法与深度学习相结合"><span class="nav-number">1.3.3.</span> <span class="nav-text">将传统图像处理的办法与深度学习相结合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传统的SVM-KNN仍有很强的应用前景"><span class="nav-number">1.3.4.</span> <span class="nav-text">传统的SVM,KNN仍有很强的应用前景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语义分割，然后定位（分离驾驶员和背景再输入网络）"><span class="nav-number">1.3.5.</span> <span class="nav-text">语义分割，然后定位（分离驾驶员和背景再输入网络）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全卷积，解决驾驶员有多个第二驾驶员任务时"><span class="nav-number">1.3.6.</span> <span class="nav-text">全卷积，解决驾驶员有多个第二驾驶员任务时</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#利用人体骨骼做图像预处理"><span class="nav-number">1.3.7.</span> <span class="nav-text">利用人体骨骼做图像预处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#每一帧图片增加两帧光流，再对连续几帧数据的CNN结果融合"><span class="nav-number">1.3.8.</span> <span class="nav-text">每一帧图片增加两帧光流，再对连续几帧数据的CNN结果融合</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Goal"><span class="nav-number">1.4.</span> <span class="nav-text">Goal</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#inception-v3"><span class="nav-number">1.5.</span> <span class="nav-text">inception v3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#xception"><span class="nav-number">1.6.</span> <span class="nav-text">xception</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#NameError-name-‘backend’-is-not-defined"><span class="nav-number">1.6.1.</span> <span class="nav-text">NameError: name ‘backend’ is not defined</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调用flow-from-directory-出现“Found-0-images-belonging-to-2-classes”问题"><span class="nav-number">1.6.2.</span> <span class="nav-text">调用flow_from_directory()出现“Found 0 images belonging to 2 classes”问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#StopIteration-cannot-identify-image-file-‘-test-test-img-15308-jpg’"><span class="nav-number">1.6.3.</span> <span class="nav-text">StopIteration: cannot identify image file ‘.&#x2F;test&#x2F;test&#x2F;img_15308.jpg’</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TODO"><span class="nav-number">1.7.</span> <span class="nav-text">TODO</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#image-classification"><span class="nav-number">1.7.1.</span> <span class="nav-text">image classification</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#video-classification"><span class="nav-number">1.7.2.</span> <span class="nav-text">video classification</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#model-trained-logs"><span class="nav-number">1.8.</span> <span class="nav-text">model trained logs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Websites"><span class="nav-number">1.9.</span> <span class="nav-text">Websites</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Detection-of-Secondary-Driving-Tasks"><span class="nav-text">Detection of Secondary Driving Tasks</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#王飞跃等的相关工作"><span class="nav-text">王飞跃等的相关工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#datasets"><span class="nav-text">datasets</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ideas"><span class="nav-text">ideas</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#skeleton"><span class="nav-text">skeleton</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#直接分类"><span class="nav-text">直接分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将传统图像处理的办法与深度学习相结合"><span class="nav-text">将传统图像处理的办法与深度学习相结合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传统的SVM-KNN仍有很强的应用前景"><span class="nav-text">传统的SVM,KNN仍有很强的应用前景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#语义分割，然后定位（分离驾驶员和背景再输入网络）"><span class="nav-text">语义分割，然后定位（分离驾驶员和背景再输入网络）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全卷积，解决驾驶员有多个第二驾驶员任务时"><span class="nav-text">全卷积，解决驾驶员有多个第二驾驶员任务时</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#利用人体骨骼做图像预处理"><span class="nav-text">利用人体骨骼做图像预处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#每一帧图片增加两帧光流，再对连续几帧数据的CNN结果融合"><span class="nav-text">每一帧图片增加两帧光流，再对连续几帧数据的CNN结果融合</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Goal"><span class="nav-text">Goal</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#inception-v3"><span class="nav-text">inception v3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#xception"><span class="nav-text">xception</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#NameError-name-‘backend’-is-not-defined"><span class="nav-text">NameError: name ‘backend’ is not defined</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调用flow-from-directory-出现“Found-0-images-belonging-to-2-classes”问题"><span class="nav-text">调用flow_from_directory()出现“Found 0 images belonging to 2 classes”问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#StopIteration-cannot-identify-image-file-‘-test-test-img-15308-jpg’"><span class="nav-text">StopIteration: cannot identify image file ‘.&#x2F;test&#x2F;test&#x2F;img_15308.jpg’</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TODO"><span class="nav-text">TODO</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#image-classification"><span class="nav-text">image classification</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#video-classification"><span class="nav-text">video classification</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#model-trained-logs"><span class="nav-text">model trained logs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Websites"><span class="nav-text">Websites</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -637,10 +658,28 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Chenyang Min</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
-  </div>
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
 
 
 
@@ -679,7 +718,10 @@
 
 
   
-<script src="/js/local-search.js"></script>
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script>
+<script src="/js/algolia-search.js"></script>
+
 
 
 

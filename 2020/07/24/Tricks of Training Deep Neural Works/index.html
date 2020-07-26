@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":"trut","trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"perfectism13.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":"trut","trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="Tricks of Training Deep Neural WorksOverfitting训练数据包含抽样误差，训练时，复杂的模型将抽样误差也考虑在内，将抽样误差也进行了很好的拟合。最终模型在训练集上效果好；在测试集上效果差。模型泛化能力弱  过拟合的表现：  train loss不断下降，test loss趋于不变  训练集和测试集准确率相差过大 15%以上">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tricks of Training Deep Neural Works">
-<meta property="og:url" content="http://yoursite.com/2020/07/24/Tricks%20of%20Training%20Deep%20Neural%20Works/index.html">
+<meta property="og:url" content="https://perfectism13.github.io/2020/07/24/Tricks%20of%20Training%20Deep%20Neural%20Works/index.html">
 <meta property="og:site_name" content="perfectism&#39;s blog">
 <meta property="og:description" content="Tricks of Training Deep Neural WorksOverfitting训练数据包含抽样误差，训练时，复杂的模型将抽样误差也考虑在内，将抽样误差也进行了很好的拟合。最终模型在训练集上效果好；在测试集上效果差。模型泛化能力弱  过拟合的表现：  train loss不断下降，test loss趋于不变  训练集和测试集准确率相差过大 15%以上">
 <meta property="og:locale" content="zh_CN">
@@ -34,7 +34,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://perfectism13.github.io/2020/02/13/Tricks%20of%20Training%20Deep%20Neural%20Works/v2-953f6e7ce85ac1856764572e1c855705_hd.jpg">
 
-<link rel="canonical" href="http://yoursite.com/2020/07/24/Tricks%20of%20Training%20Deep%20Neural%20Works/">
+<link rel="canonical" href="https://perfectism13.github.io/2020/07/24/Tricks%20of%20Training%20Deep%20Neural%20Works/">
 
 
 <script id="page-configurations">
@@ -161,21 +161,18 @@
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
-           placeholder="搜索..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
+  <div class="search-input-container"></div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
-  </div>
+<div class="algolia-results">
+  <div id="algolia-stats"></div>
+  <div id="algolia-hits"></div>
+  <div id="algolia-pagination" class="algolia-pagination"></div>
 </div>
 
+      
     </div>
   </div>
 
@@ -205,7 +202,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/24/Tricks%20of%20Training%20Deep%20Neural%20Works/">
+    <link itemprop="mainEntityOfPage" href="https://perfectism13.github.io/2020/07/24/Tricks%20of%20Training%20Deep%20Neural%20Works/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -233,6 +230,13 @@
             </span>
 
           
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
 
         </div>
       </header>
@@ -276,6 +280,23 @@
     
     
     
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Chenyang Min
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://perfectism13.github.io/2020/07/24/Tricks%20of%20Training%20Deep%20Neural%20Works/" title="Tricks of Training Deep Neural Works">https://perfectism13.github.io/2020/07/24/Tricks of Training Deep Neural Works/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
 
       <footer class="post-footer">
 
@@ -351,7 +372,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Tricks-of-Training-Deep-Neural-Works"><span class="nav-number">1.</span> <span class="nav-text">Tricks of Training Deep Neural Works</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Overfitting"><span class="nav-number">1.1.</span> <span class="nav-text">Overfitting</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#减少模型的复杂程度（容量）"><span class="nav-number">1.1.1.</span> <span class="nav-text">减少模型的复杂程度（容量）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更多的数据"><span class="nav-number">1.1.2.</span> <span class="nav-text">更多的数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#学习率的调整"><span class="nav-number">1.1.3.</span> <span class="nav-text">学习率的调整</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进行交叉验证"><span class="nav-number">1.1.4.</span> <span class="nav-text">进行交叉验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Early-Stopping"><span class="nav-number">1.1.5.</span> <span class="nav-text">Early Stopping</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Owe-fitting"><span class="nav-number">1.2.</span> <span class="nav-text">Owe fitting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#训练和验证集loss相差不大，验证集准确率为1或者0"><span class="nav-number">1.3.</span> <span class="nav-text">训练和验证集loss相差不大，验证集准确率为1或者0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#检查数据集是否存在inf或者NaN"><span class="nav-number">1.4.</span> <span class="nav-text">检查数据集是否存在inf或者NaN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有时在第一代打乱数据，后续不再打乱，可能会有意想不到的好结果"><span class="nav-number">1.5.</span> <span class="nav-text">有时在第一代打乱数据，后续不再打乱，可能会有意想不到的好结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-number">1.6.</span> <span class="nav-text">References</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Tricks-of-Training-Deep-Neural-Works"><span class="nav-text">Tricks of Training Deep Neural Works</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Overfitting"><span class="nav-text">Overfitting</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#减少模型的复杂程度（容量）"><span class="nav-text">减少模型的复杂程度（容量）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更多的数据"><span class="nav-text">更多的数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#学习率的调整"><span class="nav-text">学习率的调整</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进行交叉验证"><span class="nav-text">进行交叉验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Early-Stopping"><span class="nav-text">Early Stopping</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Owe-fitting"><span class="nav-text">Owe fitting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#训练和验证集loss相差不大，验证集准确率为1或者0"><span class="nav-text">训练和验证集loss相差不大，验证集准确率为1或者0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#检查数据集是否存在inf或者NaN"><span class="nav-text">检查数据集是否存在inf或者NaN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有时在第一代打乱数据，后续不再打乱，可能会有意想不到的好结果"><span class="nav-text">有时在第一代打乱数据，后续不再打乱，可能会有意想不到的好结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-text">References</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -411,10 +432,28 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Chenyang Min</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
-  </div>
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
 
 
 
@@ -453,7 +492,10 @@
 
 
   
-<script src="/js/local-search.js"></script>
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script>
+<script src="/js/algolia-search.js"></script>
+
 
 
 

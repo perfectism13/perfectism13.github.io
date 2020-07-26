@@ -168,7 +168,7 @@
 <h2 id="datasets"><a href="#datasets" class="headerlink" title="datasets"></a>datasets</h2><p><a href="https://devyhia.github.io/projects/auc-distracted-driver-dataset" target="_blank" rel="noopener">AUC Distracted Driver Dataset</a></p>
 <p>原文见《Real-time Distracted Driver Posture Classification》</p>
 <p><a href="https://www.kaggle.com/c/state-farm-distracted-driver-detection/overview" target="_blank" rel="noopener">State Farm Distracted Driver Detection</a></p>
-<p><a href="https://perfectism13.github.io/2019/11/10/Driving Tasks review/www.driveandact.com" target="_blank" rel="noopener">Drive&amp;Act</a></p>
+<p><a href="https://perfectism13.github.io/2019/11/10/Driving Tasks review/www.driveandact.com">Drive&amp;Act</a></p>
 <p><a href="https://sites.google.com/site/benkhalifaanouar1/6-datasets?tmpl=%2Fsystem%2Fapp%2Ftemplates%2Fprint%2F&amp;showPrintDialog=1" target="_blank" rel="noopener">MDAD: A Multimodal and Multiview in-Vehicle Driver Action Dataset</a></p>
 <p>R-DA</p>
 <p>原文见：《Feature refinement for image-based driver action recognition via multi-scale attention convolutional neural network》</p>
@@ -639,14 +639,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Numpy 笔记</title>
-    <url>/2020/07/24/Numpy%20%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="Numpy-笔记"><a href="#Numpy-笔记" class="headerlink" title="Numpy 笔记"></a>Numpy 笔记</h1><h2 id="transpose"><a href="#transpose" class="headerlink" title="transpose"></a>transpose</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">numpy.transpose(a, axes&#x3D;None)</span><br><span class="line">#修改张量的维度</span><br><span class="line">&gt;&gt;&gt; x &#x3D; np.arange(4).reshape((2,2))</span><br><span class="line">&gt;&gt;&gt; x</span><br><span class="line">array([[0, 1],</span><br><span class="line">       [2, 3]])</span><br><span class="line">&gt;&gt;&gt; np.transpose(x)</span><br><span class="line">array([[0, 2],</span><br><span class="line">       [1, 3]])</span><br><span class="line">&gt;&gt;&gt; x &#x3D; np.ones((1, 2, 3))</span><br><span class="line">&gt;&gt;&gt; np.transpose(x, (1, 0, 2)).shape</span><br><span class="line">(2, 1, 3)</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h2 id="nonzero"><a href="#nonzero" class="headerlink" title="nonzero"></a>nonzero</h2><p>找到非零元素的下标</p>
-<h2 id="where"><a href="#where" class="headerlink" title="where"></a>where</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">np.where(x&lt;0,0,x) #分段函数</span><br></pre></td></tr></table></figure>]]></content>
-  </entry>
-  <entry>
     <title>PyTorch笔记</title>
     <url>/2020/07/24/PyTorch%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="PyTorch笔记"><a href="#PyTorch笔记" class="headerlink" title="PyTorch笔记"></a>PyTorch笔记</h1><p>PyTorch 1.3.0</p>
@@ -719,6 +711,14 @@
 ]]></content>
   </entry>
   <entry>
+    <title>Numpy 笔记</title>
+    <url>/2020/07/24/Numpy%20%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="Numpy-笔记"><a href="#Numpy-笔记" class="headerlink" title="Numpy 笔记"></a>Numpy 笔记</h1><h2 id="transpose"><a href="#transpose" class="headerlink" title="transpose"></a>transpose</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">numpy.transpose(a, axes&#x3D;None)</span><br><span class="line">#修改张量的维度</span><br><span class="line">&gt;&gt;&gt; x &#x3D; np.arange(4).reshape((2,2))</span><br><span class="line">&gt;&gt;&gt; x</span><br><span class="line">array([[0, 1],</span><br><span class="line">       [2, 3]])</span><br><span class="line">&gt;&gt;&gt; np.transpose(x)</span><br><span class="line">array([[0, 2],</span><br><span class="line">       [1, 3]])</span><br><span class="line">&gt;&gt;&gt; x &#x3D; np.ones((1, 2, 3))</span><br><span class="line">&gt;&gt;&gt; np.transpose(x, (1, 0, 2)).shape</span><br><span class="line">(2, 1, 3)</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="nonzero"><a href="#nonzero" class="headerlink" title="nonzero"></a>nonzero</h2><p>找到非零元素的下标</p>
+<h2 id="where"><a href="#where" class="headerlink" title="where"></a>where</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">np.where(x&lt;0,0,x) #分段函数</span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
+  <entry>
     <title>Python学习笔记</title>
     <url>/2020/07/24/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="Python学习笔记"><a href="#Python学习笔记" class="headerlink" title="Python学习笔记"></a>Python学习笔记</h1><h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><h3 id="打印输出"><a href="#打印输出" class="headerlink" title="打印输出"></a>打印输出</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">print(&quot;hello world&quot;)</span><br><span class="line">print(&quot;-&quot;*10)</span><br><span class="line">print(&quot;hello&quot;,&quot;world&quot;)</span><br><span class="line">#打印变量值</span><br><span class="line">print(&quot;width : %s, height : %s channels : %s&quot; % (width, height, channels))</span><br><span class="line">#打印矩阵</span><br><span class="line">print(image)</span><br></pre></td></tr></table></figure>
@@ -756,16 +756,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>VS2013+OpenCV4.2.0安装与配置</title>
-    <url>/2020/07/24/VS2013+OpenCV4.2.0%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<h1 id="VS2013-OpenCV4-2-0安装与配置"><a href="#VS2013-OpenCV4-2-0安装与配置" class="headerlink" title="VS2013+OpenCV4.2.0安装与配置"></a>VS2013+OpenCV4.2.0安装与配置</h1><h2 id="VS2013"><a href="#VS2013" class="headerlink" title="VS2013"></a>VS2013</h2><p>下载链接：ed2k://|file|cn_visual_studio_ultimate_2013_with_update_5_x86_dvd_6816649.iso|5567336448|641555AD6472A98923B29CC5E371461E|/</p>
-<p>安装教程：<a href="https://mp.weixin.qq.com/s/2Luj8FxXY6wYY2nhDe4SGw" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/2Luj8FxXY6wYY2nhDe4SGw</a></p>
-<p>密匙：BWG7X-J98B3-W34RT-33B3R-JVYW9</p>
-<h2 id="OpenCV4-2-0"><a href="#OpenCV4-2-0" class="headerlink" title="OpenCV4.2.0"></a>OpenCV4.2.0</h2><p>下载链接：<a href="https://opencv.org/releases/" target="_blank" rel="noopener">https://opencv.org/releases/</a></p>
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p><a href="https://blog.csdn.net/qq_32717603/article/details/89234512" target="_blank" rel="noopener">https://blog.csdn.net/qq_32717603/article/details/89234512</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>Tricks of Training Deep Neural Works</title>
     <url>/2020/07/24/Tricks%20of%20Training%20Deep%20Neural%20Works/</url>
     <content><![CDATA[<h1 id="Tricks-of-Training-Deep-Neural-Works"><a href="#Tricks-of-Training-Deep-Neural-Works" class="headerlink" title="Tricks of Training Deep Neural Works"></a>Tricks of Training Deep Neural Works</h1><h2 id="Overfitting"><a href="#Overfitting" class="headerlink" title="Overfitting"></a>Overfitting</h2><p>训练数据包含<strong>抽样误差</strong>，训练时，复杂的模型将抽样误差也考虑在内，将抽样误差也进行了很好的拟合。最终模型在训练集上效果好；在测试集上效果差。模型泛化能力弱</p>
@@ -796,6 +786,16 @@
 <p>6、神经网络不够深。</p>
 <p>7、训练的epoch不够。</p>
 <h2 id="训练和验证集loss相差不大，验证集准确率为1或者0"><a href="#训练和验证集loss相差不大，验证集准确率为1或者0" class="headerlink" title="训练和验证集loss相差不大，验证集准确率为1或者0"></a>训练和验证集loss相差不大，验证集准确率为1或者0</h2><h2 id="检查数据集是否存在inf或者NaN"><a href="#检查数据集是否存在inf或者NaN" class="headerlink" title="检查数据集是否存在inf或者NaN"></a>检查数据集是否存在inf或者NaN</h2><h2 id="有时在第一代打乱数据，后续不再打乱，可能会有意想不到的好结果"><a href="#有时在第一代打乱数据，后续不再打乱，可能会有意想不到的好结果" class="headerlink" title="有时在第一代打乱数据，后续不再打乱，可能会有意想不到的好结果"></a><strong>有时在第一代打乱数据，后续不再打乱，可能会有意想不到的好结果</strong></h2><h2 id="References"><a href="#References" class="headerlink" title="References"></a><strong>Referenc</strong>es</h2>]]></content>
+  </entry>
+  <entry>
+    <title>VS2013+OpenCV4.2.0安装与配置</title>
+    <url>/2020/07/24/VS2013+OpenCV4.2.0%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h1 id="VS2013-OpenCV4-2-0安装与配置"><a href="#VS2013-OpenCV4-2-0安装与配置" class="headerlink" title="VS2013+OpenCV4.2.0安装与配置"></a>VS2013+OpenCV4.2.0安装与配置</h1><h2 id="VS2013"><a href="#VS2013" class="headerlink" title="VS2013"></a>VS2013</h2><p>下载链接：ed2k://|file|cn_visual_studio_ultimate_2013_with_update_5_x86_dvd_6816649.iso|5567336448|641555AD6472A98923B29CC5E371461E|/</p>
+<p>安装教程：<a href="https://mp.weixin.qq.com/s/2Luj8FxXY6wYY2nhDe4SGw" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/2Luj8FxXY6wYY2nhDe4SGw</a></p>
+<p>密匙：BWG7X-J98B3-W34RT-33B3R-JVYW9</p>
+<h2 id="OpenCV4-2-0"><a href="#OpenCV4-2-0" class="headerlink" title="OpenCV4.2.0"></a>OpenCV4.2.0</h2><p>下载链接：<a href="https://opencv.org/releases/" target="_blank" rel="noopener">https://opencv.org/releases/</a></p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p><a href="https://blog.csdn.net/qq_32717603/article/details/89234512" target="_blank" rel="noopener">https://blog.csdn.net/qq_32717603/article/details/89234512</a></p>
+]]></content>
   </entry>
   <entry>
     <title>Note of Opencv2Python</title>
@@ -1503,31 +1503,6 @@ C_{x}=\frac{M_{10}}{M_{00}}, \quad C_{y}=\frac{M_{01}}{M_{00}}</script><h6 id="�
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">syms y</span><br><span class="line">f&#x3D;@(x) 2*x^2+3;</span><br><span class="line">diff&#x3D;diff(f(y)) </span><br><span class="line">diff&#x3D;matlabFunction(diff)</span><br><span class="line">diff(0.5)</span><br></pre></td></tr></table></figure>]]></content>
   </entry>
   <entry>
-    <title>计算机视觉：算法与应用 笔记</title>
-    <url>/2020/07/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%EF%BC%9A%E7%AE%97%E6%B3%95%E4%B8%8E%E5%BA%94%E7%94%A8%20%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="计算机视觉：算法与应用-笔记"><a href="#计算机视觉：算法与应用-笔记" class="headerlink" title="计算机视觉：算法与应用 笔记"></a>计算机视觉：算法与应用 笔记</h1><h1 id="1-图像形成"><a href="#1-图像形成" class="headerlink" title="1 图像形成"></a>1 图像形成</h1><h2 id="1-1-1-几何基元与变换"><a href="#1-1-1-几何基元与变换" class="headerlink" title="1.1.1 几何基元与变换"></a>1.1.1 几何基元与变换</h2><p><code>几何基元</code>：2D点、2D直线、2D圆锥曲线、3D点、3D平面、3D直线、3D二次曲面</p>
-<p><code>齐次坐标（投影坐标）</code>：用于投影几何里的坐标系统，给定欧氏平面上的一点 (<em>x</em>, <em>y</em>)，对任意非零实数 Z，三元组 (<em>xZ</em>, <em>yZ</em>, <em>Z</em>) 即称之为该点的齐次坐标</p>
-<p><code>笛卡尔坐标与齐次坐标的关系</code>：</p>
-<ul>
-<li><p>投影平面上的任何点都可以表示成一三元组 (<em>X</em>, <em>Y</em>, <em>Z</em>)，称之为该点的<strong>齐次坐标</strong>或<strong>投影坐标</strong>，其中 X、Y 及 Z 不全为 0</p>
-</li>
-<li><p>当 Z 为 0，则该点表示一无穷远点</p>
-</li>
-<li><p>三元组 (0, 0, 0) 不表示任何点。原点表示为 (0, 0, 1)</p>
-<a id="more"></a>
-</li>
-</ul>
-<h2 id="1-1-2-2D变换"><a href="#1-1-2-2D变换" class="headerlink" title="1.1.2 2D变换"></a>1.1.2 2D变换</h2><p>平移、刚体运动（旋转+平移）、相似（放缩旋转）、仿射、投影（透视变换）、拉伸/挤压、平面状表面流（经历小的3D运动时）、双线性内插（任意非共线的四点运动的内插）</p>
-<h2 id="1-1-2-3D变换"><a href="#1-1-2-3D变换" class="headerlink" title="1.1.2 3D变换"></a>1.1.2 3D变换</h2><h2 id="4-特征检测与匹配"><a href="#4-特征检测与匹配" class="headerlink" title="4 特征检测与匹配"></a>4 特征检测与匹配</h2><h3 id="4-3-线条"><a href="#4-3-线条" class="headerlink" title="4.3 线条"></a>4.3 线条</h3>]]></content>
-  </entry>
-  <entry>
-    <title>迁移学习</title>
-    <url>/2020/07/24/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<h1 id="迁移学习"><a href="#迁移学习" class="headerlink" title="迁移学习"></a>迁移学习</h1><p><strong>大量资源训练的模型</strong>经过细微调整后解决同一类问题，解决原始数据较少的问题，可节省大量时间和算力，因为分类对象变化，需要重新训练</p>
-<p>若出现负迁移:模型的泛化能力恶化，解决两个毫不相关的问题</p>
-]]></content>
-  </entry>
-  <entry>
     <title>用Keras实现视频动作分类</title>
     <url>/2020/07/24/%E7%94%A8Keras%E5%AE%9E%E7%8E%B0%E8%A7%86%E9%A2%91%E5%8A%A8%E4%BD%9C%E5%88%86%E7%B1%BB/</url>
     <content><![CDATA[<h1 id="用Keras实现视频动作分类"><a href="#用Keras实现视频动作分类" class="headerlink" title="用Keras实现视频动作分类"></a>用Keras实现视频动作分类</h1><p>使用LSTM或者RNN处理时序信息太费时间</p>
@@ -1559,6 +1534,31 @@ C_{x}=\frac{M_{10}}{M_{00}}, \quad C_{y}=\frac{M_{01}}{M_{00}}</script><h6 id="�
 <h2 id="References"><a href="#References" class="headerlink" title="References"></a>References</h2><ol>
 <li><a href="https://www.pyimagesearch.com/2019/07/15/video-classification-with-keras-and-deep-learning/" target="_blank" rel="noopener">https://www.pyimagesearch.com/2019/07/15/video-classification-with-keras-and-deep-learning/</a></li>
 </ol>
+]]></content>
+  </entry>
+  <entry>
+    <title>计算机视觉：算法与应用 笔记</title>
+    <url>/2020/07/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%EF%BC%9A%E7%AE%97%E6%B3%95%E4%B8%8E%E5%BA%94%E7%94%A8%20%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="计算机视觉：算法与应用-笔记"><a href="#计算机视觉：算法与应用-笔记" class="headerlink" title="计算机视觉：算法与应用 笔记"></a>计算机视觉：算法与应用 笔记</h1><h1 id="1-图像形成"><a href="#1-图像形成" class="headerlink" title="1 图像形成"></a>1 图像形成</h1><h2 id="1-1-1-几何基元与变换"><a href="#1-1-1-几何基元与变换" class="headerlink" title="1.1.1 几何基元与变换"></a>1.1.1 几何基元与变换</h2><p><code>几何基元</code>：2D点、2D直线、2D圆锥曲线、3D点、3D平面、3D直线、3D二次曲面</p>
+<p><code>齐次坐标（投影坐标）</code>：用于投影几何里的坐标系统，给定欧氏平面上的一点 (<em>x</em>, <em>y</em>)，对任意非零实数 Z，三元组 (<em>xZ</em>, <em>yZ</em>, <em>Z</em>) 即称之为该点的齐次坐标</p>
+<p><code>笛卡尔坐标与齐次坐标的关系</code>：</p>
+<ul>
+<li><p>投影平面上的任何点都可以表示成一三元组 (<em>X</em>, <em>Y</em>, <em>Z</em>)，称之为该点的<strong>齐次坐标</strong>或<strong>投影坐标</strong>，其中 X、Y 及 Z 不全为 0</p>
+</li>
+<li><p>当 Z 为 0，则该点表示一无穷远点</p>
+</li>
+<li><p>三元组 (0, 0, 0) 不表示任何点。原点表示为 (0, 0, 1)</p>
+<a id="more"></a>
+</li>
+</ul>
+<h2 id="1-1-2-2D变换"><a href="#1-1-2-2D变换" class="headerlink" title="1.1.2 2D变换"></a>1.1.2 2D变换</h2><p>平移、刚体运动（旋转+平移）、相似（放缩旋转）、仿射、投影（透视变换）、拉伸/挤压、平面状表面流（经历小的3D运动时）、双线性内插（任意非共线的四点运动的内插）</p>
+<h2 id="1-1-2-3D变换"><a href="#1-1-2-3D变换" class="headerlink" title="1.1.2 3D变换"></a>1.1.2 3D变换</h2><h2 id="4-特征检测与匹配"><a href="#4-特征检测与匹配" class="headerlink" title="4 特征检测与匹配"></a>4 特征检测与匹配</h2><h3 id="4-3-线条"><a href="#4-3-线条" class="headerlink" title="4.3 线条"></a>4.3 线条</h3>]]></content>
+  </entry>
+  <entry>
+    <title>迁移学习</title>
+    <url>/2020/07/24/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<h1 id="迁移学习"><a href="#迁移学习" class="headerlink" title="迁移学习"></a>迁移学习</h1><p><strong>大量资源训练的模型</strong>经过细微调整后解决同一类问题，解决原始数据较少的问题，可节省大量时间和算力，因为分类对象变化，需要重新训练</p>
+<p>若出现负迁移:模型的泛化能力恶化，解决两个毫不相关的问题</p>
 ]]></content>
   </entry>
   <entry>
