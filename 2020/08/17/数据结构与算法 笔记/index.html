@@ -20,19 +20,21 @@
     var CONFIG = {"hostname":"perfectism13.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="环境配置常见问题hexo博客sh deploy.sh出现 spawn failed执行 1ssh -T git@github.com Anacondanavigator不能打开1.重置源 1conda config --remove -key channels 2.删除清华镜像：删除 .condarc中的defaults行 2.管理员运行conda prompt 123456#conda upda">
+  <meta name="description" content="数据结构与算法 笔记一、数据结构1. 其他定义 数据结构是数据对象，以及存在于该对象的实例和组成实例的数据元素之间的各种联系。这些联系可以通过定义相关的函数来给出。 ——Sartaj Sahni 《数据结构、算法与应用》 数据结构是 ADT（Abstract Data Type，数据抽象类型）的物理实现。 ——Clifford A.Shaffer 《数据结构与算法分析》 数据结构（data str">
 <meta property="og:type" content="article">
-<meta property="og:title" content="环境配置常见问题">
-<meta property="og:url" content="https://perfectism13.github.io/2020/07/24/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/index.html">
+<meta property="og:title" content="数据结构与算法 笔记">
+<meta property="og:url" content="https://perfectism13.github.io/2020/08/17/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%20%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="perfectism&#39;s blog">
-<meta property="og:description" content="环境配置常见问题hexo博客sh deploy.sh出现 spawn failed执行 1ssh -T git@github.com Anacondanavigator不能打开1.重置源 1conda config --remove -key channels 2.删除清华镜像：删除 .condarc中的defaults行 2.管理员运行conda prompt 123456#conda upda">
+<meta property="og:description" content="数据结构与算法 笔记一、数据结构1. 其他定义 数据结构是数据对象，以及存在于该对象的实例和组成实例的数据元素之间的各种联系。这些联系可以通过定义相关的函数来给出。 ——Sartaj Sahni 《数据结构、算法与应用》 数据结构是 ADT（Abstract Data Type，数据抽象类型）的物理实现。 ——Clifford A.Shaffer 《数据结构与算法分析》 数据结构（data str">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-07-24T05:10:01.133Z">
-<meta property="article:modified_time" content="2020-03-16T13:51:19.000Z">
+<meta property="article:published_time" content="2020-08-16T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-08-17T10:52:53.744Z">
 <meta property="article:author" content="Chenyang Min">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="学习笔记">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://perfectism13.github.io/2020/07/24/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">
+<link rel="canonical" href="https://perfectism13.github.io/2020/08/17/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%20%E7%AC%94%E8%AE%B0/">
 
 
 <script id="page-configurations">
@@ -45,7 +47,7 @@
   };
 </script>
 
-  <title>环境配置常见问题 | perfectism's blog</title>
+  <title>数据结构与算法 笔记 | perfectism's blog</title>
   
 
 
@@ -203,7 +205,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://perfectism13.github.io/2020/07/24/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">
+    <link itemprop="mainEntityOfPage" href="https://perfectism13.github.io/2020/08/17/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%20%E7%AC%94%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -216,7 +218,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          环境配置常见问题
+          数据结构与算法 笔记
         </h1>
 
         <div class="post-meta">
@@ -225,16 +227,19 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-07-24 13:10:01" itemprop="dateCreated datePublished" datetime="2020-07-24T13:10:01+08:00">2020-07-24</time>
+              <time title="创建时间：2020-08-17 00:00:00 / 修改时间：18:52:53" itemprop="dateCreated datePublished" datetime="2020-08-17T00:00:00+08:00">2020-08-17</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-16 21:51:19" itemprop="dateModified" datetime="2020-03-16T21:51:19+08:00">2020-03-16</time>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
               </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
+                </span>
+            </span>
 
           
             <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
@@ -254,34 +259,87 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="环境配置常见问题"><a href="#环境配置常见问题" class="headerlink" title="环境配置常见问题"></a>环境配置常见问题</h1><h2 id="hexo博客"><a href="#hexo博客" class="headerlink" title="hexo博客"></a>hexo博客</h2><h3 id="sh-deploy-sh出现-spawn-failed"><a href="#sh-deploy-sh出现-spawn-failed" class="headerlink" title="sh deploy.sh出现 spawn failed"></a>sh deploy.sh出现 spawn failed</h3><p>执行</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
-<h2 id="Anaconda"><a href="#Anaconda" class="headerlink" title="Anaconda"></a>Anaconda</h2><h3 id="navigator不能打开"><a href="#navigator不能打开" class="headerlink" title="navigator不能打开"></a>navigator不能打开</h3><p>1.重置源</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda config --remove -key channels</span><br></pre></td></tr></table></figure>
-<p>2.删除清华镜像：删除 <code>.condarc</code>中的<code>defaults</code>行</p>
-<p>2.管理员运行<code>conda prompt</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#conda update </span><br><span class="line">conda update anaconda-navigator</span><br><span class="line">anaconda-navigator --reset</span><br><span class="line">conda update anaconda-client</span><br><span class="line">conda update -f anaconda-client</span><br><span class="line">anaconda-navigator   #命令行启动Navigator</span><br></pre></td></tr></table></figure>
-<h2 id="PyTorch"><a href="#PyTorch" class="headerlink" title="PyTorch"></a>PyTorch</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">No module named &#39;torchtext&#39;</span><br></pre></td></tr></table></figure>
-<p>办法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install https:&#x2F;&#x2F;github.com&#x2F;pytorch&#x2F;text&#x2F;archive&#x2F;master.zip</span><br></pre></td></tr></table></figure>
-<p>tqdm模块<br>tqdm是一个快速、扩展性强的进度条工具库，<br>其githup地址：<a href="https://github.com/tqdm/tqdm" target="_blank" rel="noopener">https://github.com/tqdm/tqdm</a></p>
-<p>办法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pip install tqdm</span><br><span class="line">device &#x3D; torch.device(&#39;cuda&#39; if torch.cuda.is_available() else &#39;cpu&#39;)</span><br><span class="line">#ouput cpu</span><br></pre></td></tr></table></figure>
-<h2 id="Jupyter-Lab"><a href="#Jupyter-Lab" class="headerlink" title="Jupyter Lab"></a>Jupyter Lab</h2><p>载入py文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%load test.py</span><br></pre></td></tr></table></figure>
-<h2 id="CUDA-cudnn"><a href="#CUDA-cudnn" class="headerlink" title="CUDA cudnn"></a>CUDA cudnn</h2><p>CUDA 10.1</p>
-<p>cudnn 7.6.3</p>
-<h2 id="使用特定源安装"><a href="#使用特定源安装" class="headerlink" title="使用特定源安装"></a>使用特定源安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install tensorflow-gpu&#x3D;&#x3D;1.8 -i https:&#x2F;&#x2F;pypi.tuna.tsinghua.edu.cn&#x2F;simple</span><br></pre></td></tr></table></figure>
-<h3 id="升级pip"><a href="#升级pip" class="headerlink" title="升级pip"></a>升级pip</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m pip install -U pip</span><br></pre></td></tr></table></figure>
-<p>tensorflow与keras间的兼容</p>
-<p><a href="https://docs.floydhub.com/guides/environments/" target="_blank" rel="noopener">https://docs.floydhub.com/guides/environments/</a></p>
-<h2 id="Linux"><a href="#Linux" class="headerlink" title="Linux"></a>Linux</h2><h3 id="解压zip"><a href="#解压zip" class="headerlink" title="解压zip"></a>解压zip</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip test.zip</span><br></pre></td></tr></table></figure>
-<h3 id="解压7z"><a href="#解压7z" class="headerlink" title="解压7z"></a>解压7z</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get install p7zip</span><br><span class="line">7z x test.7z</span><br></pre></td></tr></table></figure>
-<p>详见 <a href="https://blog.csdn.net/AC_huang/article/details/23279641" target="_blank" rel="noopener">https://blog.csdn.net/AC_huang/article/details/23279641</a></p>
-<h3 id="展示文件树状结构"><a href="#展示文件树状结构" class="headerlink" title="展示文件树状结构"></a>展示文件树状结构</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install tree</span><br><span class="line">tree --dirsfirst --filelimit 50</span><br></pre></td></tr></table></figure>
-<h3 id="命令行退出python"><a href="#命令行退出python" class="headerlink" title="命令行退出python"></a>命令行退出python</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">quit()</span><br></pre></td></tr></table></figure>
-<h2 id="matlab"><a href="#matlab" class="headerlink" title="matlab"></a>matlab</h2><p>匿名函数求导后，求某点值</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">syms y</span><br><span class="line">f&#x3D;@(x) 2*x^2+3;</span><br><span class="line">diff&#x3D;diff(f(y)) </span><br><span class="line">diff&#x3D;matlabFunction(diff)</span><br><span class="line">diff(0.5)</span><br></pre></td></tr></table></figure>
+        <h1 id="数据结构与算法-笔记"><a href="#数据结构与算法-笔记" class="headerlink" title="数据结构与算法 笔记"></a>数据结构与算法 笔记</h1><h2 id="一、数据结构"><a href="#一、数据结构" class="headerlink" title="一、数据结构"></a>一、数据结构</h2><h3 id="1-其他定义"><a href="#1-其他定义" class="headerlink" title="1. 其他定义"></a>1. 其他定义</h3><ul>
+<li>数据结构是数据对象，以及存在于该对象的实例和组成实例的数据元素之间的各种联系。这些联系可以通过定义相关的函数来给出。 ——Sartaj Sahni 《数据结构、算法与应用》</li>
+<li>数据结构是 ADT（Abstract Data Type，数据抽象类型）的物理实现。 ——Clifford A.Shaffer 《数据结构与算法分析》</li>
+<li>数据结构（data structure）是计算机中存储、组织数据的方式。通常情况下，精心选择的数据结构可以带来最优效率的算法。 ——中文维基百科</li>
+</ul>
+<h3 id="2-解决问题方法的效率"><a href="#2-解决问题方法的效率" class="headerlink" title="2. 解决问题方法的效率"></a>2. 解决问题方法的效率</h3><ul>
+<li>跟数组的组织方式有关</li>
+<li>跟空间的利用效率有关</li>
+<li>跟算法的巧妙程度有关</li>
+</ul>
+<h3 id="3-最终定义"><a href="#3-最终定义" class="headerlink" title="3. 最终定义"></a>3. 最终定义</h3><ul>
+<li>数据对象在计算机中的组织方式<ul>
+<li>逻辑结构</li>
+<li>物理存储结构</li>
+</ul>
+</li>
+<li>数据对象必定与一系列加在其上的操作相关联</li>
+<li>完成这些操作所用的方法就是算法</li>
+</ul>
+<h3 id="4-抽象数据类型（Abstract-Data-Type）"><a href="#4-抽象数据类型（Abstract-Data-Type）" class="headerlink" title="4. 抽象数据类型（Abstract Data Type）"></a>4. 抽象数据类型（Abstract Data Type）</h3><ul>
+<li>数据类型<ul>
+<li>数据对象集</li>
+<li>数据集合相关联的操作集</li>
+</ul>
+</li>
+<li>抽象：描述数据类型的方法不依赖于具体实现<ul>
+<li>与存放数据的机器无关</li>
+<li>与数据存储的物理结构无关</li>
+<li>与实现操作的算法和编程语言均无关</li>
+</ul>
+</li>
+</ul>
+<p>只描述数据对象集和相关操作集“是什么”，并不涉及“如何做到”的问题</p>
+<h2 id="二、算法"><a href="#二、算法" class="headerlink" title="二、算法"></a>二、算法</h2><h3 id="1-定义"><a href="#1-定义" class="headerlink" title="1. 定义"></a>1. 定义</h3><ul>
+<li>一个有限指令集</li>
+<li>≥ 0 的输入</li>
+<li>==&gt;==0 的输出</li>
+<li>一定在有限步骤之后终止</li>
+<li>每一条指令必须<ul>
+<li>有充分明确的目标，不可以有歧义</li>
+<li>计算机能处理范围内</li>
+<li>描述应不依赖于任何一种计算机语言以及具体的实现手段</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-描述算法的手段"><a href="#2-描述算法的手段" class="headerlink" title="2. 描述算法的手段"></a>2. 描述算法的手段</h3><ol>
+<li><p>空间复杂度 S(n)</p>
+<p>根据算法写成的程序在执行时<strong>占用存储空间的长度</strong></p>
+</li>
+<li><p>时间复杂度 T(n)</p>
+<p>根据算法写成的程序在执行时<strong>耗费的时间的长度</strong></p>
+</li>
+</ol>
+<h3 id="3-评价"><a href="#3-评价" class="headerlink" title="3. 评价"></a>3. 评价</h3><ul>
+<li><p>在分析一般算法的效率时，常常关注</p>
+<ul>
+<li>最坏情况复杂度$T_{\text {worst}}(n)$</li>
+<li>平均情况复杂度 $T_{\text {avg}}(n)$</li>
+<li>$\begin{equation}T_{\text {avg}}(n) \leq T_{\text {worst}}(n)\end{equation}$</li>
+</ul>
+<p>一般情况下更多关注的是最坏情况复杂度</p>
+</li>
+</ul>
+<h3 id="4-复杂度的渐进表示法"><a href="#4-复杂度的渐进表示法" class="headerlink" title="4. 复杂度的渐进表示法"></a>4. 复杂度的渐进表示法</h3><ul>
+<li>$T(n)=O(f(n))$ 表示存在常数 $\mathrm{C}&gt;0, n_{0}&gt;0,$ 使得当 $n \geq n_{0}$ 时有 $T(n) \leq$$C \cdot f(n),$ 即 $O(f(n))$ 表示 $f(n)$ 是 $\mathrm{T}(\mathrm{n})$ 的某种上界</li>
+<li>$T(n)=\Omega(g(n))$ 表示存在常数 $\mathrm{C}&gt;0, n_{0}&gt;0,$ 使得当 $n \geq n_{0}$ 时有 $T(n) \geq$$C \cdot g(n),$ 即 $\Omega(g(n))$ 表示 $g(n)$ 是 $\mathrm{T}(\mathrm{n})$ 的某种下界</li>
+<li>$T(n)=\theta(h(n))$ 表示同时有 $T(n)=O(h(n))$ 和 $T(n)=\Omega(h(n)),$ 即$\theta(h(n))$ 既是上界也是下界</li>
+</ul>
+<h3 id="5-复杂度分析小窍门"><a href="#5-复杂度分析小窍门" class="headerlink" title="5. 复杂度分析小窍门"></a>5. 复杂度分析小窍门</h3><ul>
+<li><p>若两段算法分别有复杂度 $T_{1}(n)=O\left(f_{1}(n)\right)$ 和 $T_{2}(n)=O\left(f_{2}(n)\right),$ 则</p>
+<script type="math/tex; mode=display">T_{1}(n)+T_{2}(n)=\max \left(O\left(f_{1}(n)\right), O\left(f_{2}(n)\right)\right)</script></li>
+<li><script type="math/tex; mode=display">
+T_{1}(n) \times T_{2}(n)=O\left(f_{1}(n) \times f_{2}(n)\right)</script></li>
+<li><p>若 $T(n)$ 是关于 $n$ 的 $k$ 阶多项式, 那么 $T(n)=\theta\left(n^{k}\right)$</p>
+</li>
+<li><p>一个 for 循环的时间复杂度等于循环次数乘以循环体代码的复杂度</p>
+</li>
+<li><p>if-else 结构的复杂度取决于 if 的条件判断复杂度和两个分枝部分的复杂度，总体复杂 度取三者中最大</p>
+</li>
+</ul>
+
     </div>
 
     
@@ -296,7 +354,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://perfectism13.github.io/2020/07/24/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" title="环境配置常见问题">https://perfectism13.github.io/2020/07/24/环境配置常见问题/</a>
+    <a href="https://perfectism13.github.io/2020/08/17/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%20%E7%AC%94%E8%AE%B0/" title="数据结构与算法 笔记">https://perfectism13.github.io/2020/08/17/数据结构与算法 笔记/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -306,6 +364,10 @@
 
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/C/" rel="tag"># C++</a>
+              <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag"># 学习笔记</a>
+          </div>
 
         
 
@@ -313,13 +375,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/07/24/%E5%8A%A8%E4%BD%9C%EF%BC%88%E8%A1%8C%E4%B8%BA%EF%BC%89%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/" rel="prev" title="动作（行为）识别与分类">
-      <i class="fa fa-chevron-left"></i> 动作（行为）识别与分类
+    <a href="/2020/07/24/%E7%94%A8Keras%E5%AE%9E%E7%8E%B0%E8%A7%86%E9%A2%91%E5%8A%A8%E4%BD%9C%E5%88%86%E7%B1%BB/" rel="prev" title="用Keras实现视频动作分类">
+      <i class="fa fa-chevron-left"></i> 用Keras实现视频动作分类
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/07/24/%E9%A9%BE%E9%A9%B6%E5%91%98%E5%8A%A8%E4%BD%9C%E6%A3%80%E6%B5%8B%E7%BB%BC%E8%BF%B0/" rel="next" title="驾驶员动作检测综述">
-      驾驶员动作检测综述 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -379,7 +438,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#环境配置常见问题"><span class="nav-text">环境配置常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo博客"><span class="nav-text">hexo博客</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sh-deploy-sh出现-spawn-failed"><span class="nav-text">sh deploy.sh出现 spawn failed</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Anaconda"><span class="nav-text">Anaconda</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#navigator不能打开"><span class="nav-text">navigator不能打开</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PyTorch"><span class="nav-text">PyTorch</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Jupyter-Lab"><span class="nav-text">Jupyter Lab</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CUDA-cudnn"><span class="nav-text">CUDA cudnn</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用特定源安装"><span class="nav-text">使用特定源安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#升级pip"><span class="nav-text">升级pip</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux"><span class="nav-text">Linux</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解压zip"><span class="nav-text">解压zip</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解压7z"><span class="nav-text">解压7z</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#展示文件树状结构"><span class="nav-text">展示文件树状结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#命令行退出python"><span class="nav-text">命令行退出python</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#matlab"><span class="nav-text">matlab</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#数据结构与算法-笔记"><span class="nav-text">数据结构与算法 笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、数据结构"><span class="nav-text">一、数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-其他定义"><span class="nav-text">1. 其他定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-解决问题方法的效率"><span class="nav-text">2. 解决问题方法的效率</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-最终定义"><span class="nav-text">3. 最终定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-抽象数据类型（Abstract-Data-Type）"><span class="nav-text">4. 抽象数据类型（Abstract Data Type）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、算法"><span class="nav-text">二、算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-定义"><span class="nav-text">1. 定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-描述算法的手段"><span class="nav-text">2. 描述算法的手段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-评价"><span class="nav-text">3. 评价</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-复杂度的渐进表示法"><span class="nav-text">4. 复杂度的渐进表示法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-复杂度分析小窍门"><span class="nav-text">5. 复杂度分析小窍门</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -550,7 +609,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'perfectism13.github.io',
       owner       : 'perfectism13',
       admin       : ['perfectism13'],
-      id          : '5e0748d69140b01ac47e2082e897d4e5',
+      id          : 'ad04e55e2d5d77c116574e743fac8375',
         language: 'zh-CN',
       distractionFreeMode: true
     });
