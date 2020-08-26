@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Note of ROS to Ubantu</title>
+    <url>/2020/07/24/Note%20of%20ROS%20to%20Ubantu/</url>
+    <content><![CDATA[<h3 id="Note-of-ROS-to-Ubantu"><a href="#Note-of-ROS-to-Ubantu" class="headerlink" title="Note of ROS to Ubantu"></a>Note of ROS to Ubantu</h3><h4 id="terminal命令"><a href="#terminal命令" class="headerlink" title="terminal命令"></a>terminal命令</h4><p>echo $PATH： echo $PATH用于列出变量PATH的值，里面包含了已添加的目录</p>
+<p>env：env命令是environment的缩写，用于列出所有的环境变量</p>
+<p>export：单独使用export命令也可以像env列出所有的环境变量，不过export命令还有其他额外的功能</p>
+]]></content>
+  </entry>
+  <entry>
     <title>CNN</title>
     <url>/2020/07/24/CNN/</url>
     <content><![CDATA[<h1 id="CNN"><a href="#CNN" class="headerlink" title="CNN"></a>CNN</h1><p>Convolutional Neural Networks</p>
@@ -141,14 +149,6 @@
 <p><img src="https://perfectism13.github.io/2019/11/23/CNN/image-20191203171558330.png" alt="image-20191203171558330"></p>
 <p>5.<strong>低秩分解</strong>：降低参数，降低计算量</p>
 <p><img src="https://perfectism13.github.io/2019/11/23/CNN/Users/%E9%97%B5%E6%99%A8%E9%98%B31998/AppData/Roaming/Typora/typora-user-images/image-20191203184243798.png" alt="image-20191203184243798"></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>Note of ROS to Ubantu</title>
-    <url>/2020/07/24/Note%20of%20ROS%20to%20Ubantu/</url>
-    <content><![CDATA[<h3 id="Note-of-ROS-to-Ubantu"><a href="#Note-of-ROS-to-Ubantu" class="headerlink" title="Note of ROS to Ubantu"></a>Note of ROS to Ubantu</h3><h4 id="terminal命令"><a href="#terminal命令" class="headerlink" title="terminal命令"></a>terminal命令</h4><p>echo $PATH： echo $PATH用于列出变量PATH的值，里面包含了已添加的目录</p>
-<p>env：env命令是environment的缩写，用于列出所有的环境变量</p>
-<p>export：单独使用export命令也可以像env列出所有的环境变量，不过export命令还有其他额外的功能</p>
 ]]></content>
   </entry>
   <entry>
@@ -415,11 +415,6 @@
 <p><a href="https://content-blockchain.org/research/testing-different-image-hash-functions/" target="_blank" rel="noopener">https://content-blockchain.org/research/testing-different-image-hash-functions/</a></p>
 <p><a href="http://www.hackerfactor.com/blog/?/archives/529-Kind-of-Like-That.html" target="_blank" rel="noopener">http://www.hackerfactor.com/blog/?/archives/529-Kind-of-Like-That.html</a></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>New Words</title>
-    <url>/2020/07/24/New%20Words/</url>
-    <content><![CDATA[<h1 id="New-Words"><a href="#New-Words" class="headerlink" title="New Words"></a>New Words</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">scalar 标量的</span><br><span class="line">neuron 神经元</span><br><span class="line">neural 神经的</span><br><span class="line">vector 向量</span><br><span class="line">parameter 参数</span><br><span class="line">gradient descent 梯度下降</span><br><span class="line">backpropagation 反向传播</span><br><span class="line">sentiment 感情、情绪</span><br><span class="line">embedded 嵌入的、植入的</span><br><span class="line">trimming 整理、修剪、切除</span><br><span class="line">syntactic parsing 语法分析</span><br><span class="line">semantic analysis 语义分析</span><br><span class="line">indicator 指示器，指示符</span><br><span class="line">shallow 浅的</span><br><span class="line">adversarial 对抗的</span><br><span class="line">indent 缩进</span><br><span class="line">contour 轮廓</span><br><span class="line">approx&#x3D;approxiate 大约的</span><br><span class="line">hierarchy 层级，等级制度</span><br><span class="line">Skeleton Joint 骨骼关节</span><br><span class="line">Semantic Segmentation 语义分割</span><br><span class="line">advent 来临</span><br><span class="line">gaze 注视</span><br><span class="line">row 行</span><br><span class="line">colunm 列</span><br><span class="line">extremum 极值</span><br><span class="line">gray level 灰度</span><br><span class="line">entropy 熵</span><br><span class="line">stochastic 随机的，猜测的</span><br><span class="line">crop 修剪，种植</span><br><span class="line">shuffle 随机播放，打乱顺序</span><br><span class="line">transpose 调换，转置</span><br><span class="line">precisely 恰好地</span><br><span class="line">dilation 扩张</span><br><span class="line">co-adaptation 过拟合</span><br><span class="line">syllabus 教学摘要，课程表</span><br><span class="line">spatial 空间的</span><br><span class="line">stochastic 随机的</span><br><span class="line">bottleneck 瓶颈</span><br><span class="line">geometry 几何结构</span><br><span class="line">plain 平的，简单的，朴素的</span><br><span class="line">Fine-tune 微调</span><br><span class="line">spatial 空间的</span><br><span class="line">sparse 稀疏的</span><br><span class="line">backend 后端</span><br><span class="line">attribute 属性</span><br><span class="line">deque 双端队列</span><br><span class="line">combat 反抗战斗</span><br><span class="line">temporal，temporary 暂时的</span><br></pre></td></tr></table></figure>]]></content>
   </entry>
   <entry>
     <title>Notes of Machine Learning</title>
@@ -719,14 +714,36 @@
 ]]></content>
   </entry>
   <entry>
-    <title>VS2013+OpenCV4.2.0安装与配置</title>
-    <url>/2020/07/24/VS2013+OpenCV4.2.0%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</url>
-    <content><![CDATA[<h1 id="VS2013-OpenCV4-2-0安装与配置"><a href="#VS2013-OpenCV4-2-0安装与配置" class="headerlink" title="VS2013+OpenCV4.2.0安装与配置"></a>VS2013+OpenCV4.2.0安装与配置</h1><h2 id="VS2013"><a href="#VS2013" class="headerlink" title="VS2013"></a>VS2013</h2><p>下载链接：ed2k://|file|cn_visual_studio_ultimate_2013_with_update_5_x86_dvd_6816649.iso|5567336448|641555AD6472A98923B29CC5E371461E|/</p>
-<p>安装教程：<a href="https://mp.weixin.qq.com/s/2Luj8FxXY6wYY2nhDe4SGw" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/2Luj8FxXY6wYY2nhDe4SGw</a></p>
-<p>密匙：BWG7X-J98B3-W34RT-33B3R-JVYW9</p>
-<h2 id="OpenCV4-2-0"><a href="#OpenCV4-2-0" class="headerlink" title="OpenCV4.2.0"></a>OpenCV4.2.0</h2><p>下载链接：<a href="https://opencv.org/releases/" target="_blank" rel="noopener">https://opencv.org/releases/</a></p>
-<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p><a href="https://blog.csdn.net/qq_32717603/article/details/89234512" target="_blank" rel="noopener">https://blog.csdn.net/qq_32717603/article/details/89234512</a></p>
-]]></content>
+    <title>Tricks of Training Deep Neural Works</title>
+    <url>/2020/07/24/Tricks%20of%20Training%20Deep%20Neural%20Works/</url>
+    <content><![CDATA[<h1 id="Tricks-of-Training-Deep-Neural-Works"><a href="#Tricks-of-Training-Deep-Neural-Works" class="headerlink" title="Tricks of Training Deep Neural Works"></a>Tricks of Training Deep Neural Works</h1><h2 id="Overfitting"><a href="#Overfitting" class="headerlink" title="Overfitting"></a>Overfitting</h2><p>训练数据包含<strong>抽样误差</strong>，训练时，复杂的模型将抽样误差也考虑在内，将抽样误差也进行了很好的拟合。最终模型在训练集上效果好；在测试集上效果差。模型泛化能力弱</p>
+<p><img src="https://perfectism13.github.io/2020/02/13/Tricks%20of%20Training%20Deep%20Neural%20Works/v2-953f6e7ce85ac1856764572e1c855705_hd.jpg" alt="img"></p>
+<p>过拟合的表现：</p>
+<ul>
+<li><p>train loss不断下降，test loss趋于不变</p>
+</li>
+<li><p>训练集和测试集准确率相差过大 15%以上</p>
+<a id="more"></a>
+</li>
+</ul>
+<h3 id="减少模型的复杂程度（容量）"><a href="#减少模型的复杂程度（容量）" class="headerlink" title="减少模型的复杂程度（容量）"></a>减少模型的复杂程度（容量）</h3><p><strong>L2正则化</strong></p>
+<p><strong>Dropout</strong>：提高dropout的rate</p>
+<p><strong>减少预训练的锁定层数</strong></p>
+<h3 id="更多的数据"><a href="#更多的数据" class="headerlink" title="更多的数据"></a>更多的数据</h3><p>让模型感受更多的数据，逼迫模型泛化</p>
+<p><strong>数据增强</strong></p>
+<p><strong>采集更多的数据</strong></p>
+<p><strong>查看数据集的分割是否合适</strong></p>
+<h3 id="学习率的调整"><a href="#学习率的调整" class="headerlink" title="学习率的调整"></a>学习率的调整</h3><p>trick是 <strong>warm up（热身），就是先采用小的学习率（0.01）进行训练，</strong>训练了400iterations之后将学习率调整至0.1开始正式训练</p>
+<p>在学习遇到瓶颈，即训练和验证损失均趋于不变时，适当调小batch_size,用更细的笔来画画</p>
+<h3 id="进行交叉验证"><a href="#进行交叉验证" class="headerlink" title="进行交叉验证"></a>进行交叉验证</h3><p>当数据集比较小的时候，交叉验证可以“充分利用”有限的数据找到合适的模型参数，防止过度拟合</p>
+<p>做法：就是把样本集S分成k份，分别使用其中的(k-1)份作为训练集，剩下的1份作为交叉验证集，最后取最后的平均误差，来评估这个模型</p>
+<p>最后对k个模型的结果取平均</p>
+<h3 id="Early-Stopping"><a href="#Early-Stopping" class="headerlink" title="Early Stopping"></a>Early Stopping</h3><h2 id="Owe-fitting"><a href="#Owe-fitting" class="headerlink" title="Owe fitting"></a>Owe fitting</h2><p>若准确率很低，检查数据和标签的对应关系，或者损失函数是否导致无法梯度下降</p>
+<p>1、观察数据中是否有异常样本或异常label导致数据读取异常<br>2、调小初始化权重，以便使softmax输入的feature尽可能变小<br>3、降低学习率，这样就能减小权重参数的波动范围，从而减小权重变大的可能性。这条也是网上出现较多的方法。</p>
+<p>4、调大batch_size<br>5、如果有BN（batch normalization）层，finetune时最好不要冻结BN的参数，否则数据分布不一致时很容易使输出值变的很大。</p>
+<p>6、神经网络不够深。</p>
+<p>7、训练的epoch不够。</p>
+<h2 id="训练和验证集loss相差不大，验证集准确率为1或者0"><a href="#训练和验证集loss相差不大，验证集准确率为1或者0" class="headerlink" title="训练和验证集loss相差不大，验证集准确率为1或者0"></a>训练和验证集loss相差不大，验证集准确率为1或者0</h2><h2 id="检查数据集是否存在inf或者NaN"><a href="#检查数据集是否存在inf或者NaN" class="headerlink" title="检查数据集是否存在inf或者NaN"></a>检查数据集是否存在inf或者NaN</h2><h2 id="有时在第一代打乱数据，后续不再打乱，可能会有意想不到的好结果"><a href="#有时在第一代打乱数据，后续不再打乱，可能会有意想不到的好结果" class="headerlink" title="有时在第一代打乱数据，后续不再打乱，可能会有意想不到的好结果"></a><strong>有时在第一代打乱数据，后续不再打乱，可能会有意想不到的好结果</strong></h2><h2 id="References"><a href="#References" class="headerlink" title="References"></a><strong>Referenc</strong>es</h2>]]></content>
   </entry>
   <entry>
     <title>Python学习笔记</title>
@@ -766,36 +783,33 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Tricks of Training Deep Neural Works</title>
-    <url>/2020/07/24/Tricks%20of%20Training%20Deep%20Neural%20Works/</url>
-    <content><![CDATA[<h1 id="Tricks-of-Training-Deep-Neural-Works"><a href="#Tricks-of-Training-Deep-Neural-Works" class="headerlink" title="Tricks of Training Deep Neural Works"></a>Tricks of Training Deep Neural Works</h1><h2 id="Overfitting"><a href="#Overfitting" class="headerlink" title="Overfitting"></a>Overfitting</h2><p>训练数据包含<strong>抽样误差</strong>，训练时，复杂的模型将抽样误差也考虑在内，将抽样误差也进行了很好的拟合。最终模型在训练集上效果好；在测试集上效果差。模型泛化能力弱</p>
-<p><img src="https://perfectism13.github.io/2020/02/13/Tricks%20of%20Training%20Deep%20Neural%20Works/v2-953f6e7ce85ac1856764572e1c855705_hd.jpg" alt="img"></p>
-<p>过拟合的表现：</p>
-<ul>
-<li><p>train loss不断下降，test loss趋于不变</p>
-</li>
-<li><p>训练集和测试集准确率相差过大 15%以上</p>
+    <title>New Words</title>
+    <url>/2020/07/24/New%20Words/</url>
+    <content><![CDATA[<h1 id="New-Words"><a href="#New-Words" class="headerlink" title="New Words"></a>New Words</h1><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">scalar 标量的</span><br><span class="line">neuron 神经元</span><br><span class="line">neural 神经的</span><br><span class="line">vector 向量</span><br><span class="line">parameter 参数</span><br><span class="line">gradient descent 梯度下降</span><br><span class="line">backpropagation 反向传播</span><br><span class="line">sentiment 感情、情绪</span><br><span class="line">embedded 嵌入的、植入的</span><br><span class="line">trimming 整理、修剪、切除</span><br><span class="line">syntactic parsing 语法分析</span><br><span class="line">semantic analysis 语义分析</span><br><span class="line">indicator 指示器，指示符</span><br><span class="line">shallow 浅的</span><br><span class="line">adversarial 对抗的</span><br><span class="line">indent 缩进</span><br><span class="line">contour 轮廓</span><br><span class="line">approx&#x3D;approxiate 大约的</span><br><span class="line">hierarchy 层级，等级制度</span><br><span class="line">Skeleton Joint 骨骼关节</span><br><span class="line">Semantic Segmentation 语义分割</span><br><span class="line">advent 来临</span><br><span class="line">gaze 注视</span><br><span class="line">row 行</span><br><span class="line">colunm 列</span><br><span class="line">extremum 极值</span><br><span class="line">gray level 灰度</span><br><span class="line">entropy 熵</span><br><span class="line">stochastic 随机的，猜测的</span><br><span class="line">crop 修剪，种植</span><br><span class="line">shuffle 随机播放，打乱顺序</span><br><span class="line">transpose 调换，转置</span><br><span class="line">precisely 恰好地</span><br><span class="line">dilation 扩张</span><br><span class="line">co-adaptation 过拟合</span><br><span class="line">syllabus 教学摘要，课程表</span><br><span class="line">spatial 空间的</span><br><span class="line">stochastic 随机的</span><br><span class="line">bottleneck 瓶颈</span><br><span class="line">geometry 几何结构</span><br><span class="line">plain 平的，简单的，朴素的</span><br><span class="line">Fine-tune 微调</span><br><span class="line">spatial 空间的</span><br><span class="line">sparse 稀疏的</span><br><span class="line">backend 后端</span><br><span class="line">attribute 属性</span><br><span class="line">deque 双端队列</span><br><span class="line">combat 反抗战斗</span><br><span class="line">temporal，temporary 暂时的</span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
+  <entry>
+    <title>VS2013+OpenCV4.2.0安装与配置</title>
+    <url>/2020/07/24/VS2013+OpenCV4.2.0%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<h1 id="VS2013-OpenCV4-2-0安装与配置"><a href="#VS2013-OpenCV4-2-0安装与配置" class="headerlink" title="VS2013+OpenCV4.2.0安装与配置"></a>VS2013+OpenCV4.2.0安装与配置</h1><h2 id="VS2013"><a href="#VS2013" class="headerlink" title="VS2013"></a>VS2013</h2><p>下载链接：ed2k://|file|cn_visual_studio_ultimate_2013_with_update_5_x86_dvd_6816649.iso|5567336448|641555AD6472A98923B29CC5E371461E|/</p>
+<p>安装教程：<a href="https://mp.weixin.qq.com/s/2Luj8FxXY6wYY2nhDe4SGw" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/2Luj8FxXY6wYY2nhDe4SGw</a></p>
+<p>密匙：BWG7X-J98B3-W34RT-33B3R-JVYW9</p>
+<h2 id="OpenCV4-2-0"><a href="#OpenCV4-2-0" class="headerlink" title="OpenCV4.2.0"></a>OpenCV4.2.0</h2><p>下载链接：<a href="https://opencv.org/releases/" target="_blank" rel="noopener">https://opencv.org/releases/</a></p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p><a href="https://blog.csdn.net/qq_32717603/article/details/89234512" target="_blank" rel="noopener">https://blog.csdn.net/qq_32717603/article/details/89234512</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>交流思考</title>
+    <url>/2020/07/24/%E4%BA%A4%E6%B5%81%E6%80%9D%E8%80%83/</url>
+    <content><![CDATA[<h1 id="交流思考"><a href="#交流思考" class="headerlink" title="交流思考"></a>交流思考</h1><h2 id="2019-12-19下午三点于中楼"><a href="#2019-12-19下午三点于中楼" class="headerlink" title="2019.12.19下午三点于中楼"></a>2019.12.19下午三点于中楼</h2><p>1.如何产生新的idea：</p>
+<p>复现论文和阅读论文是一个循环的过程</p>
+<p>可以将其他领域的方法移植到自己的问题上来，也就是要找到问题的本质，也要求自己的知识面要足够广，i.e:将NLP中的方法移植到CV中来？</p>
+<p>2.要看好的大学的英文论文，要沉下心来，看看别人的想法是什么，最后一定要有自己的想法，找到论文之间的差异性，新颖点，不同点在哪里</p>
+<p>3.图像领域重要的就是准确度的提升、工程应用的难易程度？</p>
+<p>4.写小论文，申请专利，反复修改，论文框架？</p>
 <a id="more"></a>
-</li>
-</ul>
-<h3 id="减少模型的复杂程度（容量）"><a href="#减少模型的复杂程度（容量）" class="headerlink" title="减少模型的复杂程度（容量）"></a>减少模型的复杂程度（容量）</h3><p><strong>L2正则化</strong></p>
-<p><strong>Dropout</strong>：提高dropout的rate</p>
-<p><strong>减少预训练的锁定层数</strong></p>
-<h3 id="更多的数据"><a href="#更多的数据" class="headerlink" title="更多的数据"></a>更多的数据</h3><p>让模型感受更多的数据，逼迫模型泛化</p>
-<p><strong>数据增强</strong></p>
-<p><strong>采集更多的数据</strong></p>
-<p><strong>查看数据集的分割是否合适</strong></p>
-<h3 id="学习率的调整"><a href="#学习率的调整" class="headerlink" title="学习率的调整"></a>学习率的调整</h3><p>trick是 <strong>warm up（热身），就是先采用小的学习率（0.01）进行训练，</strong>训练了400iterations之后将学习率调整至0.1开始正式训练</p>
-<p>在学习遇到瓶颈，即训练和验证损失均趋于不变时，适当调小batch_size,用更细的笔来画画</p>
-<h3 id="进行交叉验证"><a href="#进行交叉验证" class="headerlink" title="进行交叉验证"></a>进行交叉验证</h3><p>当数据集比较小的时候，交叉验证可以“充分利用”有限的数据找到合适的模型参数，防止过度拟合</p>
-<p>做法：就是把样本集S分成k份，分别使用其中的(k-1)份作为训练集，剩下的1份作为交叉验证集，最后取最后的平均误差，来评估这个模型</p>
-<p>最后对k个模型的结果取平均</p>
-<h3 id="Early-Stopping"><a href="#Early-Stopping" class="headerlink" title="Early Stopping"></a>Early Stopping</h3><h2 id="Owe-fitting"><a href="#Owe-fitting" class="headerlink" title="Owe fitting"></a>Owe fitting</h2><p>若准确率很低，检查数据和标签的对应关系，或者损失函数是否导致无法梯度下降</p>
-<p>1、观察数据中是否有异常样本或异常label导致数据读取异常<br>2、调小初始化权重，以便使softmax输入的feature尽可能变小<br>3、降低学习率，这样就能减小权重参数的波动范围，从而减小权重变大的可能性。这条也是网上出现较多的方法。</p>
-<p>4、调大batch_size<br>5、如果有BN（batch normalization）层，finetune时最好不要冻结BN的参数，否则数据分布不一致时很容易使输出值变的很大。</p>
-<p>6、神经网络不够深。</p>
-<p>7、训练的epoch不够。</p>
-<h2 id="训练和验证集loss相差不大，验证集准确率为1或者0"><a href="#训练和验证集loss相差不大，验证集准确率为1或者0" class="headerlink" title="训练和验证集loss相差不大，验证集准确率为1或者0"></a>训练和验证集loss相差不大，验证集准确率为1或者0</h2><h2 id="检查数据集是否存在inf或者NaN"><a href="#检查数据集是否存在inf或者NaN" class="headerlink" title="检查数据集是否存在inf或者NaN"></a>检查数据集是否存在inf或者NaN</h2><h2 id="有时在第一代打乱数据，后续不再打乱，可能会有意想不到的好结果"><a href="#有时在第一代打乱数据，后续不再打乱，可能会有意想不到的好结果" class="headerlink" title="有时在第一代打乱数据，后续不再打乱，可能会有意想不到的好结果"></a><strong>有时在第一代打乱数据，后续不再打乱，可能会有意想不到的好结果</strong></h2><h2 id="References"><a href="#References" class="headerlink" title="References"></a><strong>Referenc</strong>es</h2>]]></content>
+<h2 id="2019-12-19晚11点与天马公寓"><a href="#2019-12-19晚11点与天马公寓" class="headerlink" title="2019.12.19晚11点与天马公寓"></a>2019.12.19晚11点与天马公寓</h2><p>1.善于利用网络问别人问题<br>2.和师兄搞好关系<br>3.寻找每篇论文存在的问题，新颖点<br>4.每周报告认真写报告，越详细越好<br>5.大胆的假设结果，然后向目标求证<br>6.不同角度解读问题<br>7.必要时修改对结果的预判，甚至修改问题<br>8.不打迷糊仗，避免使用大概等词：有方法，有数据，有实验，有证明<br>10.现在每天工作14小时，以后8小时？<br>11.如何阅读论文<br>中国科学，机械工程学报<br>不要找含复杂数学知识的论文<br>重现论文<br>12.创新思维</p>
+<p>来源-崔老师《如何做科研》</p>
+]]></content>
   </entry>
   <entry>
     <title>使用Google Colab训练模型</title>
@@ -1079,20 +1093,6 @@ C_{x}=\frac{M_{10}}{M_{00}}, \quad C_{y}=\frac{M_{01}}{M_{00}}</script><h6 id="�
         <tag>python</tag>
         <tag>cv</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>交流思考</title>
-    <url>/2020/07/24/%E4%BA%A4%E6%B5%81%E6%80%9D%E8%80%83/</url>
-    <content><![CDATA[<h1 id="交流思考"><a href="#交流思考" class="headerlink" title="交流思考"></a>交流思考</h1><h2 id="2019-12-19下午三点于中楼"><a href="#2019-12-19下午三点于中楼" class="headerlink" title="2019.12.19下午三点于中楼"></a>2019.12.19下午三点于中楼</h2><p>1.如何产生新的idea：</p>
-<p>复现论文和阅读论文是一个循环的过程</p>
-<p>可以将其他领域的方法移植到自己的问题上来，也就是要找到问题的本质，也要求自己的知识面要足够广，i.e:将NLP中的方法移植到CV中来？</p>
-<p>2.要看好的大学的英文论文，要沉下心来，看看别人的想法是什么，最后一定要有自己的想法，找到论文之间的差异性，新颖点，不同点在哪里</p>
-<p>3.图像领域重要的就是准确度的提升、工程应用的难易程度？</p>
-<p>4.写小论文，申请专利，反复修改，论文框架？</p>
-<a id="more"></a>
-<h2 id="2019-12-19晚11点与天马公寓"><a href="#2019-12-19晚11点与天马公寓" class="headerlink" title="2019.12.19晚11点与天马公寓"></a>2019.12.19晚11点与天马公寓</h2><p>1.善于利用网络问别人问题<br>2.和师兄搞好关系<br>3.寻找每篇论文存在的问题，新颖点<br>4.每周报告认真写报告，越详细越好<br>5.大胆的假设结果，然后向目标求证<br>6.不同角度解读问题<br>7.必要时修改对结果的预判，甚至修改问题<br>8.不打迷糊仗，避免使用大概等词：有方法，有数据，有实验，有证明<br>10.现在每天工作14小时，以后8小时？<br>11.如何阅读论文<br>中国科学，机械工程学报<br>不要找含复杂数学知识的论文<br>重现论文<br>12.创新思维</p>
-<p>来源-崔老师《如何做科研》</p>
-]]></content>
   </entry>
   <entry>
     <title>动作（行为）识别与分类</title>
@@ -1471,6 +1471,13 @@ C_{x}=\frac{M_{10}}{M_{00}}, \quad C_{y}=\frac{M_{01}}{M_{00}}</script><h6 id="�
 ]]></content>
   </entry>
   <entry>
+    <title>迁移学习</title>
+    <url>/2020/07/24/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/</url>
+    <content><![CDATA[<h1 id="迁移学习"><a href="#迁移学习" class="headerlink" title="迁移学习"></a>迁移学习</h1><p><strong>大量资源训练的模型</strong>经过细微调整后解决同一类问题，解决原始数据较少的问题，可节省大量时间和算力，因为分类对象变化，需要重新训练</p>
+<p>若出现负迁移:模型的泛化能力恶化，解决两个毫不相关的问题</p>
+]]></content>
+  </entry>
+  <entry>
     <title>环境配置常见问题</title>
     <url>/2020/07/24/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<h1 id="环境配置常见问题"><a href="#环境配置常见问题" class="headerlink" title="环境配置常见问题"></a>环境配置常见问题</h1><h2 id="hexo博客"><a href="#hexo博客" class="headerlink" title="hexo博客"></a>hexo博客</h2><h3 id="sh-deploy-sh出现-spawn-failed"><a href="#sh-deploy-sh出现-spawn-failed" class="headerlink" title="sh deploy.sh出现 spawn failed"></a>sh deploy.sh出现 spawn failed</h3><p>执行</p>
@@ -1502,13 +1509,6 @@ C_{x}=\frac{M_{10}}{M_{00}}, \quad C_{y}=\frac{M_{01}}{M_{00}}</script><h6 id="�
 <h3 id="命令行退出python"><a href="#命令行退出python" class="headerlink" title="命令行退出python"></a>命令行退出python</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">quit()</span><br></pre></td></tr></table></figure>
 <h2 id="matlab"><a href="#matlab" class="headerlink" title="matlab"></a>matlab</h2><p>匿名函数求导后，求某点值</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">syms y</span><br><span class="line">f&#x3D;@(x) 2*x^2+3;</span><br><span class="line">diff&#x3D;diff(f(y)) </span><br><span class="line">diff&#x3D;matlabFunction(diff)</span><br><span class="line">diff(0.5)</span><br></pre></td></tr></table></figure>]]></content>
-  </entry>
-  <entry>
-    <title>迁移学习</title>
-    <url>/2020/07/24/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/</url>
-    <content><![CDATA[<h1 id="迁移学习"><a href="#迁移学习" class="headerlink" title="迁移学习"></a>迁移学习</h1><p><strong>大量资源训练的模型</strong>经过细微调整后解决同一类问题，解决原始数据较少的问题，可节省大量时间和算力，因为分类对象变化，需要重新训练</p>
-<p>若出现负迁移:模型的泛化能力恶化，解决两个毫不相关的问题</p>
-]]></content>
   </entry>
   <entry>
     <title>问题</title>
@@ -1723,6 +1723,7 @@ C_{x}=\frac{M_{10}}{M_{00}}, \quad C_{y}=\frac{M_{01}}{M_{00}}</script><h6 id="�
 </li>
 </ul>
 <p>只描述数据对象集和相关操作集“是什么”，并不涉及“如何做到”的问题</p>
+<a id="more"></a>
 <h3 id="二、算法"><a href="#二、算法" class="headerlink" title="二、算法"></a>二、算法</h3><h4 id="1-定义"><a href="#1-定义" class="headerlink" title="1. 定义"></a>1. 定义</h4><ul>
 <li>一个有限指令集</li>
 <li>≥ 0 的输入</li>
@@ -1748,7 +1749,7 @@ C_{x}=\frac{M_{10}}{M_{00}}, \quad C_{y}=\frac{M_{01}}{M_{00}}</script><h6 id="�
 <ul>
 <li>最坏情况复杂度$T_{\text {worst}}(n)$</li>
 <li>平均情况复杂度 $T_{\text {avg}}(n)$</li>
-<li>$\begin{equation}T_{\text {avg}}(n) \leq T_{\text {worst}}(n)\end{equation}$</li>
+<li>$T_{\text {avg}}(n) \leq T_{\text {worst}}(n)$</li>
 </ul>
 <p>一般情况下更多关注的是最坏情况复杂度</p>
 </li>
@@ -1861,7 +1862,7 @@ T_{1}(n) \times T_{2}(n)=O\left(f_{1}(n) \times f_{2}(n)\right)</script></li>
 <h4 id="1-特征"><a href="#1-特征" class="headerlink" title="1. 特征"></a>1. 特征</h4><p>对于任一棵非空树（n＞0），它具备以下特征：</p>
 <ul>
 <li>树中有个称为“根（Root）”的特殊结点，用 r 表示</li>
-<li>其余结点可分为 m(m&gt;0) 个互不相交的有限集$\begin{equation}\mathrm{T}_{1}, \mathrm{T}_{2}, \ldots, \mathrm{T}_{m}\end{equation}$,其中每个集合本身又是一棵树，称为原来树的”子树（SubTree）”</li>
+<li>其余结点可分为 m(m&gt;0) 个互不相交的有限集$\mathrm{T}_{1}, \mathrm{T}_{2}, \ldots, \mathrm{T}_{m}$,其中每个集合本身又是一棵树，称为原来树的”子树（SubTree）”</li>
 <li>子树是不相交的</li>
 <li>除根结点外，每个结点有且仅有一个父结点</li>
 <li>一棵 N 个结点的树有 N-1 条边</li>
@@ -1873,7 +1874,7 @@ T_{1}(n) \times T_{2}(n)=O\left(f_{1}(n) \times f_{2}(n)\right)</script></li>
 <li>父结点（Parent）：有子树的结点是其子树的根结点的父结点</li>
 <li>子结点（Child）：若 A 结点是 B 结点的父结点，则称 B 结点是 A 结点的子结点，也称孩子结点</li>
 <li>兄弟结点（Sibling）：具有同一父结点的各个结点彼此是兄弟结点</li>
-<li>路径：从结点 $\mathrm{n}_{1}$ 到 $\mathrm{n}_{k}$ 的路径为一个结点序列$\begin{equation}\mathrm{n}_{1}, \mathrm{n}_{2}, \ldots, \mathrm{n}_{k}\end{equation}$,其中 $\mathrm{n}_{i}$是$\mathrm{n}_{i}$的父结点</li>
+<li>路径：从结点 $\mathrm{n}_{1}$ 到 $\mathrm{n}_{k}$ 的路径为一个结点序列$\mathrm{n}_{1}, \mathrm{n}_{2}, \ldots, \mathrm{n}_{k}$,其中 $\mathrm{n}_{i}$是$\mathrm{n}_{i}$的父结点</li>
 <li>路径长度：路径所包含边的个数</li>
 <li>祖先结点（Ancestor）：沿树根到某一结点路径上的所有结点都是这个结点的祖先结点</li>
 <li>子孙结点（Descendant）：某一结点的子树中的所有结点是这个结点的子孙</li>
@@ -1916,8 +1917,8 @@ T_{1}(n) \times T_{2}(n)=O\left(f_{1}(n) \times f_{2}(n)\right)</script></li>
 </li>
 </ul>
 <h4 id="4-重要性质"><a href="#4-重要性质" class="headerlink" title="4. 重要性质"></a>4. 重要性质</h4><ul>
-<li>一个二叉树第 i 层的最大结点数为：$\begin{equation} 2^{i-1}, i \geq 1\end{equation}$</li>
-<li>深度为 k 的二叉树有最大结点总数为：$\begin{equation} 2^{k}-1, k \geq 1\end{equation}$</li>
+<li>一个二叉树第 i 层的最大结点数为：$2^{i-1}, i \geq1$</li>
+<li>深度为 k 的二叉树有最大结点总数为：$2^{k}-1, k \geq 1$</li>
 <li>对任何非空二叉树 T，若 $\mathrm {n}_{0}$表示叶结点的个数、$\mathrm {n}_{2}$是度为 2 的非叶结点个数，那么二者满足关系 $\mathrm {n}_{0} = {n}_{2}+1$</li>
 </ul>
 <h4 id="5-抽象数据类型定义"><a href="#5-抽象数据类型定义" class="headerlink" title="5. 抽象数据类型定义"></a>5. 抽象数据类型定义</h4><ul>
@@ -4298,8 +4299,8 @@ T_{1}(n) \times T_{2}(n)=O\left(f_{1}(n) \times f_{2}(n)\right)</script></li>
 </ul>
 <p>静态多态和动态多态区别：</p>
 <ul>
-<li>静态多态的函数地址早绑定  -  编译阶段确定函数地址</li>
-<li>动态多态的函数地址晚绑定  -  运行阶段确定函数地址</li>
+<li>静态多态的函数地址早绑定  -  编译阶段确定函数地址-静态联编</li>
+<li>动态多态的函数地址晚绑定  -  运行阶段确定函数地址-动态联编</li>
 </ul>
 <p>下面通过案例进行讲解多态</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="comment">//Speak函数就是虚函数</span></span><br><span class="line">	<span class="comment">//函数前面加上virtual关键字，变成虚函数，那么编译器在编译的时候就不能确定函数调用了。</span></span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">speak</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"动物在说话"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span> :</span><span class="keyword">public</span> Animal</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">speak</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"小猫在说话"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span> :</span><span class="keyword">public</span> Animal</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">speak</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; <span class="string">"小狗在说话"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//我们希望传入什么对象，那么就调用什么对象的函数</span></span><br><span class="line"><span class="comment">//如果函数地址在编译阶段就能确定，那么静态联编</span></span><br><span class="line"><span class="comment">//如果函数地址在运行阶段才能确定，就是动态联编</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DoSpeak</span><span class="params">(Animal &amp; animal)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	animal.speak();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//多态满足条件： </span></span><br><span class="line"><span class="comment">//1、有继承关系</span></span><br><span class="line"><span class="comment">//2、子类重写父类中的虚函数</span></span><br><span class="line"><span class="comment">//多态使用：</span></span><br><span class="line"><span class="comment">//父类指针或引用指向子类对象</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test01</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	Cat cat;</span><br><span class="line">	DoSpeak(cat);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	Dog dog;</span><br><span class="line">	DoSpeak(dog);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	test01();</span><br><span class="line"></span><br><span class="line">	system(<span class="string">"pause"</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -5719,7 +5720,7 @@ T_{1}(n) \times T_{2}(n)=O\left(f_{1}(n) \times f_{2}(n)\right)</script></li>
 <li><strong>函数对象</strong>使用重载的()时，行为类似函数调用，也叫<strong>仿函数</strong></li>
 </ul>
 <p><strong>本质：</strong></p>
-<p>函数对象(仿函数)是一个<strong>类</strong>，不是一个函数</p>
+<p>==函数对象(仿函数)是一个<strong>类</strong>==，不是一个函数</p>
 <h4 id="17-1-2-函数对象使用"><a href="#17-1-2-函数对象使用" class="headerlink" title="17.1.2  函数对象使用"></a>17.1.2  函数对象使用</h4><p><strong>特点：</strong></p>
 <ul>
 <li>函数对象在使用时，可以像普通函数那样调用, 可以有参数，可以有返回值</li>
