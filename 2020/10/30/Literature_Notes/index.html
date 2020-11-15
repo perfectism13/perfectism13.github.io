@@ -20,17 +20,21 @@
     var CONFIG = {"hostname":"perfectism13.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Computer Vision, Deep Learning">
-<meta property="og:type" content="website">
-<meta property="og:title" content="perfectism&#39;s blog">
-<meta property="og:url" content="https://perfectism13.github.io/archives/page/2/index.html">
+  <meta name="description" content="Blue Noises:噪声虽作为一个随机信号)，仍然具有统计学上的特征属性。功率谱密度（功率的频谱分布）即是噪声的特征之一，从而人们可以通过它来区分不同类型的噪声。 图像的蓝噪声采样：https:&#x2F;&#x2F;zodiac911.github.io&#x2F;blog&#x2F;blue-noise.html 斯坦纳树：https:&#x2F;&#x2F;oi-wiki.org&#x2F;graph&#x2F;steiner-tree&#x2F;  Voronoi 图和 D">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Literature Notes:Skeletonization via dual of shape segmentation">
+<meta property="og:url" content="https://perfectism13.github.io/2020/10/30/Literature_Notes/index.html">
 <meta property="og:site_name" content="perfectism&#39;s blog">
-<meta property="og:description" content="Computer Vision, Deep Learning">
+<meta property="og:description" content="Blue Noises:噪声虽作为一个随机信号)，仍然具有统计学上的特征属性。功率谱密度（功率的频谱分布）即是噪声的特征之一，从而人们可以通过它来区分不同类型的噪声。 图像的蓝噪声采样：https:&#x2F;&#x2F;zodiac911.github.io&#x2F;blog&#x2F;blue-noise.html 斯坦纳树：https:&#x2F;&#x2F;oi-wiki.org&#x2F;graph&#x2F;steiner-tree&#x2F;  Voronoi 图和 D">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://markdown-1251440652.cos.ap-guangzhou.myqcloud.com/2018-10-09-095902.png">
+<meta property="article:published_time" content="2020-10-29T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-10-30T09:28:25.187Z">
 <meta property="article:author" content="Chenyang Min">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://markdown-1251440652.cos.ap-guangzhou.myqcloud.com/2018-10-09-095902.png">
 
-<link rel="canonical" href="https://perfectism13.github.io/archives/page/2/">
+<link rel="canonical" href="https://perfectism13.github.io/2020/10/30/Literature_Notes/">
 
 
 <script id="page-configurations">
@@ -38,12 +42,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>归档 | perfectism's blog</title>
+  <title>Literature Notes:Skeletonization via dual of shape segmentation | perfectism's blog</title>
   
 
 
@@ -194,239 +198,122 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 27 篇日志。 继续努力。</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://perfectism13.github.io/2020/10/30/Literature_Notes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Chenyang Min">
+      <meta itemprop="description" content="Computer Vision, Deep Learning">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="perfectism's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Literature Notes:Skeletonization via dual of shape segmentation
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-10-30 00:00:00 / 修改时间：17:28:25" itemprop="dateCreated datePublished" datetime="2020-10-30T00:00:00+08:00">2020-10-30</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Literature-Notes/" itemprop="url" rel="index"><span itemprop="name">Literature Notes</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-07-24T13:10:01+08:00"
-              content="2020-07-24">
-          07-24
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/07/24/%E4%BA%A4%E6%B5%81%E6%80%9D%E8%80%83/" itemprop="url">
-            <span itemprop="name">交流思考</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-07-24T13:10:01+08:00"
-              content="2020-07-24">
-          07-24
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/07/24/%E9%A9%BE%E9%A9%B6%E5%91%98%E5%8A%A8%E4%BD%9C%E6%A3%80%E6%B5%8B%E7%BB%BC%E8%BF%B0/" itemprop="url">
-            <span itemprop="name">驾驶员动作检测综述</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-07-24T13:10:01+08:00"
-              content="2020-07-24">
-          07-24
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/07/24/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" itemprop="url">
-            <span itemprop="name">环境配置常见问题</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-07-24T13:10:01+08:00"
-              content="2020-07-24">
-          07-24
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/07/24/%E5%8A%A8%E4%BD%9C%EF%BC%88%E8%A1%8C%E4%B8%BA%EF%BC%89%E8%AF%86%E5%88%AB%E4%B8%8E%E5%88%86%E7%B1%BB/" itemprop="url">
-            <span itemprop="name">动作（行为）识别与分类</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-07-24T13:10:01+08:00"
-              content="2020-07-24">
-          07-24
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/07/24/VS2013+OpenCV4.2.0%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/" itemprop="url">
-            <span itemprop="name">VS2013+OpenCV4.2.0安装与配置</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-07-24T13:10:01+08:00"
-              content="2020-07-24">
-          07-24
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/07/24/Tricks%20of%20Training%20Deep%20Neural%20Works/" itemprop="url">
-            <span itemprop="name">Tricks of Training Deep Neural Works</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-07-24T13:10:01+08:00"
-              content="2020-07-24">
-          07-24
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/07/24/PyTorch%E7%AC%94%E8%AE%B0/" itemprop="url">
-            <span itemprop="name">PyTorch笔记</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-07-24T13:10:01+08:00"
-              content="2020-07-24">
-          07-24
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/07/24/Python%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url">
-            <span itemprop="name">Python学习笔记</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-07-24T13:10:01+08:00"
-              content="2020-07-24">
-          07-24
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/07/24/Numpy%20%E7%AC%94%E8%AE%B0/" itemprop="url">
-            <span itemprop="name">Numpy 笔记</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-07-24T13:10:01+08:00"
-              content="2020-07-24">
-          07-24
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2020/07/24/Notes%20of%20Machine%20Learning/" itemprop="url">
-            <span itemprop="name">Notes of Machine Learning</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
+        <p>Blue Noises:<a href="https://zh.wikipedia.org/wiki/噪声" target="_blank" rel="noopener">噪声</a>虽作为一个<a href="https://zh.wikipedia.org/wiki/随机" target="_blank" rel="noopener">随机</a><a href="https://zh.wikipedia.org/wiki/信号_(信息论" target="_blank" rel="noopener">信号</a>)，仍然具有<a href="https://zh.wikipedia.org/wiki/统计学" target="_blank" rel="noopener">统计学</a>上的特征属性。<a href="https://zh.wikipedia.org/wiki/功率谱密度" target="_blank" rel="noopener">功率谱密度</a>（<a href="https://zh.wikipedia.org/wiki/功率" target="_blank" rel="noopener">功率</a>的<a href="https://zh.wikipedia.org/wiki/频谱" target="_blank" rel="noopener">频谱</a><a href="https://zh.wikipedia.org/wiki/概率分布" target="_blank" rel="noopener">分布</a>）即是噪声的特征之一，从而人们可以通过它来区分不同类型的噪声。</p>
+<p>图像的蓝噪声采样：<a href="https://zodiac911.github.io/blog/blue-noise.html" target="_blank" rel="noopener">https://zodiac911.github.io/blog/blue-noise.html</a></p>
+<p>斯坦纳树：<a href="https://oi-wiki.org/graph/steiner-tree/" target="_blank" rel="noopener">https://oi-wiki.org/graph/steiner-tree/</a></p>
+<p><img src="https://markdown-1251440652.cos.ap-guangzhou.myqcloud.com/2018-10-09-095902.png" alt="img"></p>
+<p>Voronoi 图和 Delaunay 三角剖分：<a href="https://www.ryanligod.com/2018/10/09/2018-10-09%20%E7%BB%B4%E8%AF%BA%E5%9B%BE%EF%BC%88Voronoi%20Diagram%EF%BC%89%E5%88%86%E6%9E%90%E4%B8%8E%E5%AE%9E%E7%8E%B0/" target="_blank" rel="noopener">https://www.ryanligod.com/2018/10/09/2018-10-09%20%E7%BB%B4%E8%AF%BA%E5%9B%BE%EF%BC%88Voronoi%20Diagram%EF%BC%89%E5%88%86%E6%9E%90%E4%B8%8E%E5%AE%9E%E7%8E%B0/</a></p>
+<p>测地线距离：<a href="http://lemonc.me/average-geodesic-distance.html" target="_blank" rel="noopener">http://lemonc.me/average-geodesic-distance.html</a></p>
 
     </div>
-  </div>
-  
-  
-  
 
+    
+    
+    
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Chenyang Min
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://perfectism13.github.io/2020/10/30/Literature_Notes/" title="Literature Notes:Skeletonization via dual of shape segmentation">https://perfectism13.github.io/2020/10/30/Literature_Notes/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/10/25/%E7%94%B5%E5%BD%B1%E5%8F%91%E7%8E%B0%E6%97%A5%E6%9C%9F/" rel="prev" title="发现日期">
+      <i class="fa fa-chevron-left"></i> 发现日期
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
   
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
+  
+  
 
 
 
           </div>
           
+    <div class="comments" id="gitalk-container"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -632,6 +519,25 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
 
   
 
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID    : '809715bb1dc3b600fe38',
+      clientSecret: '962bbbd3c02e9ff070497a47a3a7dc38e33d97f2',
+      repo        : 'perfectism13.github.io',
+      owner       : 'perfectism13',
+      admin       : ['perfectism13'],
+      id          : '89483f5861260130ee9a0c7cdb747113',
+        language: 'zh-CN',
+      distractionFreeMode: true
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
 
 </body>
 </html>
