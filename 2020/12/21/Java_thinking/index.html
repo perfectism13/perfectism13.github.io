@@ -20,21 +20,21 @@
     var CONFIG = {"hostname":"perfectism13.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":5,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Tricks of Training Deep Neural WorksOverfitting训练数据包含抽样误差，训练时，复杂的模型将抽样误差也考虑在内，将抽样误差也进行了很好的拟合。最终模型在训练集上效果好；在测试集上效果差。模型泛化能力弱  过拟合的表现：  train loss不断下降，test loss趋于不变  训练集和测试集准确率相差过大 15%以上">
+  <meta name="description" content="Java_thinking父类中的静态变量和方法可以被继承和重写吗？可以被继承，不能被重写 原因：静态变量和方法属于类，内存中存储于方法区中的静态区，随着类的加载而加载一次，优先于对象存在，由所有对象共享 代码示例： 1234567891011package cn.itcast.day09.demo_2020_12_21;public class Fu &amp;#123;    public stati">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Tricks of Training Deep Neural Works">
-<meta property="og:url" content="https://perfectism13.github.io/2020/07/24/Tricks%20of%20Training%20Deep%20Neural%20Works/index.html">
+<meta property="og:title" content="Java_thinking">
+<meta property="og:url" content="https://perfectism13.github.io/2020/12/21/Java_thinking/index.html">
 <meta property="og:site_name" content="perfectism&#39;s blog">
-<meta property="og:description" content="Tricks of Training Deep Neural WorksOverfitting训练数据包含抽样误差，训练时，复杂的模型将抽样误差也考虑在内，将抽样误差也进行了很好的拟合。最终模型在训练集上效果好；在测试集上效果差。模型泛化能力弱  过拟合的表现：  train loss不断下降，test loss趋于不变  训练集和测试集准确率相差过大 15%以上">
+<meta property="og:description" content="Java_thinking父类中的静态变量和方法可以被继承和重写吗？可以被继承，不能被重写 原因：静态变量和方法属于类，内存中存储于方法区中的静态区，随着类的加载而加载一次，优先于对象存在，由所有对象共享 代码示例： 1234567891011package cn.itcast.day09.demo_2020_12_21;public class Fu &amp;#123;    public stati">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://perfectism13.github.io/2020/02/13/Tricks%20of%20Training%20Deep%20Neural%20Works/v2-953f6e7ce85ac1856764572e1c855705_hd.jpg">
-<meta property="article:published_time" content="2020-07-24T05:10:01.128Z">
-<meta property="article:modified_time" content="2020-07-24T05:42:54.521Z">
+<meta property="article:published_time" content="2020-12-20T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-12-21T09:28:43.049Z">
 <meta property="article:author" content="Chenyang Min">
+<meta property="article:tag" content="学习笔记">
+<meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://perfectism13.github.io/2020/02/13/Tricks%20of%20Training%20Deep%20Neural%20Works/v2-953f6e7ce85ac1856764572e1c855705_hd.jpg">
 
-<link rel="canonical" href="https://perfectism13.github.io/2020/07/24/Tricks%20of%20Training%20Deep%20Neural%20Works/">
+<link rel="canonical" href="https://perfectism13.github.io/2020/12/21/Java_thinking/">
 
 
 <script id="page-configurations">
@@ -47,7 +47,7 @@
   };
 </script>
 
-  <title>Tricks of Training Deep Neural Works | perfectism's blog</title>
+  <title>Java_thinking | perfectism's blog</title>
   
 
 
@@ -205,7 +205,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://perfectism13.github.io/2020/07/24/Tricks%20of%20Training%20Deep%20Neural%20Works/">
+    <link itemprop="mainEntityOfPage" href="https://perfectism13.github.io/2020/12/21/Java_thinking/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -218,7 +218,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Tricks of Training Deep Neural Works
+          Java_thinking
         </h1>
 
         <div class="post-meta">
@@ -229,7 +229,16 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-07-24 13:10:01 / 修改时间：13:42:54" itemprop="dateCreated datePublished" datetime="2020-07-24T13:10:01+08:00">2020-07-24</time>
+              <time title="创建时间：2020-12-21 00:00:00 / 修改时间：17:28:43" itemprop="dateCreated datePublished" datetime="2020-12-21T00:00:00+08:00">2020-12-21</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习笔记</span></a>
+                </span>
             </span>
 
           
@@ -250,34 +259,32 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Tricks-of-Training-Deep-Neural-Works"><a href="#Tricks-of-Training-Deep-Neural-Works" class="headerlink" title="Tricks of Training Deep Neural Works"></a>Tricks of Training Deep Neural Works</h1><h2 id="Overfitting"><a href="#Overfitting" class="headerlink" title="Overfitting"></a>Overfitting</h2><p>训练数据包含<strong>抽样误差</strong>，训练时，复杂的模型将抽样误差也考虑在内，将抽样误差也进行了很好的拟合。最终模型在训练集上效果好；在测试集上效果差。模型泛化能力弱</p>
-<p><img src="https://perfectism13.github.io/2020/02/13/Tricks%20of%20Training%20Deep%20Neural%20Works/v2-953f6e7ce85ac1856764572e1c855705_hd.jpg" alt="img"></p>
-<p>过拟合的表现：</p>
+        <h1 id="Java-thinking"><a href="#Java-thinking" class="headerlink" title="Java_thinking"></a>Java_thinking</h1><h2 id="父类中的静态变量和方法可以被继承和重写吗？"><a href="#父类中的静态变量和方法可以被继承和重写吗？" class="headerlink" title="父类中的静态变量和方法可以被继承和重写吗？"></a>父类中的静态变量和方法可以被继承和重写吗？</h2><p>可以被继承，不能被重写</p>
+<p>原因：静态变量和方法属于类，内存中存储于方法区中的静态区，随着类的加载而加载一次，优先于对象存在，由所有对象共享</p>
+<p>代码示例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.itcast.day09.demo_2020_12_21;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Fu</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> MemoryFu;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Fu</span><span class="params">(<span class="keyword">int</span> num)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.MemoryFu = num;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Fighting</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"父类在fighting"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.itcast.day09.demo_2020_12_21;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Zi</span> <span class="keyword">extends</span> <span class="title">Fu</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Zi</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">super</span>(<span class="number">80</span>);</span><br><span class="line">        <span class="keyword">this</span>.MemoryZi = <span class="keyword">super</span>.MemoryFu+<span class="number">25</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> MemoryZi;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Fighting</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"子类在奋斗"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.itcast.day09.demo_2020_12_21;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Zi zi = <span class="keyword">new</span> Zi();<span class="comment">//zi为子类引用</span></span><br><span class="line">        Fu zi2 = <span class="keyword">new</span> Zi();<span class="comment">//有默认的向上转型，zi2为父类引用</span></span><br><span class="line">        Fu zi3 = (Fu)zi;<span class="comment">//强制将zi转换为父类引用</span></span><br><span class="line">        System.out.println(zi.MemoryZi);<span class="comment">//105</span></span><br><span class="line">        zi.Fighting();<span class="comment">//子类在奋斗</span></span><br><span class="line">        zi2.Fighting();<span class="comment">//父类在fighting</span></span><br><span class="line">        zi3.Fighting();<span class="comment">//父类在fighting</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结论：</p>
 <ul>
-<li><p>train loss不断下降，test loss趋于不变</p>
-</li>
-<li><p>训练集和测试集准确率相差过大 15%以上</p>
-<a id="more"></a>
-</li>
+<li>在Java中，如果父类含有一个静态方法，且在子类中也含有一个返回类型，方法名、参数列表等都与之相同的的静态方法，在子类中只是==对父类的该同名方法进行隐藏====，并不是重写==。父类与子类含有的其实是两个没有关系的方法，两者的行为不具有多态性。</li>
+<li>在上面的例子中，Fighting方法与类发生了关联，而不是与特定的类的实例相关联，它不在乎什么类型的类正在创建它，而仅仅在意引用的类型。</li>
 </ul>
-<h3 id="减少模型的复杂程度（容量）"><a href="#减少模型的复杂程度（容量）" class="headerlink" title="减少模型的复杂程度（容量）"></a>减少模型的复杂程度（容量）</h3><p><strong>L2正则化</strong></p>
-<p><strong>Dropout</strong>：提高dropout的rate</p>
-<p><strong>减少预训练的锁定层数</strong></p>
-<h3 id="更多的数据"><a href="#更多的数据" class="headerlink" title="更多的数据"></a>更多的数据</h3><p>让模型感受更多的数据，逼迫模型泛化</p>
-<p><strong>数据增强</strong></p>
-<p><strong>采集更多的数据</strong></p>
-<p><strong>查看数据集的分割是否合适</strong></p>
-<h3 id="学习率的调整"><a href="#学习率的调整" class="headerlink" title="学习率的调整"></a>学习率的调整</h3><p>trick是 <strong>warm up（热身），就是先采用小的学习率（0.01）进行训练，</strong>训练了400iterations之后将学习率调整至0.1开始正式训练</p>
-<p>在学习遇到瓶颈，即训练和验证损失均趋于不变时，适当调小batch_size,用更细的笔来画画</p>
-<h3 id="进行交叉验证"><a href="#进行交叉验证" class="headerlink" title="进行交叉验证"></a>进行交叉验证</h3><p>当数据集比较小的时候，交叉验证可以“充分利用”有限的数据找到合适的模型参数，防止过度拟合</p>
-<p>做法：就是把样本集S分成k份，分别使用其中的(k-1)份作为训练集，剩下的1份作为交叉验证集，最后取最后的平均误差，来评估这个模型</p>
-<p>最后对k个模型的结果取平均</p>
-<h3 id="Early-Stopping"><a href="#Early-Stopping" class="headerlink" title="Early Stopping"></a>Early Stopping</h3><h2 id="Owe-fitting"><a href="#Owe-fitting" class="headerlink" title="Owe fitting"></a>Owe fitting</h2><p>若准确率很低，检查数据和标签的对应关系，或者损失函数是否导致无法梯度下降</p>
-<p>1、观察数据中是否有异常样本或异常label导致数据读取异常<br>2、调小初始化权重，以便使softmax输入的feature尽可能变小<br>3、降低学习率，这样就能减小权重参数的波动范围，从而减小权重变大的可能性。这条也是网上出现较多的方法。</p>
-<p>4、调大batch_size<br>5、如果有BN（batch normalization）层，finetune时最好不要冻结BN的参数，否则数据分布不一致时很容易使输出值变的很大。</p>
-<p>6、神经网络不够深。</p>
-<p>7、训练的epoch不够。</p>
-<h2 id="训练和验证集loss相差不大，验证集准确率为1或者0"><a href="#训练和验证集loss相差不大，验证集准确率为1或者0" class="headerlink" title="训练和验证集loss相差不大，验证集准确率为1或者0"></a>训练和验证集loss相差不大，验证集准确率为1或者0</h2><h2 id="检查数据集是否存在inf或者NaN"><a href="#检查数据集是否存在inf或者NaN" class="headerlink" title="检查数据集是否存在inf或者NaN"></a>检查数据集是否存在inf或者NaN</h2><h2 id="有时在第一代打乱数据，后续不再打乱，可能会有意想不到的好结果"><a href="#有时在第一代打乱数据，后续不再打乱，可能会有意想不到的好结果" class="headerlink" title="有时在第一代打乱数据，后续不再打乱，可能会有意想不到的好结果"></a><strong>有时在第一代打乱数据，后续不再打乱，可能会有意想不到的好结果</strong></h2><h2 id="References"><a href="#References" class="headerlink" title="References"></a><strong>Referenc</strong>es</h2>
+<h2 id="抽象方法可以是静态的吗？"><a href="#抽象方法可以是静态的吗？" class="headerlink" title="抽象方法可以是静态的吗？"></a>抽象方法可以是静态的吗？</h2><p>1、abstract与static</p>
+<p>what<br>abstract：用来声明抽象方法，抽象方法没有方法体，不能被直接调用，必须在子类overriding后才能使用。<code>
+</code>static：用来声明静态方法，静态方法可以被类及其对象调用。</p>
+<p>how<br>static与abstract不能同时使用。</p>
+<p>why<br>用static声明方法表明这个方法在不生成类的实例时可直接被类调用，而abstract方法不能被调用，两者矛盾。</p>
+<p>2、abstract与native</p>
+<p>what<br>native：用来声明本地方法，该方法的实现由非Java 语言实现，比如C。一般用于java与外环境交互，或与操作系统交互。<br>参考：<a href="http://blog.csdn.net/u010575093/article/details/50732097" target="_blank" rel="noopener">java中 本地方法 Native Method</a></p>
+<p>how<br>native可以与所有其它的java 标识符连用，但是abstract除外。</p>
+<p>why<br>因为 native 暗示这些方法是有实现体的，只不过这些实现体是非java 的，但是abstract却显然的指明这些方法无实现体。</p>
+<p>3、abstract与synchronized</p>
+<p>what<br>synchronized：用于防止多个线程同时调用一个对象的该方法，与static连用可防止多个线程同时调用一个类的该方法。</p>
+<p>how<br>abstract与synchronized不能同时使用</p>
+<p>why<br>从synchronized的功能也可以看出，用synchronized的前提是该方法可以被直接调用，显然和abstract连用。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.cnblogs.com/upcwanghaibo/p/6527443.html" target="_blank" rel="noopener">https://www.cnblogs.com/upcwanghaibo/p/6527443.html</a></p>
+
     </div>
 
     
@@ -292,7 +299,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://perfectism13.github.io/2020/07/24/Tricks%20of%20Training%20Deep%20Neural%20Works/" title="Tricks of Training Deep Neural Works">https://perfectism13.github.io/2020/07/24/Tricks of Training Deep Neural Works/</a>
+    <a href="https://perfectism13.github.io/2020/12/21/Java_thinking/" title="Java_thinking">https://perfectism13.github.io/2020/12/21/Java_thinking/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -302,6 +309,10 @@
 
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="tag"># 学习笔记</a>
+              <a href="/tags/Java/" rel="tag"># Java</a>
+          </div>
 
         
 
@@ -309,13 +320,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/07/24/PyTorch%E7%AC%94%E8%AE%B0/" rel="prev" title="PyTorch笔记">
-      <i class="fa fa-chevron-left"></i> PyTorch笔记
+    <a href="/2020/11/10/Unity%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" rel="prev" title="Unity学习笔记">
+      <i class="fa fa-chevron-left"></i> Unity学习笔记
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/07/24/VS2013+OpenCV4.2.0%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/" rel="next" title="VS2013+OpenCV4.2.0安装与配置">
-      VS2013+OpenCV4.2.0安装与配置 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -375,7 +383,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Tricks-of-Training-Deep-Neural-Works"><span class="nav-text">Tricks of Training Deep Neural Works</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Overfitting"><span class="nav-text">Overfitting</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#减少模型的复杂程度（容量）"><span class="nav-text">减少模型的复杂程度（容量）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#更多的数据"><span class="nav-text">更多的数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#学习率的调整"><span class="nav-text">学习率的调整</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进行交叉验证"><span class="nav-text">进行交叉验证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Early-Stopping"><span class="nav-text">Early Stopping</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Owe-fitting"><span class="nav-text">Owe fitting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#训练和验证集loss相差不大，验证集准确率为1或者0"><span class="nav-text">训练和验证集loss相差不大，验证集准确率为1或者0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#检查数据集是否存在inf或者NaN"><span class="nav-text">检查数据集是否存在inf或者NaN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有时在第一代打乱数据，后续不再打乱，可能会有意想不到的好结果"><span class="nav-text">有时在第一代打乱数据，后续不再打乱，可能会有意想不到的好结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#References"><span class="nav-text">References</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java-thinking"><span class="nav-text">Java_thinking</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#父类中的静态变量和方法可以被继承和重写吗？"><span class="nav-text">父类中的静态变量和方法可以被继承和重写吗？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#抽象方法可以是静态的吗？"><span class="nav-text">抽象方法可以是静态的吗？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -546,7 +554,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo        : 'perfectism13.github.io',
       owner       : 'perfectism13',
       admin       : ['perfectism13'],
-      id          : 'bcec9109d5b71e2f24f97dea18c42716',
+      id          : '2709e7c58ab0ddd15c23f4c2ff07e28b',
         language: 'zh-CN',
       distractionFreeMode: true
     });
